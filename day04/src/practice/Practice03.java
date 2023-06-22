@@ -26,8 +26,5 @@ public class Practice03 {
 		double tot = (double)((count1 * 3000 + count2 * 500 + count3 * 2000) * 0.9);
 		
 		System.out.println("\n할인 10%를 포함한 최종 가격: " + tot + "원");
-		
-		
 	}
-
 }
