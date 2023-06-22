@@ -8,17 +8,16 @@ public class Practice01 {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("국어, 영어, 수학의 점수를 입력하시오.");
-		int kor = sc.nextInt();
-		int eng = sc.nextInt();
+		int kor = sc.nextInt(); 
+		int eng = sc.nextInt();	
 		int mat = sc.nextInt();
+		
 		int tot = kor + eng + mat;
 		double avg = tot / 3;
 		
 		System.out.println("총점: " + tot);
 		System.out.println("평균: " + avg);
 		
-		
 		sc.close();
 	}
-
 }
