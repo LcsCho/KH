@@ -17,8 +17,10 @@ public class Test01 {
 		int hour = sc.nextInt();
 		
 		if (hour <= 7) System.out.println("버스 도착 시간을 알려줌");
-		else if (hour <= 8) System.out.println("지하철 시간을 알려줌");
-		else if (hour <= 9) System.out.println("택시를 불러줌");
+		else 
+			if (hour <= 8) System.out.println("지하철 시간을 알려줌");
+		else 
+			if (hour <= 9) System.out.println("택시를 불러줌");
 		else System.out.println("빠른 포기");
 			
 		}
