@@ -1,0 +1,16 @@
+package data;
+
+public class Test02 {
+	public static void main(String[] args) {
+		// 잘못된 예시 1
+		// System.out.println(38000);
+				
+		// 잘못된 예시 2
+		// System.out.println(1400 + 24000);
+				
+		// 올바른 예시
+		System.out.println(7000 * 2);
+		System.out.println(8000 * 3);
+		System.out.println(7000 * 2 + 8000 * 3);
+	}
+}
