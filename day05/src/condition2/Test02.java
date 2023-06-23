@@ -2,7 +2,7 @@ package condition2;
 
 import java.util.Scanner;
 
-public class Test01 {
+public class Test02 {
 	public static void main(String[] args) {
 		// 그룹 조건
 		// 		3가지 이상 중 하나의 경우를 선택하여 실행하는 상황
