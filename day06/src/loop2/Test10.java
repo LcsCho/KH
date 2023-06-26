@@ -1,9 +1,6 @@
 package loop2;
 
-import java.time.chrono.HijrahChronology;
 import java.util.Scanner;
-
-import javax.xml.transform.Templates;
 
 public class Test10 {
 	public static void main(String[] args) {
@@ -19,7 +16,7 @@ public class Test10 {
 		int hr = 0;
 		int min = 0;
 		int sum = 0;
-		double avg = 5;
+		int avg = 5;
 		
 		for (int i = 1; i <= 5; i++) {
 			System.out.print("시간: ");
@@ -35,6 +32,6 @@ public class Test10 {
 		
 		
 		System.out.println("\n총 공부한 시간은 " + (sum / 60) + "시간 " + (sum % 60) + "분");
-		System.out.println("일 평균 약 " + (int)(avg / 60) + "시간 " + (double)(avg % 60) + "분");
+		System.out.println("일 평균 약 " + (avg / 60) + "시간 " + (avg % 60) + "분");
 	}
 }
