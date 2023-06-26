@@ -25,6 +25,7 @@ public class Test09 {
 			sum += num;
 			avg = (double)sum / count;
 		}
+		sc.close();
 		
 		System.out.println("\n홀수의 개수: " + odd);
 		System.out.println("짝수의 개수: " + even);
