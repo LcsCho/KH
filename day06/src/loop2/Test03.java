@@ -18,6 +18,6 @@ public class Test03 {
 				// System.out.println(i + "짝");
 			}
 		}
-		System.out.println(count);
+		System.out.println("박수치는 숫자 = " + count);
 	}
 }
