@@ -19,5 +19,8 @@ public class Test01 {
 		int b = r.nextInt(6); // 무작위로 0부터 6개의 int 중 하나를 추첨
 		System.out.println("b = " + b);
 		
+		int dice = r.nextInt(6) + 1; // 1부터 6개의 int 중 하나를 출력
+		System.out.println("dice = " + dice);
+		
 	}
 }
