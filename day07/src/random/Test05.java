@@ -27,6 +27,7 @@ public class Test05 {
 			else {
 				System.out.println("오답! 정답은 " + a * b);
 				wrong++;
+				if (wrong == 3) break;
 			}
 		}
 		sc.close();
