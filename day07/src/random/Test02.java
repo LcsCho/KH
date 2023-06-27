@@ -27,9 +27,9 @@ public class Test02 {
 		else System.out.println("뒤");
 		
 		// 5. 가위바위보
-		int rcp = r.nextInt(3);
-		if (rcp == 0) System.out.println("가위!");
-		else if (rcp == 1) System.out.println("바위!");
+		int rsp = r.nextInt(3);
+		if (rsp == 0) System.out.println("가위!");
+		else if (rsp == 1) System.out.println("바위!");
 		else System.out.println("보!");
 	}
 }
