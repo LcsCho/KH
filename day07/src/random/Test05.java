@@ -15,7 +15,7 @@ public class Test05 {
 		int wrong = 0;
 		
 		for (int i = 0; i < count; i++) {
-			int a = r.nextInt(9) + 2;
+			int a = r.nextInt(8) + 2;
 			int b = r.nextInt(9) + 1;
 			System.out.print(a + " x " + b + " = ");
 			int answer = sc.nextInt();
