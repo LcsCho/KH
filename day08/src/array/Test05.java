@@ -8,17 +8,15 @@ public class Test05 {
 		// - ex: 3개의 숫자를 입력받아서 출력, 합계 구하기
 		
 		
-		int[] data = new int[3];
+		int[] data = new int[5];
 		
 		Scanner sc = new Scanner(System.in);
-		data[0] = sc.nextInt();
-		data[1] = sc.nextInt();
-		data[2] = sc.nextInt();
+		for (int i = 0; i < data.length; i++) 
+			data[i] = sc.nextInt(); 
 		
 		sc.close();
 		
-		System.out.println(data[0]);
-		System.out.println(data[1]);
-		System.out.println(data[2]);
+		for (int i = 0; i < data.length; i++) 
+			System.out.println(data[i]);
 	}
 }
