@@ -20,9 +20,9 @@ public class Test11 {
 		}
 		
 		System.out.println("가장 키가 작은 사람의 키: " + min);
-		System.out.println("가장 키가 작은 사람의 위치: " + (minLoc + 1) + "번 째");
+		System.out.println("가장 키가 작은 사람의 위치: " + minLoc + "번 째");
 		
 		System.out.println("가장 키가 큰 사람의 키: " + max);
-		System.out.println("가장 키가 큰 사람의 위치: " + (maxLoc + 1) + "번 째");
+		System.out.println("가장 키가 큰 사람의 위치: " + maxLoc + "번 째");
 	}
 }
