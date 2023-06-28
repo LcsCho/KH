@@ -13,6 +13,7 @@ public class Test06 {
 		
 		sc.close();
 		
+		System.out.println("<실수>를 출력");
 		for (int i = 0; i < data.length; i++) 
 			System.out.println(data[i]);
 	}
