@@ -8,7 +8,7 @@ public class Test05 {
 		// - ex: 3개의 숫자를 입력받아서 출력, 합계 구하기
 		
 		
-		int[] data = new int[5];
+		int[] data = new int[3];
 		
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < data.length; i++) 
