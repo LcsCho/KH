@@ -1,16 +1,15 @@
 package array;
 
-public class Test03 {
+public class Test04 {
 	public static void main(String[] args) {
-		double[] arr = new double[3];
+		String[] arr = new String[3];
 		
-		arr[0] = 1.5;
-		arr[1] = 2.4;
-		arr[2] = 3.6;
+		arr[0] = "자바";
+		arr[1] = "파이썬";
+		arr[2] = "루비";
 		
 		System.out.println(arr[0]);
 		System.out.println(arr[1]);
 		System.out.println(arr[2]);
-		
 	}
 }
