@@ -9,7 +9,7 @@ public class Test02 {
 		int[] data = new int[] {10, 30, 20, 50, 40};
 		for (int i = 0; i < data.length - 1; i++) {
 			for (int j = 1; j < data.length; j++) {
-				if (data[j] < data[j - 1]) {
+				if (data[j - 1] > data[j]) {
 					int temp = data[j - 1];
 					data[j - 1] = data[j];
 					data[j]= temp; 
