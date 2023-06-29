@@ -1,5 +1,7 @@
 package array2;
 
+import java.util.Arrays;
+
 public class Test01 {
 	public static void main(String[] args) {
 		// 정렬(sort)
@@ -13,21 +15,23 @@ public class Test01 {
 		// 데이터 준비
 		int[] data = new int[] {30, 50, 20, 10, 40};
 		
-		// 선택정렬
-		for (int i = 0; i < data.length - 1; i++) {
-			for (int j = i + 1; j < data.length; j++) {
-				if (data[i] > data[j]) {
-					int temp = data[i];
-					data[i] = data[j];
-					data[j]= temp;  
+		//정렬
+		for(int i=0; i < data.length-1; i++) {
+			//최소값 
+			int min = i;
+			
+			for(int k=i+1; k < data.length; k++) {
+				if(data[min] > data[k]) {
+					min = k;
 				}
 			}
+			
+			//데이터 교체(swap)  
+			int temp = data[min];
+			data[min] = data[i];
+			data[i] = temp;
 		}
-		
-		for (int i = 0; i < data.length; i++) 
-			System.out.print(data[i] + " ");
-		
-		System.out.println();
-		data = new int[] {30, 50, 20, 10, 40};
+		//출력
+		System.out.println(Arrays.toString(data));
 	}
 }
