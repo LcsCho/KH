@@ -21,19 +21,11 @@ public class Test07 {
 			else 
 				i--;
 		}
-		
-		
-		while (true) {
-			System.out.print("숫자를 입력(행, 열)");
-			
+		for (int i = 0; i < mineList.length; i++) {
+			for (int j = 0; j < mineList[i].length; j++) {
+				System.out.print(mineList[i][j] + " ");
+			}
+			System.out.println();
 		}
-		
-		
-//		for (int i = 0; i < mineList.length; i++) {
-//			for (int j = 0; j < mineList[i].length; j++) {
-//				System.out.print(mineList[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
 	}
 }
