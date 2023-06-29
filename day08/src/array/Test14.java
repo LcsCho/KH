@@ -15,7 +15,7 @@ public class Test14 {
 		int countAll = 0;
 		for (int i = 0; i < arr.length; i++) {
 			countAll++;
-			int mix = r.nextInt(5);
+			int mix = r.nextInt(arr.length);
 			if (mix == i && i >= 1) { // i가 0일 때 -1이되면 에러가 생기므로 i이가 1이상일 때만 i--를 진행하여 횟수를 늘림
 				count++;
 				i--; 
@@ -24,9 +24,10 @@ public class Test14 {
 			arr[i] = arr[mix];
 			arr[mix] = temp;	
 		}
-		System.out.println("총 횟수: " + countAll);
-		System.out.println("배열위치의 중복 횟수: " + count);
 		
+		System.out.println("총 횟수: " + countAll);
+		System.out.println("배열 위치의 중복 횟수: " + count);
+		System.out.print("최종 배열의 위치와 값: ");
 		for (int i = 0; i < arr.length; i++) 
 			System.out.print(arr[i] + " ");
 	}
