@@ -29,18 +29,5 @@ public class Test01 {
 		
 		System.out.println();
 		data = new int[] {30, 50, 20, 10, 40};
-		
-		// 버블정렬
-		for (int i = 0; i < data.length - 1; i++) {
-			for (int j = 1; j < data.length; j++) {
-				if (data[j] < data[j - 1]) {
-					int temp = data[j - 1];
-					data[j - 1] = data[j];
-					data[j]= temp; 
-				}			
-			}
-		}
-		for (int i = 0; i < data.length; i++) 
-			System.out.print(data[i] + " ");
 	}
 }
