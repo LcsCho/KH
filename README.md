@@ -1,2 +1,1 @@
-K-Digital Training
-Java study file
+# K-Digital Training
