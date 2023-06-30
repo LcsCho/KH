@@ -31,9 +31,9 @@ public class Test01 {
 		
 		// 출력
 		System.out.println("순위\t이름\t국가\t골\n--------------------------");
-		System.out.println(p1.rank + ", " + p1.name + ", " + p1.nation + ", " + p1.goal);
-		System.out.println(p2.rank + ", " + p2.name + ", " + p2.nation + ", " + p2.goal);
-		System.out.println(p3.rank + ", " + p3.name + ", " + p3.nation + ", " + p3.goal);
-		System.out.println(p3.rank + ", " + p4.name + ", " + p4.nation + ", " + p4.goal);
+		p1.show();
+		p2.show();
+		p3.show();
+		p4.show();
 	}
 }
