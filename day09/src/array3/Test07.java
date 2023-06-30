@@ -17,7 +17,7 @@ public class Test07 {
 			int r1 = r.nextInt(size);
 			int r2 = r.nextInt(size);
 			
-			if (mineList[r1][r2] == 0) mineList[r1][r2] = size;
+			if (mineList[r1][r2] == 0) mineList[r1][r2] = 9;
 			else 
 				i--;
 		}
