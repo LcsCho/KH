@@ -16,7 +16,7 @@ public class Cafe {
 		if (this.onSale) {
 			System.out.print("이름: " + this.name + "(할인중), ");
 			System.out.print("분류: " + this.type + ", ");
-			System.out.println("할인 가격: " + (int)(this.price * 0.8) + "원");
+			System.out.println("할인 가격: " + (int)(this.price * 0.8) + "원(원가: " + this.price + "원)");
 		}
 		else {
 			System.out.print("이름: " + this.name + ", ");
