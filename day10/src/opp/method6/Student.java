@@ -2,10 +2,10 @@ package opp.method6;
 
 public class Student {
 	int grade, classroom;
-	float kor, eng, math;
+	int kor, eng, math;
 	String name;
 	
-	void setup(int grade, int classroom, String name, float kor, float eng, float math) {
+	void setup(int grade, int classroom, String name, int kor, int eng, int math) {
 		this.grade = grade;
 		this.classroom = classroom;
 		this.name = name;
