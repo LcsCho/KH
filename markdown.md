@@ -42,7 +42,7 @@ System.out.println("Hello!");
 ![설명](주소)
 ```
 
-![구글]((https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png))
+![구글](https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png)
 # 하이퍼링크 삽입
 
 하이퍼링크란 다른 페이지로 연결하는 연결고리를 말한다.
@@ -84,3 +84,11 @@ System.out.println("Hello!");
 - [ ] 수업 복습하기
 - [x] 술마시기
 - [x] 게임하기
+
+# 표 만들기
+
+|항목1|항목2|항목3|
+|---|---|---|
+|내용1|내용2|내용3|
+|내용1|내용2|내용3|
+|내용1|내용2|내용3|
