@@ -2,11 +2,13 @@ package oop.test3;
 
 public class Test01 {
 	public static void main(String[] args) {
+		// 생성
 		WorldcupScore s1 = new WorldcupScore();
 		WorldcupScore s2 = new WorldcupScore();
 		WorldcupScore s3 = new WorldcupScore();
 		WorldcupScore s4 = new WorldcupScore();
 		
+		// 초기화
 		s1.rank = 1;
 		s1.name = "킬리안 음바페";
 		s1.nation = "프랑스";
@@ -27,6 +29,7 @@ public class Test01 {
 		s4.nation = "아르헨티나";
 		s4.goal = 4;
 		
+		// 출력
 		System.out.println("순위\t이름\t국가\t골\n--------------------------");
 		System.out.println(s1.rank + ", " + s1.name + ", " + s1.nation + ", " + s1.goal);
 		System.out.println(s2.rank + ", " + s2.name + ", " + s2.nation + ", " + s2.goal);
