@@ -11,18 +11,9 @@ public class Study {
 		this.setType(type);
 	}
 	
-	private void setName(String name) {
-		this.name = name;
-	}
-	
-	private void setTime(int time) {
-		if (time % 30 == 0) this.time = time;
-	}
-	
-	private void setPrice(int price) {
-		if (price >= 0) this.price = price;
-	}
-	
+	private void setName(String name) { this.name = name; }
+	private void setTime(int time) { if (time % 30 == 0 && time > 0) this.time = time; }
+	private void setPrice(int price) { if (price >= 0) this.price = price; }
 	private void setType(String type) {
 		switch (type) {
 		case "온라인":
