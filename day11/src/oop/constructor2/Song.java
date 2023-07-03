@@ -11,6 +11,9 @@ public class Song {
 		this.setPlay(play);
 		this.setLike(like);
 	}
+	public Song(String title, String artist, String album) {
+		this(title, artist, album, 0, 0);
+	}
 	private String getArtist(String artist) {
 		if (artist == null) return "Various artist";
 		else return artist;
