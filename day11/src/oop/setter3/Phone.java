@@ -10,7 +10,6 @@ public class Phone {
 		this.price(price);
 		this.month(month);
 	}
-	
 	private void name(String name) { this.name = name; }
 	private void telecom(String telecom) { 
 		switch(telecom) {
@@ -22,7 +21,8 @@ public class Phone {
 	}
 	private void price(int price) { 
 		if (price < 0)	return;
-		this.price = price; }
+		this.price = price; 
+	}
 	private void month(int month) { if (month == 0 || month == 24 || month == 36) this.month = month; }
 	public void show() {
 		System.out.print("제품명: " + this.name + ", 통신사: " + this.telecom);
@@ -38,5 +38,4 @@ public class Phone {
 		if (month == 0) return (int)(this.price * 0.95);
 		else return this.price / this.month;
 	}
-
 }
