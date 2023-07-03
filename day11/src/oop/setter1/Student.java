@@ -7,8 +7,8 @@ public class Student {
 	
 	// 메소드 - setup, show
 	void setup(String name, int score) {
-		this.setName(name);
-		this.setScore(score);
+		this.setName(name); // 내가 가진 setName 메서드에 name을 전달하며 호출
+		this.setScore(score); // 내가 가진 setScore 메서드에 score를 전달하며 호출
 	}
 	
 	void show() {
