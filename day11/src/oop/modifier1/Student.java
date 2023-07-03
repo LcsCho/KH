@@ -20,4 +20,9 @@ public class Student {
 	public int getScore() {
 		return score;
 	}
+	public Student() { }
+	public Student(String name, int score) {
+		this.setName(name);
+		this.setScore(score);
+	}
 }
