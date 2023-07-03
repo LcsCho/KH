@@ -5,10 +5,14 @@ public class Study {
 	private int time, price;
 	
 	public void setup(String name, int time, int price, String type) {
-		this.name = name;
+		this.setName(name);
 		this.setTime(time);
 		this.setPrice(price);
 		this.setType(type);
+	}
+	
+	private void setName(String name) {
+		this.name = name;
 	}
 	
 	private void setTime(int time) {
