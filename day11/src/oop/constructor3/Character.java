@@ -23,13 +23,13 @@ public class Character {
 			this.job = job;
 		}
 	}
-	String getId() {
+	private String getId() {
 		return id;
 	}
-	String getJob() {
+	private String getJob() {
 		return job;
 	}
-	int getLv() {
+	private int getLv() {
 		return lv;
 	}
 	public void show() {
