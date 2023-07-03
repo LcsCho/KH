@@ -9,7 +9,7 @@ public class Test01 {
 		
 		p1.setup("갤럭시s23", "SK", 1800000, 0);
 		p2.setup("갤럭시s23", "KT", 1750000, 24);
-		p3.setup("아이폰14", "LG", 2000000, 30);
+		p3.setup("아이폰14", "LG", 2000000, 36);
 		p4.setup("아이폰14", "SK", 1990000, 0);
 		
 		System.out.println("<휴대폰 정보>");
