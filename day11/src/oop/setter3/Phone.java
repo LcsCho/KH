@@ -24,12 +24,14 @@ public class Phone {
 	private void month(int month) { if (month == 0 || month == 24 || month == 36) this.month = month; }
 	public void show() {
 		System.out.print("휴대폰명: " + this.name + ", 통신사: " + this.telecom);
-		if (month == 0) System.out.print(", 가격: " + this.price + "원(약정 없음)");
+		if (month == 0) {
+			System.out.print(", 가격: " + this.price + "원(약정 없음)");
+			System.out.println(", 일시불(5% 할인): " + (int)(this.price * 0.95) + "원");
+		}
 		else {
 			System.out.print(", 가격: " + this.price);
 			System.out.print("원, 약정개월: " + this.month);
+			System.out.println(", 월 할부금: " + this.price / this.month + "원");
 		}
-		if (month == 0) System.out.println(", 일시불(5% 할인): " + (int)(this.price * 0.95) + "원");
-		else System.out.println(", 월 할부금: " + this.price / this.month + "원");
 	}
 }
