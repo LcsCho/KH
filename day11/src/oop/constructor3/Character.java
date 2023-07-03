@@ -3,7 +3,7 @@ package oop.constructor3;
 public class Character {
 	private String id, job;
 	private int lv;
-	
+	// 생성자 - 생성 시 필요한 데이터를 강제하는 도구
 	public Character(String id, String job, int lv) {
 		this.setId(id);
 		this.setJob(job);
