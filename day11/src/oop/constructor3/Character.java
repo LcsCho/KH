@@ -30,7 +30,4 @@ public class Character {
 		System.out.println("직업: " + job);
 		System.out.println("레벨: " + lv + "\n");
 	}
-	private String getId() { return id; }
-	private String getJob() { return job; }
-	private int getLv() { return lv; }
 }
