@@ -42,9 +42,9 @@ public class Grade {
 	private int getTot() { return this.kor + this.eng + this.math; }
 	private float getAvg() { return this.getTot() / 3f; }
 	private char getGrade() {
-		if (this.getAvg() >= 90 && this.getAvg() <= 100) return 'A';
-		else if (this.getAvg() >= 80 && this.getAvg() <= 89) return 'B';
-		else if (this.getAvg() >= 70 && this.getAvg() <= 79) return 'C';
+		if (this.getAvg() >= 90) return 'A';
+		else if (this.getAvg() >= 80) return 'B';
+		else if (this.getAvg() >= 70) return 'C';
 		else return 'F';
 	}
 }
