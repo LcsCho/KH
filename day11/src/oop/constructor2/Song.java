@@ -15,7 +15,6 @@ public class Song {
 		if (artist == null) return "Various artist";
 		else return artist;
 	}
-	
 	private void setPlay(int play) {
 		if (play < 0) return;
 		this.play = play;
