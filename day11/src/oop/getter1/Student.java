@@ -43,7 +43,7 @@ public class Student {
 		System.out.println("이름: " + this.name);
 		System.out.println("국어: " + this.kor);
 		System.out.println("영어: " + this.eng);
-		System.out.println("총점: " + this.getAvg());
-		System.out.println("평균: " + this.getTot());
+		System.out.println("총점: " + this.getTot());
+		System.out.println("평균: " + this.getAvg());
 	}
 }
