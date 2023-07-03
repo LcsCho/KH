@@ -11,7 +11,6 @@ public class Character {
 	}
 	public Character(String id, String job) { this(id, job, 1); }
 	private void setId(String id) {
-		if (id.equals(null)) return;
 		this.id = id;
 	}
 	private void setLv(int lv) {
@@ -19,11 +18,19 @@ public class Character {
 		this.lv = lv;
 	}
 	private void setJob(String job) {
-		if (job.equals(null)) return;
 		switch(job) {
 		case "전사", "마법사", "궁수" :
 			this.job = job;
 		}
+	}
+	String getId() {
+		return id;
+	}
+	String getJob() {
+		return job;
+	}
+	int getLv() {
+		return lv;
 	}
 	public void show() {
 		System.out.println("아이디: " + id);
