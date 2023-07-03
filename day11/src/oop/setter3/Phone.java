@@ -29,8 +29,7 @@ public class Phone {
 			System.out.println(", 일시불(5% 할인): " + (int)(this.price * 0.95) + "원");
 		}
 		else {
-			System.out.print(", 가격: " + this.price);
-			System.out.print("원, 약정개월: " + this.month);
+			System.out.print(", 가격: " + this.price + "원, 약정개월: " + this.month);
 			System.out.println(", 월 할부금: " + this.price / this.month + "원");
 		}
 	}
