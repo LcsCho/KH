@@ -7,12 +7,30 @@ public class Student {
 	
 	// 메소드 - setup, show
 	void setup(String name, int score) {
-		this.name = name;
-		this.score = score;
+		this.setName(name);
+		this.setScore(score);
 	}
 	
 	void show() {
 		System.out.println(this.name);
 		System.out.println(this.score);
+	}
+	
+	// 필드를 하나씩 변경할 수 있는 메서드를 구현
+	// - setter 메서드
+	// - set + 필드면으로 이름짓는다.
+	// - 설정 외에 다른 작업을 하지 않는다.
+	// - (중요) 올바른 데이터만 설정 가능하도록 필터링 처리를 한다.
+	void setName(String name) {
+		switch(name) { // 문자열은 비교를 switch로 한다.(if로 하는 방법은 나중에)
+		case "피카츄":
+		case "라이츄":
+			this.name = name;
+		}
+	}
+	
+	void setScore(int score) {
+		if (score >= 0 && score <= 100)
+			this.score = score;
 	}
 }
