@@ -11,7 +11,6 @@ public class Test01 {
 		s3.setup("웹 개발자 단기완성", 120, 1200000, "오프라인");
 		
 		System.out.println("<학원 강의 요금표>");
-		
 		s1.show();
 		s2.show();
 		s3.show();
