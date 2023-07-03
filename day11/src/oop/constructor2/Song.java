@@ -11,6 +11,11 @@ public class Song {
 		this.setPlay(play);
 		this.setLike(like);
 	}
+	private String getArtist(String artist) {
+		if (artist == null) return "Various artist";
+		else return artist;
+	}
+	
 	private void setPlay(int play) {
 		if (play < 0) return;
 		this.play = play;
@@ -30,7 +35,7 @@ public class Song {
 	private int getRankingPoint() { return play * 2 + like / 2; }
 	public void show() {
 		System.out.println("노래 제목: "  + this.title + this.getBest() + this.getPopular());
-		System.out.println("가수: " + this.artist);
+		System.out.println("가수: " + this.getArtist(artist));
 		System.out.println("앨범: " + this.album);
 		System.out.println("재생수: " + this.play);
 		System.out.println("좋아요 수: " + this.like);
