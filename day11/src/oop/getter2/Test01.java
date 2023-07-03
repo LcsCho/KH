@@ -14,6 +14,5 @@ public class Test01 {
 		g1.show();
 		g2.show();
 		g3.show();
-		
 	}
 }
