@@ -25,4 +25,10 @@ public class Student {
 		this.setName(name);
 		this.setScore(score);
 	}
+	
+	public void show() {
+		System.out.println("<학생정보>");
+		System.out.println("이름: " + this.name);
+		System.out.println("점수: " + this.score);
+	}
 }
