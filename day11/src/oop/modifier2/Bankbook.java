@@ -15,21 +15,21 @@ public class Bankbook {
 	}
 	public Bankbook(String name, int period, int pay) { this(name, period, 1, pay, 0); }
 	
-	private void setName(String name) { this.name = name; }
-	private void setPeriod(int period) {
+	public void setName(String name) { this.name = name; }
+	public void setPeriod(int period) {
 		switch(period) {
 		case 1, 2, 3, 5, 10:
 			this.period = period;
 		}
 	}
-	private void setCount(int count) { this.count = count; }
-	private int getCount() { return period * 12 + 1; }
-	private void setPay(int pay) { if (pay % 10000 == 0) this.pay = pay; }
-	private void setBalance(int balance) {
+	public void setCount(int count) { this.count = count; }
+	public int getCount() { return period * 12 + 1; }
+	public void setPay(int pay) { if (pay % 10000 == 0) this.pay = pay; }
+	public void setBalance(int balance) {
 		if (balance < 0) return;
 		this.balance = balance;
 	}
-	private String getFull() {
+	public String getFull() {
 		if (count == getCount()) return "현재상태: 만기\n";
 		else return "";
 	}
@@ -53,8 +53,8 @@ public class Bankbook {
 			else break;
 		}
 	}
-	private int getFullBalance() { return (getCount() - count) * pay + balance; }
-	private void setNext() {
+	public int getFullBalance() { return (getCount() - count) * pay + balance; }
+	public void setNext() {
 		if (count != getCount()) {
 			count++;
 			balance += pay;
