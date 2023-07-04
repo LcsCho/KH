@@ -24,6 +24,4 @@ public class Test01 {
 		m3.show();
 		m4.show();
 	}
-
-
 }
