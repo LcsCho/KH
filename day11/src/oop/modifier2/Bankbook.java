@@ -31,7 +31,7 @@ public class Bankbook {
 	}
 	public boolean isFull() { return count == getCount(); }
 	public String getFull() {
-		if (isFull()) return "만기";
+		if (isFull()) return "현재 상태: 만기\n";
 		else return "";
 	}
 	
