@@ -1,4 +1,4 @@
-package oop.keyword2;
+package oop.keyword3;
 
 // 문제점
 // 1. 내부 구조가 복잡함 - 필드를 제거
