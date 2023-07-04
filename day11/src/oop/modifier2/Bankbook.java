@@ -29,8 +29,12 @@ public class Bankbook {
 		if (balance < 0) return;
 		this.balance = balance;
 	}
+	public boolean isFull() {
+		return count == getCount();
+	}
+	
 	public String getFull() {
-		if (count == getCount()) return "현재상태: 만기\n";
+		if (isFull()) return "만기";
 		else return "";
 	}
 	
@@ -44,7 +48,7 @@ public class Bankbook {
 			System.out.print(getFull());
 			System.out.println("만기 예상 금액: " + getFullBalance() + "\n");
 			Scanner sc = new Scanner(System.in);
-			System.out.print("next를 호출하고 싶으면 1을, 종료하고 싶으면 아무키 입력");
+			System.out.print("next를 호출하고 싶으면 1을, 종료하고 싶으면 아무키 입력: ");
 			int num = sc.nextInt();
 			if (num == 1) {
 				setNext();
