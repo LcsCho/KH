@@ -1,18 +1,9 @@
 package oop.keyword4;
 
 public class Robot {
-	public static int square(int a) {
-		return a * a;
-	}
-	
-	public static int triangle(int a, int b) {
-		return a * b / 2;
-	}
-	
-	public static double circle(int r) {
-		return r * r * 3.14;
-	}
-	
+	public static int square(int a) { return a * a; }
+	public static double triangle(double a, double b) { return a * b / 2; }
+	public static double circle(int r) { return r * r * 3.14; }
 	public static int[] sort(int arr[]) {
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
