@@ -2,8 +2,8 @@ package oop.keyword3;
 
 public class Test01 {
 	public static void main(String[] args) {
-		Calculator a = new Calculator();
-		int result = a.plus(10, 20);
+		// static 메서드는 클래스명으로 직접 호출이 가능
+		int result = Calculator.plus(10, 20);
 		System.out.println("result = " + result);
 	}
 }

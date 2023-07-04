@@ -2,11 +2,8 @@ package oop.keyword3;
 
 // 문제점
 // 1. 내부 구조가 복잡함 - 필드를 제거
-// 2. 객체를 꼭 만들어야함
+// 2. 객체를 꼭 만들어야함 - static 키워드를 추가
 public class Calculator {
-	public int plus(int left, int right) {
-		return left + right;
-	}
-	
-	
+	// static 키워드가 붙은 메서드는 객체 생성 없이도 호출 가능
+	public static int plus(int left, int right) { return left + right; }
 }	
