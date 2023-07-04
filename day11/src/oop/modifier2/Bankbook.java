@@ -48,14 +48,14 @@ public class Bankbook {
 			System.out.print("next를 호출하고 싶으면 1을, 종료하고 싶으면 아무키 입력: ");
 			int num = sc.nextInt();
 			if (num == 1) {
-				setNext();
+				Next();
 				System.out.println("<next 진행 후 출력>");
 			}
 			else break;
 		}
 	}
 	public int getFullBalance() { return (getCount() - count) * pay + balance; }
-	public void setNext() {
+	public void Next() {
 		if (count != getCount()) {
 			count++;
 			balance += pay;
