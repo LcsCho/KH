@@ -1,4 +1,4 @@
-package oop.keyword1;
+package oop.keyword2;
 
 public class Calculator {
 	// 필드
