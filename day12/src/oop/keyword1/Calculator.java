@@ -1,5 +1,5 @@
 package oop.keyword1;
 
-public class IPhone14 {
+public class Calculator {
 
 }
