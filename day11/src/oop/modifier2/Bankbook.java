@@ -24,10 +24,7 @@ public class Bankbook {
 	}
 	private void setCount(int count) { this.count = count; }
 	private int getCount() { return period * 12 + 1; }
-	private void setPay(int pay) {
-		if (pay % 10000 == 0)
-		this.pay = pay;
-	}
+	private void setPay(int pay) { if (pay % 10000 == 0) this.pay = pay; }
 	private void setBalance(int balance) {
 		if (balance < 0) return;
 		this.balance = balance;
