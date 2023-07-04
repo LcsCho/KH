@@ -10,5 +10,6 @@ public class Test01 {
 		int[] arr = {50, 30, 20, 10, 40, 80};
 		arr = r.sort(arr);
 		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+		for (int i : arr) System.out.print(i + " ");
 	}
 }
