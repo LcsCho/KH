@@ -39,7 +39,7 @@ public class Bankbook {
 		while (true) {
 			System.out.println("이름: " + name);
 			System.out.println("기간: " + period);
-			System.out.println("납입회차: " + count);
+			System.out.println("납입회차: " + count + " / " + getCount());
 			System.out.println("납입금액: " + pay);
 			System.out.println("잔액: " + balance);
 			System.out.print(getFull());
