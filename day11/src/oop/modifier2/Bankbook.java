@@ -29,10 +29,7 @@ public class Bankbook {
 		if (balance < 0) return;
 		this.balance = balance;
 	}
-	public boolean isFull() {
-		return count == getCount();
-	}
-	
+	public boolean isFull() { return count == getCount(); }
 	public String getFull() {
 		if (isFull()) return "만기";
 		else return "";
