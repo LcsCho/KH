@@ -14,7 +14,7 @@ public final class GalaxyFold4 extends Galaxy {
 	public void samsungPay() {
 		System.out.println("갤럭시폴드4 삼성페이 기능 실행");
 	}
-	public void bixby() {
-		System.out.println("갤럭시폴드4 음성 인식 기능 실행");
+	public void iris() {
+		System.out.println("갤럭시폴드4 홍채 인식 기능 실행");
 	}
 }

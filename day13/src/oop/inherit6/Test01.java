@@ -15,7 +15,7 @@ public class Test01 {
 		fold4.call();
 		fold4.sms();
 		fold4.samsungPay();
-		fold4.bixby();
+		fold4.iris();
 		
 		System.out.println();
 		IPhone13 phone13 = new IPhone13("070-9999-8888", "블루");
@@ -30,7 +30,7 @@ public class Test01 {
 		phone14.show();
 		phone14.call();
 		phone14.sms();
-		phone14.itunes();
+		phone14.facetime();
 		phone14.siri();
 		
 	}

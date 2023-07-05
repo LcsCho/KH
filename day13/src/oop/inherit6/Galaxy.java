@@ -5,5 +5,4 @@ public class Galaxy extends Phone{
 		super(number, color);
 	}
 	public void samsungPay() { System.out.println("삼성페이 기능 실행"); }
-	public void bixby() { System.out.println("음성인식 기능 실행"); }
 }
