@@ -1,13 +1,18 @@
 package oop.inherit8;
 
+// 추상클래스가 되면 (1) 객체 생성 금지 (2) 추상 메서드 작성 가능
 public abstract class Player {
-	protected String id;
-	protected int lv;
+	// 공통 필드
+	private String id;
+	private int lv;
 	
 	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
 	public int getLv() { return lv; }
-	public void setLv(int lv) { this.lv = lv; }
+	public void setLv(int lv) { 
+		if (lv < 1) return;
+		this.lv = lv; 
+	}
 	
 	public Player(String id) {
 		this.setId(id);
