@@ -1,6 +1,7 @@
 package oop.inherit6;
 
-public class Galaxy23s extends Galaxy {
+// 클래스에 final이 붙으면 이후에 상속이 불가능
+public final class Galaxy23s extends Galaxy {
 	public Galaxy23s(String number, String color) {
 		super(number, color);
 	}
