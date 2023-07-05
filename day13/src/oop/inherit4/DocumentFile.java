@@ -1,6 +1,6 @@
 package oop.inherit4;
 
-public class DocumentFile {
+public class DocumentFile extends File{
 	private int pagesize;
 
 	public int getPagesize() {
