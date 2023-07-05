@@ -6,6 +6,7 @@ public abstract class Player {
 	private String id;
 	private int lv;
 	
+	// setter, getter
 	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
 	public int getLv() { return lv; }
@@ -14,17 +15,19 @@ public abstract class Player {
 		this.lv = lv; 
 	}
 	
+	// 생성자 - 오직 아이디만 설정
 	public Player(String id) {
 		this.setId(id);
 		this.setLv(1);
 	}
-	
-	public abstract void attack();
-	public abstract void move();
-	public abstract void shop();
-	
+	// 메서드
 	public void show() { 
 		System.out.println("<캐릭터 정보>");
 		System.out.println("아이디: " + this.getId() + ", 레벨: " + this.getLv()); 
 	}
+	
+	// 추상 메서드
+	public abstract void attack();
+	public abstract void move();
+	public abstract void shop();	
 }
