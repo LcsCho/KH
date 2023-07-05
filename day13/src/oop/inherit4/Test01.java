@@ -18,19 +18,19 @@ public class Test01 {
 		mp4.forward();
 		mp4.rewind();
 		
-		Hwp h = new Hwp();
-		h.setFilename("hwp");
-		h.setFilesize(15);
-		h.setPagesize(15);
-		h.execute();
-		h.preview();
+		Hwp hwp = new Hwp();
+		hwp.setFilename("hwp");
+		hwp.setFilesize(15);
+		hwp.setPagesize(15);
+		hwp.execute();
+		hwp.preview();
 		
-		Ppt p = new Ppt();
-		p.setFilename("ppt");
-		p.setFilesize(20);
-		p.setPagesize(20);
-		p.execute();
-		p.slideShow();
+		Ppt ppt = new Ppt();
+		ppt.setFilename("ppt");
+		ppt.setFilesize(20);
+		ppt.setPagesize(20);
+		ppt.execute();
+		ppt.slideShow();
 		
 	}
 }
