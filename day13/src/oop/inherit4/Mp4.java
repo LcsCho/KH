@@ -1,9 +1,9 @@
 package oop.inherit4;
 
 public class Mp4 extends Mp3 {
-	private int speed;
+	private float speed;
 
-	public int getSpeed() {
+	public float getSpeed() {
 		return speed;
 	}
 
