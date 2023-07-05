@@ -4,7 +4,7 @@ public class Test01 {
 	public static void main(String[] args) {
 		Mp3 mp3 = new Mp3();
 		mp3.setFilename("mp3");
-		mp3.setFilesize(5);
+		mp3.setFilesize(5000L);
 		mp3.setDuration(5);
 		mp3.execute();
 		mp3.forward();
