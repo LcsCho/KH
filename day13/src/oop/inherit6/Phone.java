@@ -10,8 +10,8 @@ public class Phone {
 	public void call() { System.out.println("전화 기능 실행"); }
 	public void sms() { System.out.println("문자 기능 실행"); }
 	public void show() {
-		System.out.println(getNumber());
-		System.out.println(getColor());
+		System.out.println("전화번호: " + getNumber());
+		System.out.println("색상: " + getColor());
 	}
 
 }
