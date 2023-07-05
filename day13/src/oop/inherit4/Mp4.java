@@ -1,6 +1,6 @@
 package oop.inherit4;
 
-public class Mp4 extends File {
+public class Mp4 extends Mp3 {
 	private int speed;
 
 	public int getSpeed() {
@@ -9,12 +9,6 @@ public class Mp4 extends File {
 
 	public void setSpeed(int speed) {
 		this.speed = speed;
-	}
-	public void forward() {
-		System.out.println("빨리감기");
-	}
-	public void rewind() {
-		System.out.println("되감기");
 	}
 	
 }
