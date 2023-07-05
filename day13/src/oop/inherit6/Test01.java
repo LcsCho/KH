@@ -32,6 +32,5 @@ public class Test01 {
 		phone14.sms();
 		phone14.facetime();
 		phone14.siri();
-		
 	}
 }
