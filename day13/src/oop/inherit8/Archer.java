@@ -1,6 +1,6 @@
 package oop.inherit8;
 
-public class Archer extends Character{
+public class Archer extends Player{
 	public Archer(String id) { super(id); }
 	
 	@Override

@@ -1,6 +1,6 @@
 package oop.inherit8;
 
-public abstract class Character {
+public abstract class Player {
 	protected String id;
 	protected int lv;
 	
@@ -9,7 +9,7 @@ public abstract class Character {
 	public int getLv() { return lv; }
 	public void setLv(int lv) { this.lv = lv; }
 	
-	public Character(String id) {
+	public Player(String id) {
 		this.setId(id);
 		this.lv = 1;
 	}
