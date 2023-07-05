@@ -6,4 +6,12 @@ public class IPhone13 {
 	private int price; // 가격
 	
 	// 메서드 - 기능
+	// setter/getter 생략
+	public void call() {
+		System.out.println("전화걸기");
+	}
+	
+	public void camera() {
+		System.out.println("사진찍기");
+	}
 }

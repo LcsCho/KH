@@ -6,4 +6,12 @@ public class IPhone14 {
 	private int prive; // 가격
 	
 	// 메서드 - 기능
+	// setter/getter 생략
+	public void call() {
+		System.out.println("전화걸기");
+	}
+	
+	public void camera() {
+		System.out.println("사진찍기");
+	}
 }
