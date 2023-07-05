@@ -3,9 +3,7 @@ package oop.inherit8;
 public abstract class Character {
 	protected String id;
 	protected int lv;
-	public String getId() {
-		return id;
-	}
+	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
 	public int getLv() { return lv; }
 	public void setLv(int lv) { this.lv = lv; }
