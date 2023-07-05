@@ -16,7 +16,7 @@ public abstract class Player {
 	
 	public Player(String id) {
 		this.setId(id);
-		this.lv = 1;
+		this.setLv(1);
 	}
 	
 	public abstract void attack();
