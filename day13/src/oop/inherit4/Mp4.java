@@ -1,6 +1,6 @@
 package oop.inherit4;
 
-public class Mp4 extends Mp3 {
+public class Mp4 extends MediaFile {
 	private float speed;
 
 	public float getSpeed() {
@@ -10,5 +10,6 @@ public class Mp4 extends Mp3 {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+	
 	
 }

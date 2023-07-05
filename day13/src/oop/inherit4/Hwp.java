@@ -1,13 +1,6 @@
 package oop.inherit4;
 
-public class Hwp extends File {
-	private float pagesize;
-	public float getPagesize() {
-		return pagesize;
-	}
-	public void setPagesize(int pagesize) {
-		this.pagesize = pagesize;
-	}
+public class Hwp extends DocumentFile {
 	public void preview() {
 		System.out.println("미리보기");
 	}

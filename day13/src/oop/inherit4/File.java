@@ -2,7 +2,8 @@ package oop.inherit4;
 
 public class File {
 	private String filename;
-	private float filesize;
+	private long filesize;
+	
 	public String getFilename() {
 		return filename;
 	}
@@ -13,6 +14,7 @@ public class File {
 		return filesize;
 	}
 	public void setFilesize(int size) {
+		if (filesize < 0L) return;
 		this.filesize = filesize;
 	}
 	public void execute() {
