@@ -13,6 +13,7 @@ public class TimeCalculator {
 			Time result = new Time(a.getValue() - b.getValue());
 			return result;
 		}
+
 		else {
 			Time result = new Time(b.getValue() - a.getValue());
 			return result;
