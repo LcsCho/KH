@@ -1,6 +1,10 @@
 package oop.inherit6;
 
 public class GalaxyFold4 extends Galaxy {
+	public GalaxyFold4(String number, String color) {
+		super(number, color);
+		// TODO Auto-generated constructor stub
+	}
 	public void call() {
 		System.out.println("갤럭시폴드4 전화기능 실행");
 	}

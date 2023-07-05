@@ -13,4 +13,8 @@ public class Phone {
 		System.out.println("전화번호: " + getNumber());
 		System.out.println("색상: " + getColor());
 	}
+	public Phone(String number, String color) {
+		this.setNumber(number);
+		this.setColor(color);
+	}
 }

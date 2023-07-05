@@ -32,4 +32,13 @@ public class Mobile {
 		System.out.println("번호: " + this.number);
 		System.out.println("색상: " + this.color);
 	}
+	
+	// 공통 메서드
+	public void call() {
+		System.out.println("전화 기능");
+	}
+	
+	public void sms() {
+		System.out.println("문자 기능");
+	}
 }
