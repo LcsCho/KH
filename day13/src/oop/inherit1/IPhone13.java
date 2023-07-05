@@ -14,4 +14,7 @@ public class IPhone13 {
 	public void camera() {
 		System.out.println("사진찍기");
 	}
+	public void siri() {
+		System.out.println("시리야");
+	}
 }
