@@ -2,7 +2,6 @@ package oop.inherit6;
 
 public class Phone {
 	protected String number, color;
-
 	public String getNumber() { return number; }
 	public void setNumber(String number) { this.number = number; }
 	public String getColor() { return color; }
