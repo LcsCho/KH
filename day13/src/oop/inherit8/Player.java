@@ -20,7 +20,7 @@ public abstract class Player {
 		this.setId(id);
 		this.setLv(1);
 	}
-	// 메서드
+	// 공통 메서드
 	public void show() { 
 		System.out.println("<캐릭터 정보>");
 		System.out.println("아이디: " + this.getId() + ", 레벨: " + this.getLv()); 
