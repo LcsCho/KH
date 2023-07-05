@@ -14,6 +14,7 @@ public class IPhone14 {
 	public void camera() {
 		System.out.println("사진찍기");
 	}
+	
 	public void facetime() {
 		System.out.println("영상통화");
 	}
