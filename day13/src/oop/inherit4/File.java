@@ -1,25 +1,19 @@
 package oop.inherit4;
 
 public class File {
-	private String name;
-	private int size, speed;
-	public String getName() {
-		return name;
+	private String filename;
+	private int filesize;
+	public String getFilename() {
+		return filename;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFilename(String name) {
+		this.filename = filename;
 	}
-	public int getSize() {
-		return size;
+	public int getFilesize() {
+		return filesize;
 	}
-	public void setSize(int size) {
-		this.size = size;
-	}
-	public int getSpeed() {
-		return speed;
-	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public void setFilesize(int size) {
+		this.filesize = filesize;
 	}
 	public void execute() {
 		System.out.println("실행");
