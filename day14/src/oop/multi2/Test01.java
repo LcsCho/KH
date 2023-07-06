@@ -18,12 +18,12 @@ public class Test01 {
 		System.out.println("<비행기>");
 		a.move();
 		a.fly();
-		a.reserve();
+		a.reservation();
 		System.out.println();
 		
 		System.out.println("<기차>");
 		t.move();
-		t.reserve();
+		t.reservation();
 		System.out.println();
 		
 		System.out.println("<버스>");
