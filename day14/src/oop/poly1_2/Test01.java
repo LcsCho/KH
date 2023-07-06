@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Test01 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		MacBook mac = new MacBook();
+
 		GalaxyBook galaxy = new GalaxyBook();
 		Laptop a = new Laptop();
 		
@@ -17,7 +17,10 @@ public class Test01 {
 		System.out.print("1. 전원, 2. 동영상재생, 3. 타이핑: ");
 		int function = sc.nextInt();
 		
-		if (choice == 1) { mac.show(); } 
+		if (choice == 1) { 
+			MacBook mac = new MacBook();
+			mac.show(); 
+		} 
 		else galaxy.show();
 		
 		
