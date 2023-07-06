@@ -6,9 +6,6 @@ public class Test01 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		GalaxyBook galaxy = new GalaxyBook();
-		Laptop a = new Laptop();
-		
 		System.out.println("노트북을 선택");
 		System.out.print("1. 맥북, 2. 갤럭시북: ");
 		int choice = sc.nextInt();
@@ -17,18 +14,17 @@ public class Test01 {
 		System.out.print("1. 전원, 2. 동영상재생, 3. 타이핑: ");
 		int function = sc.nextInt();
 		
-		if (choice == 1) { 
-			MacBook mac = new MacBook();
-			mac.show(); 
-		} 
-		else galaxy.show();
-		
+		// Laptop laptop = 맥북 or 갤럭시북의 공통 기능 실행
+		Laptop laptop;
+		if (choice == 1) laptop = new MacBook();
+		else laptop = new GalaxyBook();
 		
 		switch(function) {
-		case 1: a.power(); break;
-		case 2: a.video();
+		case 1: laptop.power(); 
 		break;
-		case 3: a.typing();
+		case 2: laptop.video();
+		break;
+		case 3: laptop.typing();
 		break;
 		}
 	}
