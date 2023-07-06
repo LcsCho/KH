@@ -20,6 +20,7 @@ public class Test01 {
 		if (choice == 1) { mac.show(); } 
 		else galaxy.show();
 		
+		
 		switch(function) {
 		case 1: a.power(); break;
 		case 2: a.video();

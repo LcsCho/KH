@@ -11,5 +11,6 @@ public class Laptop {
 	
 	public void typing() {
 		System.out.println("타이핑을 실행합니다.");
+		
 	}
 }
