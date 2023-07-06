@@ -1,11 +1,7 @@
 package oop.multi2;
 
-public class Bus implements Transportation {
+public class Bus extends Transportation {
 
 	@Override
-	public void move() {
-		System.out.println("버스가 이동합니다.");
-		
-	}
-
+	public void move() { System.out.println("버스가 이동합니다."); }
 }
