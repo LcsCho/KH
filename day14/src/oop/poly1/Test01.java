@@ -9,7 +9,7 @@ public class Test01 {
 		GalaxyBook galaxy = new GalaxyBook();
 		Laptop a = new Laptop();
 		
-		System.out.println("노트북을 선택: ");
+		System.out.println("노트북을 선택");
 		System.out.print("1. 맥북, 2. 갤럭시북: ");
 		int choice = sc.nextInt();
 		
@@ -20,14 +20,12 @@ public class Test01 {
 		if (choice == 1) { mac.show(); } 
 		else galaxy.show();
 		
-		if (choice == 1) mac.power();
-		
 		switch(function) {
-		case 1: a.power();
-		break;
+		case 1: a.power(); break;
 		case 2: a.video();
 		break;
 		case 3: a.typing();
+		break;
 		}
 	}
 }
