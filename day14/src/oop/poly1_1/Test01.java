@@ -5,7 +5,6 @@ import java.util.Scanner;
 // 다형성 없이 만든 코드
 public class Test01 {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 		int type = 1;
 		int action = 1;
 
