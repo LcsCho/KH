@@ -14,8 +14,8 @@ public class Test02 {
 		System.out.print("비밀번호 입력: ");
 		String inputPw = sc.next();
 		sc.close();
-		boolean isLogin = id.equalsIgnoreCase(inputId) && pw.equals(inputPw);
 		
+		boolean isLogin = id.equalsIgnoreCase(inputId) && pw.equals(inputPw);
 		if (isLogin) System.out.println("로그인 성공");
 		else System.out.println("로그인 실패");
 	}
