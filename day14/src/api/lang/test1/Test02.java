@@ -1,9 +1,9 @@
-package api.lang.test2;
+package api.lang.test1;
 
 import java.util.Properties;
 
 
-public class Test01 {
+public class Test02 {
 	public static void main(String[] args) {
 		// 1.
 		Properties prop = new Properties();
