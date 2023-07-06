@@ -2,31 +2,42 @@ package oop.poly1_1;
 
 import java.util.Scanner;
 
+// 다형성 없이 만든 코드
 public class Test01 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		MacBook mac = new MacBook();
-		GalaxyBook galaxy = new GalaxyBook();
-		Laptop a = new Laptop();
-		
-		System.out.println("노트북을 선택");
-		System.out.print("1. 맥북, 2. 갤럭시북: ");
-		int choice = sc.nextInt();
-		
-		System.out.println("테스트할 기능을 선택하세요");
-		System.out.print("1. 전원, 2. 동영상재생, 3. 타이핑: ");
-		int function = sc.nextInt();
-		
-		if (choice == 1) { mac.show(); } 
-		else galaxy.show();
-		
-		
-		switch(function) {
-		case 1: a.power(); break;
-		case 2: a.video();
-		break;
-		case 3: a.typing();
-		break;
+		int type = 1;
+		int action = 1;
+
+		if (type == 1) {
+			MacBook mac = new MacBook();
+			if(action == 1) {
+				mac.power();
+			}
+			else if (action == 2) {
+				mac.video();
+			}
+			else {
+				mac.typing();
+			}
 		}
+		else {
+			GalaxyBook galaxy = new GalaxyBook();
+			if(action == 1) {
+				galaxy.power();
+			}
+			else if (action == 2) {
+				galaxy.video();
+			}
+			else {
+				galaxy.typing();
+			}
+		}
+
+
+
+
+		
+		
 	}
 }
