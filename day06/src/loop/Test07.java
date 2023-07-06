@@ -11,6 +11,7 @@ public class Test07 {
 		System.out.print("초를 입력: ");
 		int sec = sc.nextInt();
 		int totSec = 60 * min + sec;
+		sc.close();
 		
 		for (int i = totSec; i > 0; i--) {
 			System.out.println(totSec / 60 + "분" + totSec % 60 + "초 후 알람이 울립니다!");
