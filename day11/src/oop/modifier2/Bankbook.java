@@ -52,6 +52,7 @@ public class Bankbook {
 				System.out.println("<next 진행 후 출력>");
 			}
 			else break;
+			sc.close();
 		}
 	}
 	public int getFullBalance() { return (getCount() - count) * pay + balance; }
