@@ -4,20 +4,16 @@ public class Train implements Transportation, Reserve{
 
 	@Override
 	public void reserve() {
-		// TODO Auto-generated method stub
+		System.out.println("비행기를 예약합니다.");
 		
 	}
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
+		System.out.println("비행기가 이동합니다.");
 		
 	}
 
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

@@ -4,13 +4,7 @@ public class Bus implements Transportation {
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void show() {
-		// TODO Auto-generated method stub
+		System.out.println("버스가 이동합니다.");
 		
 	}
 
