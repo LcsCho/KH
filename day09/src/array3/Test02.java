@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Test02 {
 	public static void main(String[] args) {
 		// 2차원 배열의 생성과 사용
-		Scanner sc = new Scanner(System.in);
 		int[][] score = new int[2][3];
 		
 		// 초기화
