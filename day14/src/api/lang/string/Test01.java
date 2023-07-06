@@ -21,6 +21,6 @@ public class Test01 {
 		
 		// a와 b는 같나?
 		System.out.println(a == b); // 동일한 객체인지 비교(비추천)
-		System.out.println(a.equals(b));
+		System.out.println(a.equals(b)); // 동등 비교(내용이 같은지 비교, 추천)
 	}
 }
