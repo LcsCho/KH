@@ -6,13 +6,13 @@ public class Test01 {
 		StringBuffer b = new StringBuffer("hello");
 		
 		a.append("KH정보교육원");
-		System.out.println("a.toStirng = " + a.toString());
-		System.out.println("b.toString = " +b.toString());
-		System.out.println("a.capacity = " + a.capacity());
-		System.out.println("b.capacity = " + b.capacity());
-		System.out.println("a.length = " + a.length());
-		System.out.println("b.length = " + b.length());
+		System.out.println("a요약본 = " + a.toString());
+		System.out.println("b요약본 = " +b.toString());
+		System.out.println("a용량 = " + a.capacity());
+		System.out.println("b용량 = " + b.capacity());
+		System.out.println("a글자수 = " + a.length());
+		System.out.println("b글자수 = " + b.length());
 		b.reverse();
-		System.out.println("b.reverse = " + b);
+		System.out.println("b글자뒤집기 = " + b);
 	}
 }
