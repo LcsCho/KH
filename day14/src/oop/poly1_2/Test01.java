@@ -13,6 +13,7 @@ public class Test01 {
 		System.out.println("테스트할 기능을 선택하세요");
 		System.out.print("1. 전원, 2. 동영상재생, 3. 타이핑: ");
 		int function = sc.nextInt();
+		sc.close();
 		
 		// Laptop laptop = 맥북 or 갤럭시북의 공통 기능 실행
 		Laptop laptop;
