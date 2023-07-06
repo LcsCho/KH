@@ -28,6 +28,7 @@ public class Test10 {
 			sum += 60 * hr + min;
 			
 		}
+		sc.close();
 		avg = sum / avg;
 		
 		
