@@ -13,6 +13,7 @@ public class Test02 {
 		sc.close();
 		
 		boolean isLogin = id.equalsIgnoreCase("khacademy") && pw.equals("student1234");
+		// boolean isLogin = id.toLowerCase().equals("khacademy") && pw.equals("student1234");
 		if (isLogin) System.out.println("로그인 성공");
 		else System.out.println("로그인 실패");
 	}
