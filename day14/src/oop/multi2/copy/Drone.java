@@ -1,6 +1,6 @@
 package oop.multi2.copy;
 
-public class Drone implements Electronic, Transportation, Flyable {
+public class Drone extends Transportation implements Electronic, Flyable {
 
 	@Override
 	public void fly() {

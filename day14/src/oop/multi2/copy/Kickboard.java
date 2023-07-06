@@ -1,6 +1,6 @@
 package oop.multi2.copy;
 
-public class Kickboard implements Electronic, Transportation {
+public class Kickboard extends Transportation implements Electronic {
 
 	@Override
 	public void move() {

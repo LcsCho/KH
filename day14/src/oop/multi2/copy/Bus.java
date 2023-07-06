@@ -1,6 +1,6 @@
 package oop.multi2.copy;
 
-public class Bus implements Transportation {
+public class Bus extends Transportation {
 
 	@Override
 	public void move() {
