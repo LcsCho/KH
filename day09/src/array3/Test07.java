@@ -8,6 +8,7 @@ public class Test07 {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("지뢰찾기 배열 입력(홀수): ");
 		int size = sc.nextInt();
+		sc.close();
 		int bomb = size + 1;
 		int[][] map = new int[size][size];
 		
