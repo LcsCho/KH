@@ -14,10 +14,7 @@ public class Test08 {
 			"수박씨", "신발끈", "개나리", "십장생", "시베리아", "주옥", "조카", "게불", "10원"
 		};
 		
-		for (String slang : slangArr) {
-			boolean isSlang = line.contains(slang);
-            if (isSlang) { line = line.replace(slang, "*".repeat(slang.length())); }
-		}
+		for (String slang : slangArr) { line = line.replace(slang, "*".repeat(slang.length())); }
         System.out.println(line);
 		sc.close();
 	}
