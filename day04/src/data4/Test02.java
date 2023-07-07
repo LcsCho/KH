@@ -19,8 +19,8 @@ public class Test02 {
 		System.out.println("a = " + a);
 		
 		//[3] 특수한 기능을 담당하는 글자가 있다
-		//(ex) 나는 점심에 "피자"를 먹을거에요
-		String text = "나는 점심에 \"피자\"를 먹을거에요";
+		//(ex) 나는 점심에 "소고기"를 먹을거에요
+		String text = "나는 점심에 \"소고기\"를 먹을거에요";
 		System.out.println(text);
 		
 		//\n은 새로운 줄로 이동하도록 하는 글자이다
