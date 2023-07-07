@@ -25,7 +25,8 @@ public class Test07 {
 		System.out.println(google.strip()); // 유니코드 공백도 제거(신규)
 		
 		// 문자열 치환(찾아 바꾸기)
-		String line = "나는 피자가 좋아요";
-		System.out.println(line.replace("피자", "자바").replace("좋아", "싫어"));
+		String line = "나는 소고기가 좋아요";
+		System.out.println(line.replaceAll("소고기", "자바"));
+		System.out.println(line.replace("소고기", "자바").replace("좋아", "싫어"));
 	}
 }
