@@ -9,6 +9,7 @@ public class Test08 {
 		
 		System.out.print("문장을 입력: ");
 		String line = sc.nextLine();
+		sc.close();
 		
 		String[] slangArr = new String[] {
 			"수박씨", "신발끈", "개나리", "십장생", "시베리아", "주옥", "조카", "게불", "10원"
@@ -16,6 +17,5 @@ public class Test08 {
 		
 		for (String slang : slangArr) { line = line.replace(slang, "*".repeat(slang.length())); }
         System.out.println(line);
-		sc.close();
 	}
 }
