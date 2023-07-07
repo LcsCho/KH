@@ -15,7 +15,6 @@ public class Test06 {
 			boolean isWordLength = inputWord.length() == 3;
 		    boolean isWordCorrect = inputWord.charAt(0) == word.charAt(word.length() - 1);
 		    boolean isWordKorean = inputWord.matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*");
-			word = inputWord;
 			if (!isWordLength) {
 				System.out.println("게임오버!(글자수 안맞음)"); 
 				break;
@@ -28,6 +27,7 @@ public class Test06 {
 				System.out.println("게임오버!(제시된 끝글자와 입력한 첫글자가 일치하지 않음)");
 				break;
 			}
+			word = inputWord;
 			System.out.println();
 		}
 		sc.close();
