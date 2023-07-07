@@ -13,7 +13,7 @@ public class Test06 {
 			String inputWord = sc.next();
 			
 			boolean isWordLength = inputWord.length() == 3;
-		    boolean isWordCorrect = inputWord.charAt(0) == word.charAt(word.length() - 1);
+		    boolean isWordCorrect = inputWord.charAt(0) == word.charAt(2);
 		    boolean isWordKorean = inputWord.matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*");
 			if (!isWordLength) {
 				System.out.println("게임오버!(글자수 안맞음)"); 
