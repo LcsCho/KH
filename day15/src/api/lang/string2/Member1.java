@@ -51,7 +51,5 @@ public class Member1 {
 		System.out.println("회원 레벨: " + this.getMemberLevel());
 		System.out.println("회원 포인트: " + this.getMemberPoint());
 	}
-	public void showFalse() {
-		System.out.println("오류! 아이디, 비밀번호, 이름 중 잘못 입력하였습니다. 처음부터 다시 입력해주세요!\n");
-	}
+	public void showFalse() { System.out.println("오류! 아이디, 비밀번호, 이름 중 잘못 입력하였습니다. 처음부터 다시 입력해주세요!\n"); }
 }
