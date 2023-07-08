@@ -1,7 +1,5 @@
 package api.lang.string2;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Member1 {
 	private String memberId, memberPw, memberName, memberLevel;
 	private int memberPoint;
