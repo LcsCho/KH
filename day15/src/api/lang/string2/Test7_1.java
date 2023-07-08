@@ -18,7 +18,7 @@ public class Test7_1 {
 			
 			Member1 m = new Member1(memberId, memberPw, memberName);
 	
-			if (m.isId() && m.isPw()&& m.isName()) {
+			if (m.isValidId() && m.isValidPw()&& m.isValidName()) {
 				m.showTrue();
 				break;
 			}

@@ -11,8 +11,8 @@ public class Member1 {
 		this.setMemberLevel("일반회원");
 		this.setMemberPoint(100);
 	}
-	public String getMemberId() { return memberId.toLowerCase(); } // 대문자로 아이디를 회원가입하여도 소문자로 바꾸어 처리
-	public void setMemberId(String memberId) { this.memberId = memberId; }
+	public String getMemberId() { return memberId; } 
+	public void setMemberId(String memberId) { this.memberId = memberId.toLowerCase(); } // 대문자로 아이디를 회원가입하여도 소문자로 바꾸어 처리
 	public String getMemberPw() { return memberPw; }
 	public void setMemberPw(String memberPw) { this.memberPw = memberPw; }
 	public String getMemberName() { return memberName; }
@@ -32,15 +32,15 @@ public class Member1 {
 		return pwReplace.replace(1, pwReplace.length(), "**********"); // 글자수대로 *을 출력하면 오히려 비밀번호 글자수에 대한 데이터가 노출되기 때문에 *개수를 고정으로 출력
 		// return pwReplace.replace(1, pwReplace.length(), "*".repeat(pwReplace.length() - 1)); // 이 방법은 글자수만큼 *을 출력
 	}
-	public boolean isId() {
+	public boolean isValidId() {
 		String regexId = "^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{8,20}$"; // 대소문자 구분없이 입력받음
 		return this.memberId.matches(regexId);
 	}
-	public boolean isPw() {
+	public boolean isValidPw() {
 		String regexPw = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,15}$";
 		return this.memberPw.matches(regexPw);
 	}
-	public boolean isName() {
+	public boolean isValidName() {
 		String regexName = "^[가-힣]{2,7}$";
 		return this.memberName.matches(regexName);
 	}
