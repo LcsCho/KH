@@ -17,7 +17,7 @@ public class Member1 {
 	public void setMemberPw(String memberPw) { this.memberPw = memberPw; }
 	public String getMemberName() { return memberName; }
 	public void setMemberName(String memberName) {
-		if (memberName == "관리자" || memberName == "우수회원" || memberName == "일반회원") return;
+		if (memberName.equals("관리자") || memberName.equals("우수회원") || memberName.equals("일반회원")) return;
 		this.memberName = memberName;
 	}
 	public String getMemberLevel() { return memberLevel; }
@@ -33,15 +33,15 @@ public class Member1 {
 	}
 	public boolean isId() {
 		String regexId = "^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{8,20}$"; // 대소문자 구분없이 입력받음
-		return this.memberId.matches(regexId) ? true : false;
+		return this.memberId.matches(regexId);
 	}
 	public boolean isPw() {
 		String regexPw = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,15}$";
-		return this.memberPw.matches(regexPw) ? true : false;
+		return this.memberPw.matches(regexPw);
 	}
 	public boolean isName() {
 		String regexName = "^[가-힣]{2,7}$";
-		return this.memberName.matches(regexName) ? true : false;
+		return this.memberName.matches(regexName);
 	}
 	public void showTrue() {
 		System.out.println("<회원 정보>");
