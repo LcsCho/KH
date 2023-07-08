@@ -1,6 +1,5 @@
 package api.lang.string;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test08 {

@@ -35,5 +35,6 @@ public class Test07 {
 			else System.out.println("오류! 아이디, 비밀번호, 이름 중 잘못 입력하였습니다. 처음부터 다시 입력해주세요!");
 			
 		}
+		sc.close();
 	}
 }
