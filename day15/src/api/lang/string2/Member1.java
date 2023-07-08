@@ -29,7 +29,8 @@ public class Member1 {
 	}
 	public StringBuffer getReplacePw() {
 		StringBuffer pwReplace = new StringBuffer(this.getMemberPw());
-		return pwReplace.replace(1, pwReplace.length(), "**********"); // 글자수대로 *을 출력하면 오히려 비밀번호 글자수에 대한 데이터가 노출되어 *을 개수를 고정으로 출력
+		return pwReplace.replace(1, pwReplace.length(), "**********"); // 글자수대로 *을 출력하면 오히려 비밀번호 글자수에 대한 데이터가 노출되기 때문에 *개수를 고정으로 출력
+		// return pwReplace.replace(1, pwReplace.length(), "*".repeat(pwReplace.length() - 1)); // 이 방법은 글자수만큼 *을 출력
 	}
 	public boolean isId() {
 		String regexId = "^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]{8,20}$"; // 대소문자 구분없이 입력받음
