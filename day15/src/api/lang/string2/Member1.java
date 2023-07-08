@@ -27,7 +27,7 @@ public class Member1 {
 		if (memberPoint < 0) return; 
 		this.memberPoint = memberPoint;
 	}
-	public StringBuffer getReplacePW() {
+	public StringBuffer getReplacePw() {
 		StringBuffer pwReplace = new StringBuffer(this.getMemberPw());
 		return pwReplace.replace(1, pwReplace.length(), "**********"); // 글자수대로 *을 출력하면 오히려 비밀번호 글자수에 대한 데이터가 노출되어 *을 개수를 고정으로 출력
 	}
@@ -46,7 +46,7 @@ public class Member1 {
 	public void showTrue() {
 		System.out.println("<회원 정보>");
 		System.out.println("회원 아이디: " + this.getMemberId());
-		System.out.println("회원 비밀번호: " + this.getReplacePW());
+		System.out.println("회원 비밀번호: " + this.getReplacePw());
 		System.out.println("회원 이름: " + this.getMemberName());
 		System.out.println("회원 레벨: " + this.getMemberLevel());
 		System.out.println("회원 포인트: " + this.getMemberPoint());
