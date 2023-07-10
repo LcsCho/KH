@@ -12,9 +12,7 @@ public class Member1 {
 		this.setMemberLevel(memberLevel);
 		this.setMemberPoint(100);
 	}
-	public Member1(String memberId, String memberPw, String memberName) {
-		this(memberId, memberPw, memberName, "일반회원");
-	}
+	public Member1(String memberId, String memberPw, String memberName) { this(memberId, memberPw, memberName, "일반회원"); }
 	
 	public String getMemberId() { return memberId; } 
 	// setMemberId() 메서드 생성 불가
