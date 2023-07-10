@@ -21,7 +21,11 @@ public class Test04 {
 			System.out.println("1인당 내야할 금액은 " + price + "원 입니다.");
 			System.out.println(remain + "원은 저희가 지원해 드려요!");
 		} 
-		catch (RuntimeException e){ // 플랜 B. 입력을 잘못 했을 때
+		// catch (RuntimeException e){ 
+		 catch (Exception e){ // 필살기 예외처리 
+		// catch (Throwable e){ // 예외의 할아버지
+		// catch (Object e){ // error
+			// 플랜B. 입력을 잘못했을 때
 			System.err.println("프로그램 오류 발생");
 		}
 	}
