@@ -2,7 +2,7 @@ package api.lang.string2;
 
 import java.util.Scanner;
 
-public class Test7_1 {
+public class Test07_1 {
     public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String memberId = null, memberPw = null, memberName = null;
