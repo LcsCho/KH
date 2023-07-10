@@ -41,19 +41,22 @@ public class Test7_1 {
                 }
             }
 		}
-		Member1 m1 = new Member1(memberId, memberPw, memberName);
+		
 		// 객체에 이미 memberLevel에 대한 필터링이 존재하기 때문에 잘못된 값을 입력받아도 일반회원으로 출력되기 때문에 main에서 필터링을 하지 않았음.
 		System.out.println("추가로 회원등급을 입력하고 싶으면 <y, Y> 중 하나를 눌러주세요. 원하시지 않으면 아무키나 입력해주세요.");
 		String choice = sc.next();
-		 
+
 		if (choice.equals("y") || choice.equals("Y")) {
 			System.out.println("<일반회원(기본값), 우수회원, 관리자> 중 하나를 입력하세요.");
 			String memberLevel = sc.next();
 			sc.close();
-			Member1 m2 = new Member1(memberId, memberPw, memberName, memberLevel);
-			m2.displayMemberInfo();
+			Member1 m = new Member1(memberId, memberPw, memberName, memberLevel);
+			m.displayMemberInfo();
 		}
-		else m1.displayMemberInfo();
+		else { 
+			Member1 m = new Member1(memberId, memberPw, memberName);
+			m.displayMemberInfo();
+		}
 					
 	}
 }

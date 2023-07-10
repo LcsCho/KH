@@ -1,11 +1,12 @@
 package api.lang.string2;
 
 public class Member1 {
-	private String memberId, memberPw, memberName, memberLevel;
+	private final String memberId; // 아이디는 불변이므로 한 번만 저장
+	private String memberPw, memberName, memberLevel;
 	private int memberPoint;
 	
 	public Member1(String memberId, String memberPw, String memberName, String memberLevel) {
-		this.setMemberId(memberId);
+		this.memberId = memberId.toLowerCase();
 		this.setMemberPw(memberPw);
 		this.setMemberName(memberName);
 		this.setMemberLevel(memberLevel);
@@ -16,7 +17,7 @@ public class Member1 {
 	}
 	
 	public String getMemberId() { return memberId; } 
-	public void setMemberId(String memberId) { this.memberId = memberId.toLowerCase(); } // 대문자로 아이디를 회원가입하여도 소문자로 바꾸어 처리
+	// setMemberId() 메서드 생성 불가
 	public String getMemberPw() { return memberPw; }
 	public void setMemberPw(String memberPw) { this.memberPw = memberPw; }
 	public String getMemberName() { return memberName; }
