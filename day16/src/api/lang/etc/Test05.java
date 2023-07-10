@@ -21,7 +21,7 @@ public class Test05 {
 		
 		// int와 Integer는 무슨 차이가 있는가?
 		// - 10 + 20을 각각의 방식으로 계산
-		// - 123을 각각의 방식으로 16진수로 변환하여 출력
+		// - 123을 각각의 방식으로 2진수로 변환하여 출력
 		
 		int v1 = 10, v2 = 20;
 		int v3 = v1 + v2;
@@ -31,5 +31,29 @@ public class Test05 {
 		Integer w2 = Integer.valueOf(20);
 		Integer w3 = Integer.sum(w1, w2);
 		System.out.println("w3 = " + w3);
+		
+		StringBuffer buffer = new StringBuffer();
+		
+		int x = 123;
+		
+		for (int i = x; i > 0; i /= 2) {
+			System.out.println("i = " + i + ", 나머지 = " + i % 2);
+			buffer.insert(0, i % 2);
+		}
+		System.out.println("x = " + buffer.toString());
+		
+		
+		Integer y = Integer.valueOf(123);
+		System.out.println(Integer.toBinaryString(y));
+		
+		// int와 Integer는 호환이 된다.
+		Integer z = 10 + 20; // int -> Integer(참조형): auto-boxing
+		int p = z; // Integer(참조형) -> int(원시형): auto-unboxing
+		
+		// int와 Integer의 결정적인 차이
+		// = null(참조 대상이 없음)
+		
+		// int q1 = null; // error
+		Integer q2 = null; // ok
 	}
 }
