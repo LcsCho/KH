@@ -1,6 +1,5 @@
 package api.exception;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Test04 {
