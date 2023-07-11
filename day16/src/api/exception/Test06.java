@@ -22,7 +22,6 @@ public class Test06 {
 			if (month < 1 || month > 12) {
 				throw new Exception("월을 01~12로 입력하세요.\n");
 			}
-			
 			int day = Integer.parseInt(birth.substring(8, 10));
 			boolean isFuture = now.getYear() <= year && now.getMonthValue() <= month && now.getDayOfMonth() < day;
 			if (isFuture) {
