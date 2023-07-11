@@ -8,7 +8,13 @@ public class Test06 {
 	public static void main(String[] args) {
 		Calendar c = Calendar.getInstance();
 		
-		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH) + 100);
+		int d_day = 100;
+		
+		// 계산
+		// int day = c.get(Calendar.DATE);
+		// c.set(Calendar.DATE, day + d_day - 1);
+		
+		c.add(Calendar.DATE, d_day - 1);
 		
 		Date d = c.getTime();
 		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd E");
