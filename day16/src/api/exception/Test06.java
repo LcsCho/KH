@@ -17,7 +17,7 @@ public class Test06 {
 			if (year < 1900) {
 				throw new Exception("연도를 1900보다 크게 입력하세요.\n");
 			}
-			
+
 			int month = Integer.parseInt(birth.substring(5, 7));
 			if (month < 1 || month > 12) {
 				throw new Exception("월을 01~12로 입력하세요.\n");
@@ -28,9 +28,10 @@ public class Test06 {
 				throw new Exception("현재 이전의 날짜만 입력하세요.\n");
 			}
 			boolean isAgeMinus = now.getMonthValue() <= month && now.getDayOfMonth() < day;
-			
+
 			int age = now.getYear() - year; {
-				if (isAgeMinus) age--;
+				if (isAgeMinus)
+					age--;
 			}
 			System.out.println("만나이: " + age);
 
