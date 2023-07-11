@@ -6,6 +6,7 @@ public class Test04 {
 	public static void main(String[] args) {
 		// Calendar의 장점
 		// = 1900년이 기준이 아니기 때문에 일반적인 연도 설정 가능
+		// = 범위를 벗어나도 자동으로 가능한 값으로 변환된다(계산 특화)
 
 		Calendar c = Calendar.getInstance();
 
@@ -14,7 +15,9 @@ public class Test04 {
 		// c.set(Calendar.MONTH, 0); // 1월이 0부터 시작(주의)
 		// c.set(Calendar.DATE, 1);
 		// c.set(2000, 0, 1);
-		c.set(2000, 0, 100);
+		// c.set(2000, 0, 100);
+		// c.set(2000, 0, 0);
+		c.set(2000, 30, 1);
 
 		// 항목별로 추출하여 출력
 		int year = c.get(Calendar.YEAR);
