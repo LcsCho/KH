@@ -10,5 +10,8 @@ public class Test03 {
 		
 		// 사용자(클라이언트)
 		Random r = new Random();
+		r.setSeed(1L);
+		int otp = r.nextInt(1000000) + 0;
+		System.out.println("클라이언트 = " + otp);
 	}
 }

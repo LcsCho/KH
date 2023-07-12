@@ -10,5 +10,8 @@ public class Test02 {
 		
 		// 서버
 		Random r = new Random();
+		r.setSeed(1L);
+		int otp = r.nextInt(1000000) + 0;
+		System.out.println("서버 = " + otp);
 	}
 }
