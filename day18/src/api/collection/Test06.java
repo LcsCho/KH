@@ -10,12 +10,12 @@ public class Test06 {
 		String word = "자바";
 		list.add(word);
 
+		final String regex = "^[가-힣]{2,6}$";
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			System.out.println("제시어: " + word);
 			System.out.print("단어를 입력: ");
 			String input = sc.next();
-			String regex = "^[가-힣]{2,6}$";
 
 			boolean isCorrect = word.charAt(word.length() - 1) == input.charAt(0);
 			boolean isMatch = input.matches(regex);
