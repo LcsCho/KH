@@ -1,5 +1,7 @@
 package api.util.random;
 
+import java.util.Random;
+
 public class Test03 {
 	public static void main(String[] args) {
 		// 시드를 제어하여 랜덤을 조작하는 프로그램
