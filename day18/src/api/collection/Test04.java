@@ -1,7 +1,6 @@
 package api.collection;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class Test04 {
@@ -18,7 +17,7 @@ public class Test04 {
 			}
 		}
 		System.out.println(lotto);
-//		Collections.sort(lotto);
-//		System.out.println(lotto);
+		lotto.sort(null);
+		System.out.println(lotto);
 	}
 }
