@@ -23,7 +23,8 @@ public class Test06 {
 			if (isCorrect && isMatch) {
 				wordList.add(inputWord);
 				currentWord = inputWord;
-			} else {
+			} 
+			else {
 				sc.close();
 				break;
 			}
