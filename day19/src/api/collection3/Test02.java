@@ -20,10 +20,11 @@ public class Test02 {
 		
 		System.out.print("비밀번호 입력: ");
 		String pw = sc.next();
-		
+		sc.close();
 		if (map.get(id).equals(pw)) 
 			System.out.println("로그인 성공");
 		else
 			System.out.println("로그인 실패");
+		
 	}
 }
