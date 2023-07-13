@@ -12,7 +12,7 @@ public class Test02 {
 
 		while (lotto.size() < 6) {
 			int num = r.nextInt(45) + 1;
-			
+
 			if (!lotto.contains(num)) {
 				lotto.add(num);
 			}
