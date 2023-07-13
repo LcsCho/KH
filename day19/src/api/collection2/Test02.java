@@ -6,16 +6,14 @@ import java.util.TreeSet;
 
 public class Test02 {
 	public static void main(String[] args) {
+		// Set<Integer> lotto = new HashSet<>();
 		Set<Integer> lotto = new TreeSet<>();
 
 		Random r = new Random();
 
 		while (lotto.size() < 6) {
 			int num = r.nextInt(45) + 1;
-
-			if (!lotto.contains(num)) {
-				lotto.add(num);
-			}
+			lotto.add(num);
 		}
 		System.out.println(lotto);
 	}

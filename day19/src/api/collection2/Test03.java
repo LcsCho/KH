@@ -1,12 +1,13 @@
 package api.collection2;
 
-import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Test03 {
 	public static void main(String[] args) {
-		Set<Integer> feed = new HashSet<>();
+		// Set<Integer> feed = new HashSet<>();
+		Set<Integer> feed = new TreeSet<>();
 
 		Scanner sc = new Scanner(System.in);
 
