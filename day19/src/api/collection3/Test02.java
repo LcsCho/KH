@@ -16,10 +16,10 @@ public class Test02 {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("아이디 입력: ");
-		String id = sc.next();
+		String id = sc.nextLine();
 		
 		System.out.print("비밀번호 입력: ");
-		String pw = sc.next();
+		String pw = sc.nextLine();
 		sc.close();
 		if (map.containsKey(id) && pw.equals(map.get(id))) // 올바른 식
 			System.out.println("로그인 성공");
