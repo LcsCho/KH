@@ -21,7 +21,7 @@ public class Test02 {
 		System.out.print("비밀번호 입력: ");
 		String pw = sc.next();
 		sc.close();
-		if (map.containsKey(id) && pw.equals(map.get(id))) 
+		if (map.containsKey(id) && pw.equals(map.get(id))) // 올바른 식
 			System.out.println("로그인 성공");
 		else
 			System.out.println("로그인 실패");
