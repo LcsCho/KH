@@ -11,24 +11,23 @@ public class Test02 {
 		String path = sc.nextLine();
 		sc.close();
 		File file = new File(path);
-		if (file.exists()) {
+
+		if (file.isFile()) {
+			System.out.println("<파일 정보>");
 			String fileName = file.getName();
 			String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
+			System.out.println("파일명: " + fileName);
+			System.out.println("파일의 유형: " + extension);
+			System.out.println("파일의 크기: " + file.length());
+		} else if (file.isDirectory()) {
+			System.out.println("디렉터리");
+			File[] files = file.listFiles();
 
-			if (file.isFile()) {
-				System.out.println("파일명: " + fileName);
-				System.out.println("파일의 유형: " + extension);
-				System.out.println("파일의 크기: " + file.length());
-
-			} else if (file.isDirectory()) {
-				File[] files = file.listFiles();
-
-				for (File f : files) {
-					if (f.isFile())
-						System.out.println(f + " [파일]");
-					else if (f.isDirectory())
-						System.out.println(f + " [폴더]");
-				}
+			for (File f : files) {
+				if (f.isFile())
+					System.out.println(f.getName() + " [파일]");
+				else if (f.isDirectory())
+					System.out.println(f.getName() + " [폴더]");
 			}
 		} else
 			System.out.println("존재하지 않는 파일 또는 폴더");
