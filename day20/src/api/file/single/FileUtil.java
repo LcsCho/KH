@@ -3,12 +3,13 @@ package api.file.single;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileUtil {
 	// 파일 복사 메서드
-	public static void copy(File readTarget, File writeTarget) {
-		FileInputStream input = new FileInputStream(target);
-		FileOutputStream output = new FileOutputStream(copy);
+	public static void copy(File readTarget, File writeTarget) throws IOException {
+		FileInputStream input = new FileInputStream(readTarget);
+		FileOutputStream output = new FileOutputStream(writeTarget);
 		
 		while (true) {
 			int a = input.read();
