@@ -18,7 +18,6 @@ public class Test01 {
 		// File 클래스 객체 생성
 		File a = new File("C:\\Temp\\test.txt");
 		File b = new File("C:\\Temp", "test.txt");
-		File c = new File("c:\\Temp\\test");
 		
 		// 파일 정보 분석
 		System.out.println(a.exists());
@@ -27,13 +26,28 @@ public class Test01 {
 		System.out.println(a.isDirectory());
 		System.out.println(a.isFile());
 		
-		System.out.println(c.isDirectory());
-		
 		if (a.isFile()) {
 			System.out.println(a.getName()); // 파일 이름
 			System.out.println(a.getPath()); // 파일 경로
 			System.out.println(a.length()); // 파일의 크기(=들어있는 글자의 개수)
 			System.out.println(a.lastModified()); // 최종 수정시각
+		}
+		
+		// 디렉터리도 File 클래스로 제어한다.
+		File c = new File("C:\\Temp\\test");
+		
+		if (c.isDirectory()) {
+			System.out.println(c.getName());
+			System.out.println(c.getPath());
+			System.out.println(c.length()); // (주의) 디렉터리의 크기는 의미가 없다.
+			
+			// 디렉터리는 내부에 존재하는 요소들을 추출할 수 있다.
+			String[] names = c.list(); // 이름만 추출
+			File[] files = c.listFiles(); // 파일 객체를 추출
+			
+			for (File file : files) {
+				System.out.println(file);
+			}
 		}
 	}
 }
