@@ -10,5 +10,26 @@ public class Test02 {
 		
 		// List<String> list = new LinkedList<>();
 		Queue<String> queue = new LinkedList<>();
+		
+		// 추가
+		queue.offer("홍길동");
+		queue.offer("임꺽정");
+		queue.offer("허준");
+		queue.offer("장보고");
+		
+		// 확인
+		System.out.println(queue.peek());
+		
+		queue.poll(); // 내보내라!
+		System.out.println(queue.peek());
+		
+		queue.poll(); // 내보내라!
+		System.out.println(queue.peek());
+		
+		queue.poll(); // 내보내라!
+		System.out.println(queue.peek());
+		
+		queue.poll(); // 내보내라!
+		System.out.println(queue.peek());
 	}
 }
