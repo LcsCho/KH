@@ -20,6 +20,7 @@ public class Test01 {
 		File b = new File("C:\\Temp", "test.txt");
 		File c = new File("c:\\Temp\\test");
 		
+		
 		// 파일 정보 분석
 		System.out.println(a.exists());
 		System.out.println(b.exists());
