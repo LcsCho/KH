@@ -20,7 +20,6 @@ public class Test01 {
 		File b = new File("C:\\Temp", "test.txt");
 		File c = new File("c:\\Temp\\test");
 		
-		
 		// 파일 정보 분석
 		System.out.println(a.exists());
 		System.out.println(b.exists());
@@ -36,6 +35,5 @@ public class Test01 {
 			System.out.println(a.length()); // 파일의 크기(=들어있는 글자의 개수)
 			System.out.println(a.lastModified()); // 최종 수정시각
 		}
-		
 	}
 }
