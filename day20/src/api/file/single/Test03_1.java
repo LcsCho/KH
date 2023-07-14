@@ -9,7 +9,7 @@ import java.nio.channels.FileChannel;
 public class Test03_1 {
     public static void main(String[] args) throws IOException {
         File input = new File("C:/Temp/origin.txt");
-        File output = new File("./sample/copy3.txt");
+        File output = new File("./sample/copy.txt");
 
         FileInputStream inputStream = new FileInputStream(input);
         FileOutputStream outputStream = new FileOutputStream(output);
