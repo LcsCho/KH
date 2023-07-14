@@ -1,5 +1,7 @@
 package api.file;
 
+import java.io.File;
+
 public class Test01 {
 	public static void main(String[] args) {
 		// 파일(File) 제어
@@ -10,5 +12,29 @@ public class Test01 {
 		// 						디렉터리(directory)라고 부름
 		//						크기가 없음 (내부 파일의 합계)
 		// - 자바에서 파일과 폴더는 어떻게 처리하는가?
+		//						java.io 패키지(블로킹 방식)
+		//						java.nio 패키지(논블로킹 방식)
+		
+		// File 클래스 객체 생성
+		File a = new File("C:\\Temp\\test.txt");
+		File b = new File("C:\\Temp", "test.txt");
+		File c = new File("c:\\Temp\\test");
+		
+		// 파일 정보 분석
+		System.out.println(a.exists());
+		System.out.println(b.exists());
+		
+		System.out.println(a.isDirectory());
+		System.out.println(a.isFile());
+		
+		System.out.println(c.isDirectory());
+		
+		if (a.isFile()) {
+			System.out.println(a.getName()); // 파일 이름
+			System.out.println(a.getPath()); // 파일 경로
+			System.out.println(a.length()); // 파일의 크기(=들어있는 글자의 개수)
+			System.out.println(a.lastModified()); // 최종 수정시각
+		}
+		
 	}
 }
