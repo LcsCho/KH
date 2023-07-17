@@ -1,12 +1,10 @@
 package api.file.object;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
