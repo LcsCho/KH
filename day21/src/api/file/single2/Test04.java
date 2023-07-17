@@ -10,7 +10,7 @@ public class Test04 {
 		// File target = new File("C:/Temp/origin.txt");
 		// target.delete();
 		
-		FIle target = new File("C:/Temp/origin.txt");
+		File target = new File("C:/Temp/origin.txt");
 		// target.delete()
 		
 		FileUtil.delete(target);
