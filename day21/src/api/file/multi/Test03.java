@@ -5,7 +5,6 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.DecimalFormat;
 
 public class Test03 {
 	public static void main(String[] args) throws IOException {
