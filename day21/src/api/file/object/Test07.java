@@ -36,15 +36,18 @@ public class Test07 {
 			ObjectOutputStream outObj = new ObjectOutputStream(outBuffer);
 
 			while (true) {
-				System.out.print("입력(1-정보출력/2-레벨업/3-종료)");
+				System.out.print("입력(1-정보출력/2-레벨업/3-소지금 추가/4-종료)");
 				int num = sc.nextInt();
-				if (num == 3) {
+				if (num == 4) {
 					sc.close();
 					break;
 				} else if (num == 1) {
 					p.show();
 				} else if (num == 2) {
 					p.setLvUp();
+				}
+				else if (num == 3) {
+					
 				}
 			}
 			outObj.writeObject(p);

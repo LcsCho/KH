@@ -10,6 +10,7 @@ public class Player implements Serializable {
 		return money;
 	}
 	public void setMoney(int money) {
+		if (money < 0) return;
 		this.money = money;
 	}
 	public String getId() {
@@ -21,10 +22,18 @@ public class Player implements Serializable {
 	public int getLv() {
 		return lv;
 	}
-	public Player(String id) {
+	public Player(String id, int lv, int money) {
 		this.setId(id);
 		this.setLv(1);
-		this.setMoney(0);
+		this.setMoney(money);
+	}
+	
+	public Player(String id, int money) {
+		this(id, 1, money);
+	}
+	
+	public Player(String id) {
+		this(id, 1, 0);
 	}
 	
 	public void setLv(int lv) {
@@ -35,6 +44,10 @@ public class Player implements Serializable {
 	public void setLvUp() {
 		this.lv++;
 		System.out.println("레벨이 1 증가했습니다!");
+	}
+	
+	public void setMoneyPlus() {
+		this.money += 1000;
 	}
 	
 	public void show() {
