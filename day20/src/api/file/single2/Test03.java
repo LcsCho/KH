@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class Test03 {
 	public static void main(String[] args) throws IOException {
@@ -18,8 +19,6 @@ public class Test03 {
 
 		long start = System.currentTimeMillis();
 		
-		long count = 0L; // 옮긴 글자수
-		long total = readTarget.length(); // 전체 옮길 글자수
 
 		while (true) {
 			int size = readStream.read(buffer);
