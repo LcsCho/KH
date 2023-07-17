@@ -19,7 +19,6 @@ public class Test03 {
 
 		long start = System.currentTimeMillis();
 		
-
 		while (true) {
 			int size = readStream.read(buffer);
 			if (size == -1)
