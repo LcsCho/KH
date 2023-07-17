@@ -17,6 +17,9 @@ public class Test03 {
 		FileOutputStream writeStream = new FileOutputStream(writeTarget);
 
 		long start = System.currentTimeMillis();
+		
+		long count = 0L; // 옮긴 글자수
+		long total = readTarget.length(); // 전체 옮길 글자수
 
 		while (true) {
 			int size = readStream.read(buffer);
