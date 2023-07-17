@@ -5,13 +5,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Test02 {
 	public static void main(String[] args) throws IOException {
-		Set<Integer> lotto = new HashSet<>();
+		Set<Integer> lotto = new TreeSet<>();
 
 		File target = new File("sample/lotto.kh");
 		
