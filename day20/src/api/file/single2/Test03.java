@@ -14,7 +14,7 @@ public class Test03 {
 		File readTarget = new File("C:/Temp/origin.txt");
 		FileInputStream readStream = new FileInputStream(readTarget);
 
-		File writeTarget = new File("./sample/test3.txt");
+		File writeTarget = new File("./sample/test.txt");
 		FileOutputStream writeStream = new FileOutputStream(writeTarget);
 
 		long start = System.currentTimeMillis();
