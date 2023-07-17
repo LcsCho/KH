@@ -22,7 +22,7 @@ public class Test03 {
 			int size = readStream.read(buffer);
 			if (size == -1)
 				break;
-			writeStream.write(buffer);
+			writeStream.write(buffer, 0, size);
 		}
 
 		long end = System.currentTimeMillis();
