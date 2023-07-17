@@ -48,6 +48,7 @@ public class Player implements Serializable {
 	
 	public void setMoneyPlus() {
 		this.money += 1000;
+		System.out.println("1000 Gold를 획득하였습니다!");
 	}
 	
 	public void show() {
