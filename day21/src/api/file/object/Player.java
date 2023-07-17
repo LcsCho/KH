@@ -1,6 +1,7 @@
 package api.file.object;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 public class Player implements Serializable  {
 	private static final long serialVersionUID = 1L;

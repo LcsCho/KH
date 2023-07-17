@@ -10,24 +10,22 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class Test07 {
+public class Test07_1 {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		File target = new File("sample/player.kh");
-
+		Player player = null;
+		Scanner sc = new Scanner(System.in);
 		if (target.exists()) {
 			System.out.println("캐릭터를 불러옵니다.");
 			FileInputStream inStream = new FileInputStream(target);
 			BufferedInputStream inBuffer = new BufferedInputStream(inStream);
 			ObjectInputStream inObj = new ObjectInputStream(inBuffer);
-			Player player = (Player) inObj.readObject();
+
+			player = (Player) inObj.readObject();
 			inObj.close();
 			player.show();
-		}
-
-		else {
+		} else {
 			System.out.println("게임 시작!");
-
-			Scanner sc = new Scanner(System.in);
 			System.out.print("아이디를 설정하세요: ");
 			String id = sc.next();
 
@@ -42,34 +40,31 @@ public class Test07 {
 					sc.next();
 				}
 			}
-
-			Player p;
-			if (money >= 0)
-				p = new Player(id, money);
-			else
-				p = new Player(id);
-
-			FileOutputStream outStream = new FileOutputStream(target);
-			BufferedOutputStream outBuffer = new BufferedOutputStream(outStream);
-			ObjectOutputStream outObj = new ObjectOutputStream(outBuffer);
-
-			while (true) {
-				System.out.print("입력(1-정보출력/2-레벨업/3-Gold 획득/4-종료)");
-				int num = sc.nextInt();
-				if (num == 4) {
-					sc.close();
-					break;
-				} else if (num == 1) {
-					p.show();
-				} else if (num == 2) {
-					p.setLvUp();
-				} else if (num == 3) {
-					p.setMoneyPlus();
-				}
-			}
-			outObj.writeObject(p);
-			outObj.close();
+			if (money >= 0) player = new Player(id, money);
+			else player = new Player(id);
 		}
+		FileOutputStream outStream = new FileOutputStream(target);
+		BufferedOutputStream outBuffer = new BufferedOutputStream(outStream);
+		ObjectOutputStream outObj = new ObjectOutputStream(outBuffer);
 
+		while (true) {
+			System.out.println("<메뉴>");
+			System.out.print("입력(1-정보출력/2-레벨업/3-Gold 획득/4-종료): ");
+			int num = sc.nextInt();
+
+			if (num == 4) {
+				sc.close();
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			} else if (num == 1) {
+				player.show();
+			} else if (num == 2) {
+				player.setLvUp();
+			} else if (num == 3) {
+				player.setMoneyPlus();
+			}
+		}
+		outObj.writeObject(player);
+		outObj.close();
 	}
 }
