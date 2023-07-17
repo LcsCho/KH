@@ -29,8 +29,15 @@ public class Test07 {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("아이디를 설정하세요: ");
 			String id = sc.next();
-			Player p = new Player(id);
 
+			
+			System.out.print("소지금을 입력하세요: ");
+			int money = sc.nextInt();
+			
+			Player p;
+			if (money > 0) p = new Player(id, money);
+			else p = new Player(id);
+			
 			FileOutputStream outStream = new FileOutputStream(target);
 			BufferedOutputStream outBuffer = new BufferedOutputStream(outStream);
 			ObjectOutputStream outObj = new ObjectOutputStream(outBuffer);
