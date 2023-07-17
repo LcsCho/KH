@@ -53,6 +53,7 @@ public class Player implements Serializable  {
 	}
 	
 	public void show() {
+		System.out.println("<캐릭터 정보>");
 		System.out.println("아이디: " + this.getId());
 		System.out.println("레벨: " + this.getLv());
 		System.out.println("소지금: " + this.getMoney() + " gold");
