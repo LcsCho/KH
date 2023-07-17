@@ -30,9 +30,17 @@ public class Test07 {
 			System.out.print("아이디를 설정하세요: ");
 			String id = sc.next();
 
-	
-			System.out.print("소지금을 입력하세요: ");
-			int money = sc.nextInt();
+			int money = 0;
+			while (true) {
+				try {
+					System.out.print("소지금을 입력하세요: ");
+					money = sc.nextInt();
+					break;
+				} catch (Exception e) {
+					System.out.println("형식에 맞게 정수를 입력하세요");
+					sc.next();
+				}
+			}
 
 			Player p;
 			if (money > 0)
