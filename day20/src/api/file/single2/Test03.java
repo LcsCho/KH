@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Test03 {
 	public static void main(String[] args) throws IOException {
 
-		byte[] buffer = new byte[1024];
+		byte[] buffer = new byte[4096];
 
 		File readTarget = new File("C:/Temp/origin.txt");
 		FileInputStream readStream = new FileInputStream(readTarget);
@@ -27,7 +27,7 @@ public class Test03 {
 
 		long end = System.currentTimeMillis();
 
-		System.out.println("실행시간 " + (end - start) + "ms");
+		System.out.println("실행시간: " + (end - start) + "ms");
 		readStream.close();
 		writeStream.close();
 	}
