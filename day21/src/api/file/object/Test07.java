@@ -45,9 +45,8 @@ public class Test07 {
 					p.show();
 				} else if (num == 2) {
 					p.setLvUp();
-				}
-				else if (num == 3) {
-					
+				} else if (num == 3) {
+
 				}
 			}
 			outObj.writeObject(p);
