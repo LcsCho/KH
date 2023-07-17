@@ -43,7 +43,7 @@ public class Test07 {
 			}
 
 			Player p;
-			if (money > 0)
+			if (money >= 0)
 				p = new Player(id, money);
 			else
 				p = new Player(id);
