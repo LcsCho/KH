@@ -6,7 +6,7 @@ CREATE TABLE pocketmon(
 );
 -- 문제2: 월드컵 정보
 CREATE TABLE worldcup(
-	grade number(,
+	grade number,
 	name varchar2(34),
 	nation varchar2(54),
 	goal number
