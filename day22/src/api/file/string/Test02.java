@@ -29,7 +29,5 @@ public class Test02 {
 		// 정리
 //		bw.flush()
 		bw.close();
-		
-		
 	}
 }

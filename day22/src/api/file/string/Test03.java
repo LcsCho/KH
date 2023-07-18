@@ -11,7 +11,6 @@ public class Test03 {
 		Scanner sc = new Scanner(System.in);
 		File directory = new File("sample");
 		directory.mkdirs();
-
 		File target = new File("sample/note.kh");
 
 		FileWriter fw = new FileWriter(target);

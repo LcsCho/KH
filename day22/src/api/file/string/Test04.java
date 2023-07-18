@@ -15,7 +15,6 @@ public class Test04 {
 		FileReader fr = new FileReader(target);
 		
 		BufferedReader br = new BufferedReader(fr);
-		
 		while (true) {
 			String line = br.readLine();
 			if(line == null) break;
