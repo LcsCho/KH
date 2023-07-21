@@ -14,5 +14,6 @@ public class Test01 {
 		
 		// DB가 어떤건지... 계정은 뭔지... 비밀번호는 뭔지.. 정보가 없다.
 		// 통신을 내가 구현할 것이 아니라면 도구를 찾아야 한다.
+		// 프로젝트 우클릭 -> Build path -> Configure build path -> Libraries에 등록
 	}
 }
