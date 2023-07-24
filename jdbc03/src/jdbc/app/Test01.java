@@ -1,5 +1,7 @@
 package jdbc.app;
 
+import jdbc.dao.PokemonDao;
+
 public class Test01 {
 	public static void main(String[] args) {
 		// 포켓몬스터 등록
