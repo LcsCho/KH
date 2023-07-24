@@ -26,6 +26,10 @@ public class PokemonDto {
 		this.type = type;
 	}
 	private String type;
+	@Override
+	public String toString() {
+		return "PokemonDto [no=" + no + ", name=" + name + ", type=" + type + "]";
+	}
 	
 	// 기본생성자와 setter/getter 메서드를 추가, toString() 재정의
 }

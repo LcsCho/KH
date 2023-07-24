@@ -26,7 +26,7 @@ public class PokemonMapper implements RowMapper<PokemonDto>{
 		dto.setName(rs.getString("name"));
 //		dto.setType(rs의 type 컬럼에 있는 값);
 		dto.setType(rs.getString("type"));
+		
 		return dto;
 	}
-	
 }
