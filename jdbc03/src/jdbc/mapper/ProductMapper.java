@@ -13,7 +13,6 @@ public class ProductMapper implements RowMapper<ProductDto>{
 	public ProductDto mapRow(ResultSet rs, int idx) throws SQLException {
 		// rs에 내용을 ProductDto에 옮겨담는 코드를 작성
 		ProductDto dto = new ProductDto();
-		dto.setNo(rs.getInt("no"));
 		dto.setName(rs.getString("name"));
 		dto.setType(rs.getString("type"));
 		dto.setPrice(rs.getInt("price"));

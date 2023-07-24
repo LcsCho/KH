@@ -2,6 +2,7 @@ package jdbc.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import jdbc.dto.PokemonDto;
 import jdbc.util.JdbcUtils;
 
 // DAO 클래스
@@ -16,6 +17,15 @@ public class PokemonDao {
 				+ "values(?, ?, ?)";
 		
 		Object[] data = {no, name, type};
+		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
+		jdbcTemplate.update(sql, data);
+	}
+
+	public void insert(PokemonDto dto) {
+		String sql = "insert into pokemon(no, name, type) "
+				+ "values(?, ?, ?)";
+		
+		Object[] data = {dto.getNo(), dto.getName(), dto.getType()};
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
 		jdbcTemplate.update(sql, data);
 	}

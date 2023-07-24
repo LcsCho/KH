@@ -4,23 +4,17 @@ import java.sql.Date;
 
 public class ProductDto {
 	// 필드는 조회결과와 동일하게 구현
-	private int no;
 	private String name;
 	private String type;
-	private int price;
-	@Override
-	public String toString() {
-		return "ProductDto [no=" + no + ", name=" + name + ", type=" + type + ", price=" + price + ", made=" + made
-				+ ", expire=" + expire + "]";
-	}
 	public ProductDto() {
 		super();
 	}
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
+	private int price;
+	private Date made;
+	private Date expire;
+	@Override
+	public String toString() {
+		return "ProductDto [name=" + name + ", type=" + type + ", price=" + price + "]";
 	}
 	public String getName() {
 		return name;
@@ -52,7 +46,5 @@ public class ProductDto {
 	public void setExpire(Date expire) {
 		this.expire = expire;
 	}
-	private Date made;
-	private Date expire;
 
 }

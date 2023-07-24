@@ -1,28 +1,15 @@
 package jdbc.dto;
 
-import java.sql.Date;
-
 public class BookDto {
-	private int book_id;
 	private String book_title;
 	private String book_author;
-	private Date book_publication_date;
+	private String book_publication_date;
 	private float book_price;
 	private String book_publisher;
 	private int book_page_count;
 	private String book_genre;
-	@Override
-	public String toString() {
-		return "BookDto [book_id=" + book_id + ", book_title=" + book_title + ", book_author=" + book_author
-				+ ", book_publication_date=" + book_publication_date + ", book_price=" + book_price
-				+ ", book_publisher=" + book_publisher + ", book_page_count=" + book_page_count + ", book_genre="
-				+ book_genre + "]";
-	}
-	public int getBook_id() {
-		return book_id;
-	}
-	public void setBook_id(int book_id) {
-		this.book_id = book_id;
+	public BookDto() {
+		super();
 	}
 	public String getBook_title() {
 		return book_title;
@@ -36,10 +23,10 @@ public class BookDto {
 	public void setBook_author(String book_author) {
 		this.book_author = book_author;
 	}
-	public Date getBook_publication_date() {
+	public String getBook_publication_date() {
 		return book_publication_date;
 	}
-	public void setBook_publication_date(Date book_publication_date) {
+	public void setBook_publication_date(String book_publication_date) {
 		this.book_publication_date = book_publication_date;
 	}
 	public float getBook_price() {
@@ -66,8 +53,11 @@ public class BookDto {
 	public void setBook_genre(String book_genre) {
 		this.book_genre = book_genre;
 	}
-	public BookDto() {
-		super();
+	@Override
+	public String toString() {
+		return "BookDto [book_title=" + book_title + ", book_author=" + book_author + ", book_publication_date="
+				+ book_publication_date + ", book_price=" + book_price + ", book_publisher=" + book_publisher
+				+ ", book_page_count=" + book_page_count + ", book_genre=" + book_genre + "]";
 	}
 
 

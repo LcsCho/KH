@@ -1,23 +1,16 @@
 package jdbc.dto;
 
-import java.sql.Date;
-
 public class MemberDto {
 	private String member_id;
 	private String member_pw;
 	private String member_nickname;
-	private Date member_birth;
+	private String member_birth;
 	private String member_email;
 	private String member_contact;
 	private String member_level;
 	private int member_point;
-	private Date member_join;
-	@Override
-	public String toString() {
-		return "MemberDto [member_id=" + member_id + ", member_pw=" + member_pw + ", member_nickname=" + member_nickname
-				+ ", member_birth=" + member_birth + ", member_email=" + member_email + ", member_contact="
-				+ member_contact + ", member_level=" + member_level + ", member_point=" + member_point
-				+ ", member_join=" + member_join + "]";
+	public MemberDto() {
+		super();
 	}
 	public String getMember_id() {
 		return member_id;
@@ -37,10 +30,10 @@ public class MemberDto {
 	public void setMember_nickname(String member_nickname) {
 		this.member_nickname = member_nickname;
 	}
-	public Date getMember_birth() {
+	public String getMember_birth() {
 		return member_birth;
 	}
-	public void setMember_birth(Date member_birth) {
+	public void setMember_birth(String member_birth) {
 		this.member_birth = member_birth;
 	}
 	public String getMember_email() {
@@ -67,13 +60,12 @@ public class MemberDto {
 	public void setMember_point(int member_point) {
 		this.member_point = member_point;
 	}
-	public Date getMember_join() {
-		return member_join;
+	@Override
+	public String toString() {
+		return "MemberDto [member_id=" + member_id + ", member_pw=" + member_pw + ", member_nickname=" + member_nickname
+				+ ", member_birth=" + member_birth + ", member_email=" + member_email + ", member_contact="
+				+ member_contact + ", member_level=" + member_level + ", member_point=" + member_point + "]";
 	}
-	public void setMember_join(Date member_join) {
-		this.member_join = member_join;
-	}
-	public MemberDto() {
-		super();
-	}
+
+
 }
