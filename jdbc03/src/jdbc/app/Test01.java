@@ -9,6 +9,10 @@ public class Test01 {
 		String name = "어쩌구";
 		String type = "저쩌구";
 		
+		// 처리
+		PokemonDao dao = new PokemonDao();
+		dao.insert(no, name, type);
 		
+		System.out.println("등록 완료!");
 	}
 }
