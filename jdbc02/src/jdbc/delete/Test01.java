@@ -10,7 +10,7 @@ public class Test01 {
 		// delete pokemon where no = ?
 		
 		// 데이터
-		int no = 5;
+		int no = 4;
 		
 		// DB처리
 		String sql = "delete pokemon where no = ?";
