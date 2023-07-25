@@ -12,6 +12,7 @@ public class BookMapper implements RowMapper<BookDto>{
 	@Override
 	public BookDto mapRow(ResultSet rs, int idx) throws SQLException {
 		BookDto dto = new BookDto();
+		dto.setBook_id(rs.getInt("book_id"));
 		dto.setBook_title(rs.getString("book_title"));
 		dto.setBook_author(rs.getString("book_author"));
 		dto.setBook_publication_date(rs.getString("book_publication_date"));

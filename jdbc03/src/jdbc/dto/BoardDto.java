@@ -1,6 +1,13 @@
 package jdbc.dto;
 
 public class BoardDto {
+	private int boardNo;
+	public int getBoardNo() {
+		return boardNo;
+	}
+	public void setBoardNo(int boardNo) {
+		this.boardNo = boardNo;
+	}
 	private String boardTitle;
 	private String boardContent;
 	private String boardWriter;
@@ -27,8 +34,8 @@ public class BoardDto {
 	}
 	@Override
 	public String toString() {
-		return "BoardDto [boardTitle=" + boardTitle + ", boardContent=" + boardContent + ", boardWriter=" + boardWriter
-				+ "]";
+		return "BoardDto [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
+				+ ", boardWriter=" + boardWriter + "]";
 	}
 
 }

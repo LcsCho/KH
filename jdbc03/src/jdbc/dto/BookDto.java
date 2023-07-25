@@ -1,10 +1,17 @@
 package jdbc.dto;
 
 public class BookDto {
+	private int book_id;
+	public int getBook_id() {
+		return book_id;
+	}
+	public void setBook_id(int book_id) {
+		this.book_id = book_id;
+	}
 	private String book_title;
 	private String book_author;
 	private String book_publication_date;
-	private float book_price;
+	private double book_price;
 	private String book_publisher;
 	private int book_page_count;
 	private String book_genre;
@@ -29,10 +36,10 @@ public class BookDto {
 	public void setBook_publication_date(String book_publication_date) {
 		this.book_publication_date = book_publication_date;
 	}
-	public float getBook_price() {
+	public double getBook_price() {
 		return book_price;
 	}
-	public void setBook_price(float book_price) {
+	public void setBook_price(double book_price) {
 		this.book_price = book_price;
 	}
 	public String getBook_publisher() {
@@ -55,9 +62,10 @@ public class BookDto {
 	}
 	@Override
 	public String toString() {
-		return "BookDto [book_title=" + book_title + ", book_author=" + book_author + ", book_publication_date="
-				+ book_publication_date + ", book_price=" + book_price + ", book_publisher=" + book_publisher
-				+ ", book_page_count=" + book_page_count + ", book_genre=" + book_genre + "]";
+		return "BookDto [book_id=" + book_id + ", book_title=" + book_title + ", book_author=" + book_author
+				+ ", book_publication_date=" + book_publication_date + ", book_price=" + book_price
+				+ ", book_publisher=" + book_publisher + ", book_page_count=" + book_page_count + ", book_genre="
+				+ book_genre + "]";
 	}
 
 
