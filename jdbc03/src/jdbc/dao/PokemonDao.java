@@ -47,5 +47,17 @@ public class PokemonDao {
 		
 		return result > 0;
 	}
+	
+	// D(삭제) 메서드
+	// - 삭제 메서드는 Primary Key(기본키)를 이용하여 하나씩 지운다
+	// - 조건에 따라서 삭제가 안될 수 있기 때문에 결과를 반환해야 한다.
+	
+	public boolean delete(int no) {
+		String sql = "delete pokemon where no = ?";
+		Object[] data = {no};
+		
+		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
+		return jdbcTemplate.update(sql, data) > 0;
+	}
 
 }
