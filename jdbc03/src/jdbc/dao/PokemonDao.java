@@ -21,6 +21,7 @@ public class PokemonDao {
 		jdbcTemplate.update(sql, data);
 	}
 
+	// 바람직한 형태의 등록 메서드
 	public void insert(PokemonDto dto) {
 		String sql = "insert into pokemon(no, name, type) "
 				+ "values(?, ?, ?)";
@@ -29,4 +30,22 @@ public class PokemonDao {
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
 		jdbcTemplate.update(sql, data);
 	}
+	// U(수정) 메서드
+	// - no를 이용해서 name과 type을 바꾼다.
+	// - 적용된 행이 있는지 없는지를 알아야 한다
+	public boolean update(PokemonDto dto) {
+		String sql = "update pokemon set name = ?, type = ? where no = ?";
+		Object[] data = {
+				dto.getName(), dto.getType(), dto.getNo()
+		};
+		
+		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
+		int result = jdbcTemplate.update(sql, data);
+		
+//		if (result > 0) return true;
+//		else return false;
+		
+		return result > 0;
+	}
+
 }
