@@ -22,5 +22,4 @@ public class BookMapper implements RowMapper<BookDto>{
 		dto.setBook_genre(rs.getString("book_genre"));
 		return dto;
 	}
-
 }

@@ -17,7 +17,8 @@ public class BookDao {
 	}
 
 	public boolean updateBookPrice(BookDto dto) {
-		String sql = "update book set book_price = ? " + "where book_id = ?";
+		String sql = "update book set book_price = ? " 
+	+ "where book_id = ?";
 		Object[] data = { dto.getBook_price(), dto.getBook_id() };
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
 		int result = jdbcTemplate.update(sql, data);
@@ -26,7 +27,8 @@ public class BookDao {
 	}
 
 	public boolean updateBookInfo(BookDto dto) {
-		String sql = "update book set book_title = ?, book_author = ?," + "book_publisher = ? where book_id = ?";
+		String sql = "update book set book_title = ?, book_author = ?," 
+	+ "book_publisher = ? where book_id = ?";
 		Object[] data = { dto.getBook_title(), dto.getBook_author(), dto.getBook_publisher(), dto.getBook_id() };
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
 		int result = jdbcTemplate.update(sql, data);
