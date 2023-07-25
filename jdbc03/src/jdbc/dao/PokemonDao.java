@@ -53,7 +53,7 @@ public class PokemonDao {
 	// - 조건에 따라서 삭제가 안될 수 있기 때문에 결과를 반환해야 한다.
 	
 	public boolean delete(int no) {
-		String sql = "delete pokemon where no = ?";
+		String sql = "delete from pokemon where no = ?";
 		Object[] data = {no};
 		
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
