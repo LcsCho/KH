@@ -7,7 +7,7 @@ public class Test12 {
 		// 포켓몬스터 삭제 프로그램
 		
 		// 데이터
-		int no = 11;
+		int no = 1;
 		
 		// DB 처리
 		PokemonDao dao = new PokemonDao();
