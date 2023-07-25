@@ -21,4 +21,31 @@ public class MemberDao {
 		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
 		jdbcTemplate.update(sql, data);
 	}
+	
+    // 비밀번호 변경 기능
+    // 1. 기존 비밀번호와 신규 비밀번호를 입력받아 검사 후 변경(권장하진 않음)
+    // 2. 임시 비밀번호 변경하는 기능
+    // 3. 아이디에 맞는 계정의 비밀번호를 변경하는 기능
+	
+	public boolean updateMemberPassword(MemberDto dto) {
+		String sql = "update member set member_pw = ? where member_id = ?";
+		Object[] data = {dto.getMember_pw(), dto.getMember_id()};
+		
+		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
+		int result = jdbcTemplate.update(sql, data);
+
+		return result > 0;
+	}
+	
+	public boolean updateMemberInfo(MemberDto dto) {
+		String sql = "update member set member_nickname = ?, member_contact = ?, member_email = ?, "
+				+ "member_birth = ? where member_id = ?";
+		Object[] data = {dto.getMember_nickname(), dto.getMember_contact(), dto.getMember_email(), 
+				dto.getMember_birth(), dto.getMember_id()};
+		
+		JdbcTemplate jdbcTemplate = JdbcUtils.getJdbcTemplate();
+		int result = jdbcTemplate.update(sql, data);
+
+		return result > 0;
+	}
 }
