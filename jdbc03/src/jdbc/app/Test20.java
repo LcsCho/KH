@@ -13,6 +13,7 @@ public class Test20 {
 		// 출력
 		if (dto == null) System.out.println("없는 번호의 책입니다.");
 		else {
+			System.out.println("<도서 정보>");
 			System.out.println(dto);
 		}
 	}
