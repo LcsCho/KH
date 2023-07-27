@@ -27,5 +27,4 @@ public class PokemonController {
 		jdbcTemplate.update(sql, data);
 		return "등록 완료";
 	}
-	
 }
