@@ -16,7 +16,7 @@ public class PokemonDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public void insert(PokemonDto dto) {
-		String sql = "insert into pokemon(no name, type)"
+		String sql = "insert into pokemon(no, name, type)"
 				+ "values(?, ?, ?)";
 		Object[] data = {
 				dto.getNo(), dto.getName(), dto.getType()
