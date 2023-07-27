@@ -23,4 +23,11 @@ public class PokemonDao {
 		};
 		jdbcTemplate.update(sql, data);
 	}
+	
+	public boolean update(PokemonDto dto) {
+		String sql = "update pokemon set name = ?, type = ?"
+				+ " where no = ?";
+		Object[] data = {dto.getName(), dto.getType(), dto.getNo()};
+		return jdbcTemplate.update(sql, data) > 0;
+	}
 }
