@@ -47,13 +47,13 @@ public class PokemonController {
 		}
 		return buffer.toString();
 	}
-	@RequestMapping("/selectOne")
+	@RequestMapping("/detail")
 	public String selectOne(@RequestParam int no) {
-
-		if (dao == null) return "없는 번호의 몬스터";
+		PokemonDto dto = dao.selectOne(no);
+		if (dto == null) return "없는 번호의 몬스터";
 		else {
 			StringBuffer buffer = new StringBuffer();
-			buffer.append(dao.selectOne(no));
+			buffer.append(dto);
 			return buffer.toString();
 		}
 	}
