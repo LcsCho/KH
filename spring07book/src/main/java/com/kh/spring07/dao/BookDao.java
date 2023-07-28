@@ -28,25 +28,21 @@ public class BookDao {
 		};
 		jdbcTemplate.update(sql, data);
 	}
-
 	public boolean update(BookDto dto) {
 		String sql = "update book set book_title = ?, book_author = ?"
 				+ "where book_id = ?";
 		Object[] data = {dto.getBookTitle(), dto.getBookAuthor(), dto.getBookId()};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
-
 	public boolean delete(int bookId) {
 		String sql = "delete from book where book_id = ?";
 		Object[] data = {bookId};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
-
 	public List<BookDto> selectList() {
 		String sql = "select * from book order by book_id";
 		return jdbcTemplate.query(sql, mapper);
 	}
-
 	public BookDto selectOne(int bookId) {
 		String sql = "select * from book where book_id = ?";
 		Object[] data = {bookId};
