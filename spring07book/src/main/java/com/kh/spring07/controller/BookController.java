@@ -52,6 +52,7 @@ public class BookController {
 		BookDto dto = dao.selectOne(bookId);
 		if (dto == null) return "없는 책";
 		else {
+//			return dto.toString();
 			StringBuffer buffer = new StringBuffer();
 			buffer.append(dto);
 			return buffer.toString();
