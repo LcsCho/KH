@@ -15,7 +15,7 @@ public class BookDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	private BookMapper bookMapper;
+	private BookMapper mapper;
 	
 	public void insert(BookDto dto) {
 		String sql = "insert into book(book_id, book_title, book_author,"
@@ -30,22 +30,27 @@ public class BookDao {
 	}
 
 	public boolean update(BookDto dto) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "update book set book_title = ?, book_author = ?"
+				+ "where book_id = ?";
+		Object[] data = {dto.getBookTitle(), dto.getBookAuthor(), dto.getBookId()};
+		return jdbcTemplate.update(sql, data) > 0;
 	}
 
 	public boolean delete(int bookId) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "delete from book where book_id = ?";
+		Object[] data = {bookId};
+		return jdbcTemplate.update(sql, data) > 0;
 	}
 
 	public List<BookDto> selectList() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from book order by book_id";
+		return jdbcTemplate.query(sql, mapper);
 	}
 
 	public BookDto selectOne(int bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from book where book_id = ?";
+		Object[] data = {bookId};
+		List<BookDto> list = jdbcTemplate.query(sql, mapper, data);
+		return list.isEmpty() ? null : list.get(0);
 	}
 }
