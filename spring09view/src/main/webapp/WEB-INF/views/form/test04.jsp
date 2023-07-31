@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>회원 가입</h1>
-	<form action="http://localhost:8080/join">
+	<form action="http://localhost:8080/member/join">
 		아이디: <input name="memberId"> <br><br> 
 		비밀번호: <input name="memberPw"> <br><br> 
 		닉네임: <input name="memberNickname"> <br><br>
