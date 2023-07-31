@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>도서 등록</title>
+</head>
+<body>
+	<h1>도서 등록</h1>
+	<form action="http://localhost:8080/save">
+		제목: <input name="bookTitle"> <br><br> 
+		작가: <input name="bookAuthor"> <br><br> 
+		출판일: <input name="bookPublicationDate"> <br><br>
+		가격: <input name="bookPrice"> <br><br>
+		출판사: <input name="bookPublisher"> <br><br>
+		페이지 수: <input name="bookPageCount"> <br><br>
+		장르: <input name="bookGenre"> <br><br>
+		<button>등록</button>
+	</form>
+</body>
+</html>
