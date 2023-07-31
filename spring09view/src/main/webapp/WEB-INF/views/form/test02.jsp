@@ -11,7 +11,7 @@
 	
 	<form action="http://localhost:8080/insert">
 	 	제목: <input name="boardTitle"> <br><br>
-	 	내용: <input name="boardContent"> <br><br>
+	 	내용: <textarea name="boardContent" rows="10" cols="100"> </textarea><br><br>
 	 	작성자: <input name="boardWriter"> <br><br>
 	 	<button>등록</button>
 	</form>
