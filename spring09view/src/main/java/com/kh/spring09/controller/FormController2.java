@@ -16,4 +16,9 @@ public class FormController2 {
 	public String test02() {
 		return "/WEB-INF/views/form2/test02.jsp";
 	}
+	
+	@RequestMapping("/test03")
+	public String test03() {
+		return "/WEB-INF/views/form2/test03.jsp";
+	}
 }

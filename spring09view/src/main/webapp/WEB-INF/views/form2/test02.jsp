@@ -12,7 +12,7 @@
 	아이디 <input type="text" name="memberId" required> <br><br>
 	기존 비밀번호 <input type="password" name="memberPw" required> <br><br>
 	바꿀 비밀번호 <input type="password" name="changePw" required> <br><br>
-	비밀번호 확인 <input type="password"> <br><br>
+	비밀번호 확인 <input type="password" required> <br><br>
 	<button>비밀번호 변경</button>
 	</form>
 </body>
