@@ -16,7 +16,7 @@
 		- (참고)
 		- 반드시 입력해야 하는 required="required" 속성 추가
 		- 만약 이름이랑 값이 같다면 특별히 이름만 써도 처리해준다
-		- required, readonly, disalbed, checked, selected, ...
+		- required, readonly, disabled, checked, selected, ...
 	 -->
 	<form action="http://localhost:8080/save">
 		제목: <input type="text" name="bookTitle" required="required"> <br><br> 
