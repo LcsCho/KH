@@ -17,7 +17,10 @@ public class PokemonController {
 	@RequestMapping("/detail")
 	public String detail(Model model, @RequestParam int no) {
 		PokemonDto dto = dao.selectOne(no);
-		if (dto == null) return "없는 번호의 몬스터";
+		if (dto == null) {
+			model.addAttribute("error", "존재하지 않는 포켓몬 번호입니다.");
+	        return "/WEB-INF/views/test04.jsp";
+		}
 		else {
 			model.addAttribute("no", dto.getNo());
 			model.addAttribute("name", dto.getName());
