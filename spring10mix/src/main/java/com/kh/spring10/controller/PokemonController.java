@@ -1,5 +1,7 @@
 package com.kh.spring10.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,5 +25,12 @@ public class PokemonController {
 		PokemonDto dto = dao.selectOne(no);
 		model.addAttribute("dto", dto);
 		return "/WEB-INF/views/pokemon/detail.jsp";
+	}
+	
+	@RequestMapping("/list")
+	public String list(Model model) {
+		List<PokemonDto> list = dao.selectList();
+		model.addAttribute("list", list);
+		return "/WEB-INF/views/pokemon/list.jsp";
 	}
 }

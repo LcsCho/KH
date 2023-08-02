@@ -22,5 +22,6 @@
 			<h1>포켓몬이 없어요~</h1>
 		</c:otherwise>
 	</c:choose>
+	
 </body>
 </html>
