@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>포켓몬 정보</title>
+<title>객체출력</title>
 </head>
 <body>
-	<h1>세부 정보</h1>
-	<h2>번호: ${no}</h2>
-	<h2>이름: ${name}</h2>
-	<h2>타입: ${type}</h2>
+	<!-- <h1>번호: ${dto.getNo()}</h1>  -->
+	<h1>번호: ${dto.no}</h1>
+	<h1>이름: ${dto.name}</h1>
+	<h1>속성: ${dto.type}</h1>
 </body>
 </html>

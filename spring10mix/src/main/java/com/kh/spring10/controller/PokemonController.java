@@ -15,17 +15,13 @@ public class PokemonController {
 	@Autowired
 	private PokemonDao dao;
 
+	// 상세조회
+	// - 번호(no)를 받아서 포켓몬스터정보(PokemonDto)를 조회
+	// - 화면(JSP)에 전달하도록 모델(Model)에 첨부
 	@RequestMapping("/detail")
 	public String detail(Model model, @RequestParam int no) {
 		PokemonDto dto = dao.selectOne(no);
-		if (dto == null) {
-			model.addAttribute("error", "존재하지 않는 포켓몬 번호입니다.");
-			return "/WEB-INF/views/test04.jsp";
-		} else {
-			model.addAttribute("no", dto.getNo());
-			model.addAttribute("name", dto.getName());
-			model.addAttribute("type", dto.getType());
-			return "/WEB-INF/views/test03.jsp";
-		}
+		model.addAttribute("dto", dto);
+		return "/WEB-INF/views/pokemon/detail.jsp";
 	}
 }
