@@ -26,3 +26,33 @@ Jsp 페이지에서 필요한 프로그래밍 처리를 수행하는 태그.
 ```jsp
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 ```
+
+## 조건
+
+조건이 한 개일 때는 `<c:if>`를 사용한다
+
+```xml
+<c:if test="조건식">
+
+</c:if>
+```
+
+조건이 여러 개 일 때는 `<c:choose>`를 사용한다
+
+```xml
+<c:choose>
+	<c:when test="조건식1">
+	
+	</c:when>
+	<c:when test="조건식2">
+	
+	</c:when>
+	<c:when test="조건식1=3">
+	
+	</c:when>
+	...
+	<c:otherwise>
+	
+	</c:otherwise>
+</c:choose>
+```
