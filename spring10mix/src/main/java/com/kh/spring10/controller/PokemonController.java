@@ -12,16 +12,16 @@ import com.kh.spring10.dto.PokemonDto;
 @Controller
 @RequestMapping("/pokemon")
 public class PokemonController {
-	@Autowired private PokemonDao dao;
-	
+	@Autowired
+	private PokemonDao dao;
+
 	@RequestMapping("/detail")
 	public String detail(Model model, @RequestParam int no) {
 		PokemonDto dto = dao.selectOne(no);
 		if (dto == null) {
 			model.addAttribute("error", "존재하지 않는 포켓몬 번호입니다.");
-	        return "/WEB-INF/views/test04.jsp";
-		}
-		else {
+			return "/WEB-INF/views/test04.jsp";
+		} else {
 			model.addAttribute("no", dto.getNo());
 			model.addAttribute("name", dto.getName());
 			model.addAttribute("type", dto.getType());
