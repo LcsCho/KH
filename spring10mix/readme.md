@@ -41,7 +41,7 @@ Jsp 페이지에서 필요한 프로그래밍 처리를 수행하는 태그.
 
 ```xml
 <c:choose>
-	<c:when test="조건식1">
+	<c:when test="${a == 10}">
 	
 	</c:when>
 	<c:when test="조건식2">
@@ -56,3 +56,6 @@ Jsp 페이지에서 필요한 프로그래밍 처리를 수행하는 태그.
 	</c:otherwise>
 </c:choose>
 ```
+
+## 주의사항
+조건식은 `EL`로 작성한다.
