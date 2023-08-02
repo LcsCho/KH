@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${dto.bookId}번 도서 정보</title>
+<title>${dto.bookId}번도서 정보</title>
 </head>
 <body>
 	<h1>도서 상세정보</h1>
@@ -18,28 +18,28 @@
 					- ol은 순서가 있는 리스트(order list)
 				- 내부 항목에 <li>를 사용(list item)
 			 -->
-			 
-			 <ul>
-			 	<li>${dto.bookId}</li>
-			 	<li>${dto.bookTitle}</li>
-			 	<li>${dto.bookAuthor}</li>
-			 	<li>${dto.bookPublicationDate}</li>
-			 	<li>${dto.bookPrice}</li>
-			 	<li>${dto.bookPublisher}</li>
-			 	<li>${dto.bookPageCount}</li>
-			 	<li>${dto.bookGenre}</li>
-			 </ul>
-			 <ol>
-			 	<li>${dto.bookId}</li>
-			 	<li>${dto.bookTitle}</li>
-			 	<li>${dto.bookAuthor}</li>
-			 	<li>${dto.bookPublicationDate}</li>
-			 	<li>${dto.bookPrice}</li>
-			 	<li>${dto.bookPublisher}</li>
-			 	<li>${dto.bookPageCount}</li>
-			 	<li>${dto.bookGenre}</li>
-			 </ol>
-<%-- 			<table border="1" width="400">
+
+			<ul>
+				<li>${dto.bookId}</li>
+				<li>${dto.bookTitle}</li>
+				<li>${dto.bookAuthor}</li>
+				<li>${dto.bookPublicationDate}</li>
+				<li>${dto.bookPrice}</li>
+				<li>${dto.bookPublisher}</li>
+				<li>${dto.bookPageCount}</li>
+				<li>${dto.bookGenre}</li>
+			</ul>
+			<ol>
+				<li>${dto.bookId}</li>
+				<li>${dto.bookTitle}</li>
+				<li>${dto.bookAuthor}</li>
+				<li>${dto.bookPublicationDate}</li>
+				<li>${dto.bookPrice}</li>
+				<li>${dto.bookPublisher}</li>
+				<li>${dto.bookPageCount}</li>
+				<li>${dto.bookGenre}</li>
+			</ol>
+			<%-- 			<table border="1" width="400">
 				<tbody align="center">
 					<tr>
 						<th width="25%">제목</th>
@@ -76,5 +76,6 @@
 			<h1>해당 번호의 책이 없어요~</h1>
 		</c:otherwise>
 	</c:choose>
+	<a href="list">목록으로</a>
 </body>
 </html>
