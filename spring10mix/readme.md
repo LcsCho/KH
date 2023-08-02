@@ -24,5 +24,5 @@ Jsp 페이지에서 필요한 프로그래밍 처리를 수행하는 태그.
 사용하려면 JSP 페이지에 다음과 같은 설정을 해야 한다
 
 ```jsp
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 ```
