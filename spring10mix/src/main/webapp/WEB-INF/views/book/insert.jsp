@@ -10,7 +10,7 @@
 	<h1>책 등록</h1>
 	
 	<form action="insert" method="post">
-		제목 <input type="text" name="bookTitle"><br><br>
+		도서명 <input type="text" name="bookTitle"><br><br>
 		작성자 <input type="text" name="bookAuthor"><br><br>
 		출판일 <input type="date" name="bookPublicationDate"><br><br>
 		가격 <input type="number" step="0.01" name="bookPrice"><br><br>
