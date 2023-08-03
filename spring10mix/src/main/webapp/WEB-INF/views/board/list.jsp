@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <h1>게시판 목록</h1>
-
+<h2><a href="write">글쓰기</a></h2>
 <table border="1">
 	<thead>
 		<tr>

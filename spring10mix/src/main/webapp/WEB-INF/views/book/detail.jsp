@@ -19,7 +19,7 @@
 				- 내부 항목에 <li>를 사용(list item)
 			 -->
 
-			<ul>
+<%-- 			<ul>
 				<li>${dto.bookId}</li>
 				<li>${dto.bookTitle}</li>
 				<li>${dto.bookAuthor}</li>
@@ -28,7 +28,7 @@
 				<li>${dto.bookPublisher}</li>
 				<li>${dto.bookPageCount}</li>
 				<li>${dto.bookGenre}</li>
-			</ul>
+			</ul> --%>
 			<ol>
 				<li>${dto.bookId}</li>
 				<li>${dto.bookTitle}</li>
@@ -39,6 +39,8 @@
 				<li>${dto.bookPageCount}</li>
 				<li>${dto.bookGenre}</li>
 			</ol>
+			<a href="edit?bookId=${dto.bookId}">정보수정</a><br><br>
+			<a href="delete?bookId=${dto.bookId}">삭제하기</a><br><br>
 			<%-- 			<table border="1" width="400">
 				<tbody align="center">
 					<tr>

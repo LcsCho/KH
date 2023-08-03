@@ -34,6 +34,17 @@ public class BookDao {
 		Object[] data = {dto.getBookTitle(), dto.getBookAuthor(), dto.getBookId()};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
+	
+	public boolean updateAll(BookDto dto) {
+		String sql = "update book set book_title = ?, book_author = ?, book_publication_date = ?,"
+				+ "book_price = ?, book_publisher = ?, book_page_count = ?, book_genre = ?"
+				+ "where book_id = ?";
+		Object[] data = {dto.getBookTitle(), dto.getBookAuthor(), dto.getBookPublicationDate(),
+				dto.getBookPrice(), dto.getBookPublisher(), dto.getBookPageCount(), dto.getBookGenre(),
+				dto.getBookId()
+				};
+		return jdbcTemplate.update(sql, data) > 0;
+	}
 	public boolean delete(int bookId) {
 		String sql = "delete from book where book_id = ?";
 		Object[] data = {bookId};

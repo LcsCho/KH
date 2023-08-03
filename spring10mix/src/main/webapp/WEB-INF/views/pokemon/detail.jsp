@@ -17,6 +17,10 @@
 			<h1>${dto.no}번몬스터정보</h1>
 			<h2>이름: ${dto.name}</h2>
 			<h2>속성: ${dto.type}</h2>
+			<a href="list">목록으로</a><br><br>
+			<a href="edit?no=${dto.no}">정보수정</a><br><br>
+			<a href="delete?no=${dto.no}">삭제하기</a>
+			
 		</c:when>
 		<c:otherwise>
 			<h1>포켓몬이 없어요~</h1>

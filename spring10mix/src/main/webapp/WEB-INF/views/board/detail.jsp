@@ -26,6 +26,8 @@
 					<td>${dto.boardContent}</td>
 				</tr>
 			</table>
+			<a href="edit?boardNo=${dto.boardNo}">정보수정</a><br><br>
+			<a href="delete?boardNo=${dto.boardNo}">삭제하기</a><br><br>
 		</c:when>
 		<c:otherwise>
 			<h1>해당 번호의 게시글이 없어요~</h1>
