@@ -40,7 +40,7 @@
 				<li>${dto.bookGenre}</li>
 			</ol>
 			<a href="edit?bookId=${dto.bookId}">정보수정</a><br><br>
-			<a href="delete?bookId=${dto.bookId}">삭제하기</a><br><br>
+			<a href="delete/${dto.bookId}">삭제하기</a><br><br>
 			<%-- 			<table border="1" width="400">
 				<tbody align="center">
 					<tr>
