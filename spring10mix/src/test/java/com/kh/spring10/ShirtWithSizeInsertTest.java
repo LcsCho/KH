@@ -38,7 +38,7 @@ public class ShirtWithSizeInsertTest {
       int shirtNo = shirtDao.sequence();
       shirtDto.setShirtNo(shirtNo);
       
-      shirtDao.add(shirtDto);
+      shirtDao.insert(shirtDto);
       
       //[2]
       ShirtSizeDto sizeDto = new ShirtSizeDto();

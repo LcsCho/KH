@@ -16,6 +16,7 @@
 			<h2>상품색상: ${dto.shirtColor}</h2>
 			<h2>판매가: ${dto.shirtPrice}</h2>
 			<h2>상품종류: ${dto.shirtKind}</h2>
+			<h2>유형: ${dto.shirtType}</h2>
 			<h2>재질: ${dto.shirtMaterial}</h2>
 			<h2>판매수량: ${dto.shirtStock}</h2>
 			<a href="list">목록으로</a><br><br>

@@ -31,7 +31,7 @@
 				<td>${dto.shirtType}</td>
 				<td>${dto.shirtMaterial}</td>
 				<td>${dto.shirtStock}개</td>
-				<td><a href="detail?shirtNo=${dto.shirtNo}" title="해당 상품으로 이동">Go</a></td>
+				<td><a href="detail2?shirtNo=${dto.shirtNo}" title="해당 상품으로 이동">Go</a></td>
 		</c:forEach>
 	</tbody>
 </table>

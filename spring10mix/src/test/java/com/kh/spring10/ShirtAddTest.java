@@ -32,6 +32,6 @@ public class ShirtAddTest {
 		int shirtNo = dao.sequence();
 		dto.setShirtNo(shirtNo);
 		
-		dao.add(dto);
+		dao.insert(dto);
 	}
 }
