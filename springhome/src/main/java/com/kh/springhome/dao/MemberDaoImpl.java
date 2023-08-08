@@ -17,7 +17,15 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public void insert(MemberDto memberDto) {
+		String sql = "insert into member(member_id, member_pw, member_nickname, member_email,"
+				+ "member_contact, member_birth, member_post, member_add1, member_add2)"
+				+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
+		Object[] data = {memberDto.getMemberId(), memberDto.getMemberPw(), memberDto.getMemberNickname(),
+				memberDto.getMemberEmail(), memberDto.getMemberContact(), memberDto.getMemberBirth(),
+				memberDto.getMemberPost(), memberDto.getMemberAdd1(), memberDto.getMemberAdd2()
+		};
+		jdbcTemplate.update(sql, data);
 	}
 
 }
