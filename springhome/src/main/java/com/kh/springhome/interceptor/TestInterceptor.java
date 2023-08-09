@@ -48,6 +48,8 @@ public class TestInterceptor implements HandlerInterceptor {
 	/**
 	 * afterCompletion은 화면 생성 후(모든 처리가 끝난 후) 시점을 간섭하는 메서드
 	 * - 유일하게 예외의 발생 여부를 알 수 있는 곳
+	 * - 발생한 예외에 따라 처리할 내용들을 이곳에 작성할 수 있다.
+	 * - 사용자가 볼 페이지를 변경할 수는 없다(모니터링, 로깅-기록을 남기는 행위, ...)
 	 */
 
 	@Override
