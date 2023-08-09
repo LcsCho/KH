@@ -146,22 +146,27 @@ public class MemberController {
 	}
 	
 	@GetMapping("/exit")
-	public String exit(HttpSession session, Model model) {
-		String memberId = (String) session.getAttribute("name");
-		model.addAttribute("memberId", memberId);
+	public String exit() {
 		return "/WEB-INF/views/member/exit.jsp";
 	}
 	@PostMapping("/exit")
-	public String exit(@ModelAttribute MemberDto inputDto, HttpSession session) {
-		String memberId = (String) session.getAttribute("name");
-		MemberDto findDto = memberDao.selectOne(memberId);
-		if (inputDto.getMemberPw().equals(findDto.getMemberPw())) {
-			inputDto.setMemberId(memberId);
+	public String exit(@RequestParam String memberPw, HttpSession session) {
+		String memberId = (String)session.getAttribute("name");
+		MemberDto memberDto = memberDao.selectOne(memberId);
+		if(memberDto.getMemberPw().equals(memberPw)) {//비밀번호 일치
+			//삭제
 			memberDao.exitMember(memberId);
-			session.removeAttribute("name");
-			return "/WEB-INF/views/member/exitFinish.jsp";
+			//로그아웃
+			session.removeAttribute("name");//세션에서 name의 값을 삭제
+			//session.invalidate();//세션 소멸(비추천)
+			return "redirect:exitFinish";
 		}
-		else return "redirect:exit?error";
-		
+		else {//비밀번호 불일치
+			return "redirect:exit?error";
+		}
+	}
+	@RequestMapping("/exitFinish")
+	public String exitFinish() {
+		return "/WEB-INF/views/member/exitFinish.jsp";
 	}
 }
