@@ -10,7 +10,7 @@
 	<h1>게시글 작성</h1>
 	
 	<form action="write" method="post">
-		작성자 <input name="boardWriter"><br><br>
+		작성자 <input type="hidden" name="boardWriter" value="${boardDto.boardWriter}"><br><br>
 		제목 <input name="boardTitle"><br><br>
 		내용 <textarea name="boardContent"></textarea><br><br>
 		<button>글쓰기</button>
