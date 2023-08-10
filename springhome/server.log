@@ -1,0 +1,29 @@
+2023-08-10 13:58:09.865  INFO 1568 --- [restartedMain] com.kh.springhome.SpringhomeApplication  : Starting SpringhomeApplication using Java 17.0.7 on LenovoIDEAPAD with PID 1568 (C:\Users\jhcho\git\KH\springhome\target\classes started by jhcho in C:\Users\jhcho\git\KH\springhome)
+2023-08-10 13:58:09.867 DEBUG 1568 --- [restartedMain] com.kh.springhome.SpringhomeApplication  : Running with Spring Boot v2.7.14, Spring v5.3.29
+2023-08-10 13:58:09.867  INFO 1568 --- [restartedMain] com.kh.springhome.SpringhomeApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-08-10 13:58:10.280  INFO 1568 --- [restartedMain] com.kh.springhome.SpringhomeApplication  : Started SpringhomeApplication in 0.436 seconds (JVM running for 2439.991)
+2023-08-10 13:59:21.771  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : Starting LoggingTest3 using Java 17.0.7 on LenovoIDEAPAD with PID 20036 (started by jhcho in C:\Users\jhcho\git\KH\springhome)
+2023-08-10 13:59:21.772 DEBUG 20036 --- [main] com.kh.springhome.LoggingTest3           : Running with Spring Boot v2.7.14, Spring v5.3.29
+2023-08-10 13:59:21.772  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : No active profile set, falling back to 1 default profile: "default"
+2023-08-10 13:59:25.237  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : Started LoggingTest3 in 4.026 seconds (JVM running for 5.269)
+2023-08-10 13:59:25.784  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : Hello!
+2023-08-10 13:59:25.785  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : a = 10
+2023-08-10 13:59:25.785  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : a = 10
+2023-08-10 13:59:25.786  INFO 20036 --- [main] com.kh.springhome.LoggingTest3           : 20 + 30 = 50
+[2023-08-10 14:01:08.2] [INFO ] Starting SpringhomeApplication using Java 17.0.7 on LenovoIDEAPAD with PID 1568 (C:\Users\jhcho\git\KH\springhome\target\classes started by jhcho in C:\Users\jhcho\git\KH\springhome) - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:01:08.2] [DEBUG] Running with Spring Boot v2.7.14, Spring v5.3.29 - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:01:08.2] [INFO ] No active profile set, falling back to 1 default profile: "default" - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:01:08.426] [INFO ] Started SpringhomeApplication in 0.438 seconds (JVM running for 2618.138) - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:01:51.158] [INFO ] Starting LoggingTest3 using Java 17.0.7 on LenovoIDEAPAD with PID 14372 (started by jhcho in C:\Users\jhcho\git\KH\springhome) - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:51.160] [DEBUG] Running with Spring Boot v2.7.14, Spring v5.3.29 - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:51.161] [INFO ] No active profile set, falling back to 1 default profile: "default" - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:53.981] [INFO ] Started LoggingTest3 in 3.104 seconds (JVM running for 3.953) - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:54.508] [INFO ] Hello! - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:54.508] [INFO ] a = 10 - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:54.508] [INFO ] a = 10 - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:01:54.510] [INFO ] 20 + 30 = 50 - com.kh.springhome.LoggingTest3 
+ [2023-08-10 14:02:47.59] [INFO ] Starting SpringhomeApplication using Java 17.0.7 on LenovoIDEAPAD with PID 1568 (C:\Users\jhcho\git\KH\springhome\target\classes started by jhcho in C:\Users\jhcho\git\KH\springhome) - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:02:47.59] [DEBUG] Running with Spring Boot v2.7.14, Spring v5.3.29 - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:02:47.59] [INFO ] No active profile set, falling back to 1 default profile: "default" - com.kh.springhome.SpringhomeApplication 
+ [2023-08-10 14:02:47.533] [INFO ] Started SpringhomeApplication in 0.489 seconds (JVM running for 2717.244) - com.kh.springhome.SpringhomeApplication 
+ 
