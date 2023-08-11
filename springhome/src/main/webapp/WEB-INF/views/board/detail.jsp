@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
  <title>${boardDto.boardNo}번 게시글정보</title>
 </head>
@@ -32,16 +33,16 @@
 				</tr>
 				<tr>
 					<th>등록시간</th>
-					<td>${boardDto.boardCtime}</td>
+					<td><fmt:formatDate value="${boardDto.boardCtime}" pattern="y년 M월 d일 E a h시 m분 s초"/></td>
 				</tr>
 				<tr>
 					<th>수정시간</th>
-					<td>${boardDto.boardUtime}</td>
+					<td><fmt:formatDate value="${boardDto.boardUtime}" pattern="y년 M월 d일 E a h시 m분 s초"/></td>
 				</tr>
 			</table>
 			
-			<>좋아요</a>
-			<>싫어요</a><br>
+			<a href="like?boardNo=${boardDto.boardNo}"><button>붐업</button></a>
+			<a href="unlike?boardNo=${boardDto.boardNo}"><button>붐따</button></a><br>
 			<a href="edit?boardNo=${boardDto.boardNo}">정보수정</a><br>
 			<a href="delete?boardNo=${boardDto.boardNo}">삭제하기</a><br>
 		</c:when>

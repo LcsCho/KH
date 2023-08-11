@@ -11,4 +11,8 @@ public interface BoardDao {
 	public List<BoardDto> list();
 	boolean update(BoardDto boardDto);
 	boolean delete(int boardNo);
+	void updateLike(int boardNo);
+	void updateUnlike(int boardNo);
+	void updateRead(int boardNo);
+	public List<BoardDto> find();
 }

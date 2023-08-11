@@ -69,4 +69,33 @@ public class BoardDaoImpl implements BoardDao{
 		String sql = "select board_seq.nextval from dual";
 		return jdbcTemplate.queryForObject(sql, int.class);
 	}
+
+	@Override
+	public void updateLike(int boardNo) {
+		String sql = "update board set board_likecount = board_likecount + 1 where board_no = ?";
+		Object[] data = {boardNo};
+		jdbcTemplate.update(sql, data);
+	}
+
+	@Override
+	public void updateUnlike(int boardNo) {
+		String sql = "update board set board_likecount = board_likecount - 1 where board_no = ?";
+		Object[] data = {boardNo};
+		jdbcTemplate.update(sql, data);
+	}
+
+	@Override
+	public void updateRead(int boardNo) {
+		String sql = "update board set board_readcount = board_readcount + 1 where board_no = ?";
+		Object[] data = {boardNo};
+		jdbcTemplate.update(sql, data);
+	}
+
+	@Override
+	public List<BoardDto> find() {
+		String sql = "select * from board where board_title like ? or board_writer like ?";
+		return jdbcTemplate.query(sql, listMapper);
+	}
+
+
 }

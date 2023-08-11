@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.springhome.dao.BoardDao;
 import com.kh.springhome.dao.MemberDao;
+import com.kh.springhome.dto.BoardDto;
 import com.kh.springhome.dto.MemberDto;
 
 // 회원 관련 기능을 처리하는 컨트롤러
@@ -21,6 +23,9 @@ public class MemberController {
 	// Autowired는 지정한 클래스 및 자식 클래스 중에서 등록된 것을 찾아 주입한다.
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private BoardDao boardDao;
 	
 	@GetMapping("/join")
 	public String join() {
@@ -156,6 +161,7 @@ public class MemberController {
 		if(memberDto.getMemberPw().equals(memberPw)) {//비밀번호 일치
 			//삭제
 			memberDao.exitMember(memberId);
+
 			//로그아웃
 			session.removeAttribute("name");//세션에서 name의 값을 삭제
 			//session.invalidate();//세션 소멸(비추천)

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.kh.springhome.interceptor.BoardInterceptor;
 import com.kh.springhome.interceptor.MemberInterceptor;
 import com.kh.springhome.interceptor.TestInterceptor;
 
@@ -26,6 +27,9 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 	@Autowired
 	private MemberInterceptor memberInterceptor;
 	
+	@Autowired
+	private BoardInterceptor boardInterceptor;
+	
 	// 인터셉터를 추가할 수 있는 설정 메서드(registry 저장소에 설정)
 	// 등록 시 주소의 패턴 설정 방법
 	// = *이 한 개면 동일한 엔드포인트 내에서만 적용
@@ -43,6 +47,12 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 //						"/member/joinFinish",
 						"/member/login",
 						"/member/exitFinish"
-				);
+			);
+		
+		registry.addInterceptor(boardInterceptor)
+				.addPathPatterns(
+						"/board/delete",
+						"/board/edit"
+			);
 	}
 }
