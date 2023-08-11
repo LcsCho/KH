@@ -92,9 +92,10 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public List<BoardDto> find() {
+	public List<BoardDto> findList(String type, String keyword) {
 		String sql = "select * from board where board_title like ? or board_writer like ?";
-		return jdbcTemplate.query(sql, listMapper);
+		Object[] data = {"%" + type + "%", "%" + keyword + "%"};
+		return jdbcTemplate.query(sql, listMapper, data);
 	}
 
 

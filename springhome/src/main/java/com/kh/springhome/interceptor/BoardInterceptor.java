@@ -23,13 +23,13 @@ public class BoardInterceptor implements HandlerInterceptor{
       
       String boardNo = request.getParameter("boardNo");
       
-      BoardDto dto =boardDao.selectOne(Integer.parseInt(boardNo));
+      BoardDto dto = boardDao.selectOne(Integer.parseInt(boardNo));
       String writer = dto.getBoardWriter();
       System.out.println(writer);
       System.out.println(boardNo);
       
       boolean isSameId = writer != null && writer.equals(memberId);
       if(isSameId) return true;
-      else throw new AuthorityException("다른사용자의 글입니다");
+      else throw new AuthorityException("다른 사용자의 글입니다");
    }
 }

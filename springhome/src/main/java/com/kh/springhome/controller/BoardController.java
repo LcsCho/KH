@@ -44,15 +44,26 @@ public class BoardController {
 	
 	
 	@RequestMapping("/list")
-	public String list(Model model) {
-		List<BoardDto> list = boardDao.list();
-		model.addAttribute("list", list);
-		return "/WEB-INF/views/board/list.jsp";
+	public String list(Model model, @RequestParam(required = false) String type, @RequestParam(required = false) String keyword) {
+		boolean isFind = (type != null && keyword != null);
+		
+		if (isFind) {
+			List<BoardDto> findList = boardDao.list();
+			model.addAttribute(type, keyword);
+			return "";
+		}
+		
+		else {
+			List<BoardDto> list = boardDao.list();
+			model.addAttribute("list", list);
+			return "/WEB-INF/views/board/list.jsp";
+		}
 	}
 
 	@RequestMapping("/detail")
 	public String detail(@RequestParam int boardNo, Model model) {
 		BoardDto boardDto = boardDao.selectOne(boardNo);
+		boardDao.updateRead(boardNo);
 		model.addAttribute("boardDto", boardDto);
 		return "/WEB-INF/views/board/detail.jsp";
 	}

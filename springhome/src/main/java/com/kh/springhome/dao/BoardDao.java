@@ -14,5 +14,5 @@ public interface BoardDao {
 	void updateLike(int boardNo);
 	void updateUnlike(int boardNo);
 	void updateRead(int boardNo);
-	public List<BoardDto> find();
+	public List<BoardDto> findList(String type, String keyword);
 }

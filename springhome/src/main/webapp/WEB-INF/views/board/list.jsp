@@ -9,14 +9,15 @@
 	<a href="write">글쓰기</a>
 
 </h2>
-	<form action="/find" method="post" autocomplete="off">
-		<select name="type">
-			<option value="${boardDto.getBoardTitle}">제목</option>
-			<option value="${boardDto.getBoardWriter}">작성자</option>
-		</select>
+<form action="/list" method="post" autocomplete="off">
+	<select name="type">
+		<option>제목</option>
+		<option>작성자</option>
+	</select> 
+		<input name="keyword"> 
 		<input name="keyword">
-		<button>검색</button>
-	</form>
+	<button>검색</button>
+</form>
 <table border="1">
 	<thead>
 		<tr>
@@ -38,7 +39,7 @@
 				<td>${boardDto.boardTitle}</td>
 				<c:choose>
 					<c:when test="${empty boardDto.boardWriter}">
-						<th style="color:red">탈퇴한 회원</th>
+						<th style="color: red">탈퇴한 회원</th>
 					</c:when>
 					<c:otherwise>
 						<th>${boardDto.boardWriter}</th>
@@ -47,8 +48,10 @@
 				<td>${boardDto.boardReadcount}</td>
 				<td>${boardDto.boardLikecount}</td>
 				<td>${boardDto.boardReplycount}</td>
-				<td><fmt:formatDate value="${boardDto.boardCtime}" pattern="y년 M월 d일 E a h시 m분 s초"/></td>
-				<td><fmt:formatDate value="${boardDto.boardUtime}" pattern="y년 M월 d일 E a h시 m분 s초"/></td>
+				<td><fmt:formatDate value="${boardDto.boardCtime}"
+						pattern="y년 M월 d일 E a h시 m분 s초" /></td>
+				<td><fmt:formatDate value="${boardDto.boardUtime}"
+						pattern="y년 M월 d일 E a h시 m분 s초" /></td>
 				<td><a href="detail?boardNo=${boardDto.boardNo}"
 					title="해당 게시판으로 이동">이동</a></td>
 			</tr>
