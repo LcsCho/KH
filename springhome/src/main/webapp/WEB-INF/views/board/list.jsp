@@ -9,21 +9,20 @@
 	<a href="write">글쓰기</a>
 
 </h2>
-<form action="/list" method="post" autocomplete="off">
-	<select name="type">
-		<option>제목</option>
-		<option>작성자</option>
-	</select> 
-		<input name="keyword"> 
-		<input name="keyword">
-	<button>검색</button>
+<form action="">
+   <select id="type" name="type">
+      <option value="board_title">제목</option>
+      <option value="board_writer">작성자</option>
+   </select> <input type="text" name="keyword" value="" />
+   <button type="submit">검색</button>
 </form>
 <table border="1">
 	<thead>
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
-			<th>작성자</th>
+<!-- 			<th>작성자</th> -->
+			<th>닉네임</th>
 			<th>조회수</th>
 			<th>좋아요</th>
 			<th>댓글수</th>
@@ -42,7 +41,7 @@
 						<th style="color: red">탈퇴한 회원</th>
 					</c:when>
 					<c:otherwise>
-						<th>${boardDto.boardWriter}</th>
+						<th>${memberDto.memberNickname}</th>
 					</c:otherwise>
 				</c:choose>
 				<td>${boardDto.boardReadcount}</td>
