@@ -1,63 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-<title>${boardDto.boardNo}번게시글정보</title>
-</head>
-<body>
-	<c:choose>
-		<c:when test="${boardDto != null}">
-			<h1>${boardDto.boardNo}번게시글</h1>
 
-			<table border="1" width="400">
-				<tr>
-					<th>제목</th>
-					<td>${boardDto.boardTitle}</td>
-				</tr>
-<!-- 				<tr> -->
-<!-- 					<th>작성자</th> -->
-<%-- 					<td>${boardDto.boardWriter}</td> --%>
-<!-- 				</tr> -->
-				<tr>
-					<th>닉네임</th>
-					<td>${memberDto.memberNickname}</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${boardDto.boardContent}</td>
-				</tr>
-				<tr>
-					<th>좋아요</th>
-					<td>${boardDto.boardLikecount}</td>
-				</tr>
-				<tr>
-					<th>댓글수</th>
-					<td>${boardDto.boardReplycount}</td>
-				</tr>
-				<tr>
-					<th>등록시간</th>
-					<td><fmt:formatDate value="${boardDto.boardCtime}"
-							pattern="y년 M월 d일 E a h시 m분 s초" /></td>
-				</tr>
-				<tr>
-					<th>수정시간</th>
-					<td><fmt:formatDate value="${boardDto.boardUtime}"
-							pattern="y년 M월 d일 E a h시 m분 s초" /></td>
-				</tr>
-			</table>
+<h2>${boardDto.boardNo}번 게시글</h2>
 
-			<a href="like?boardNo=${boardDto.boardNo}"><button>♥</button></a>
-			<br>
-			<a href="edit?boardNo=${boardDto.boardNo}">정보수정</a>
-			<br>
+<table border="1" width="600">
+	<tr>
+		<th width="25%">작성자</th>
+		<td>${boardDto.getBoardWriterString()}</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right">
+			조회수 ${boardDto.boardReadcount}
+			좋아요 ${boardDto.boardLikecount}
+			댓글 ${boardDto.boardReplycount}개
+		</td>
+	</tr>
+	<tr>
+		<th>제목</th>
+		<td>${boardDto.boardTitle}</td>
+	</tr>
+	<tr height="150">
+		<th>내용</th>
+		<td>${boardDto.boardContent}</td>
+	</tr>
+	<tr>
+		<th>작성일</th>
+		<td>
+			<fmt:formatDate value="${boardDto.boardCtime}" pattern="y년 M월 d일 E a h시 m분 s초"/>
+		</td>
+	</tr>
+	<tr>
+		<th>최근 수정일</th>
+		<td>
+			<fmt:formatDate value="${boardDto.boardUtime}" pattern="y년 M월 d일 E a h시 m분 s초"/>
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" align="right">
+			<%-- 회원일 때만 글쓰기,수정,삭제가 나와야 한다 --%>
+			<c:if test="${sessionScope.name != null}">
+			<a href="write">글쓰기</a>
+			<a href="#">답글쓰기</a>
+			
+			<%-- 수정/삭제는 소유자일 경우만 나와야 한다 --%>
+			<c:if test="${sessionScope.name == boardDto.boardWriter}">
+			<a href="edit?boardNo=${boardDto.boardNo}">수정하기</a>
 			<a href="delete?boardNo=${boardDto.boardNo}">삭제하기</a>
-			<br>
-		</c:when>
-		<c:otherwise>
-			<h1>해당 번호의 게시글이 없어요~</h1>
-		</c:otherwise>
-	</c:choose>
+			</c:if>
+			</c:if>
+			<a href="list">목록보기</a>
+		</td>
+	</tr>
+</table>
 
-	<a href="list">목록으로</a>
-	<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
