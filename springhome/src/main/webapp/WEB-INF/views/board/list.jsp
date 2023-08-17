@@ -25,6 +25,9 @@
 			<th>작성일</th>
 			<th>조회수</th>
 			<th>좋아요</th>
+			<th>그룹</th>
+			<th>상위</th>
+			<th>차수</th>
 		</tr>
 	</thead>
 	<tbody align="center">
@@ -32,6 +35,14 @@
 		<tr>
 			<td>${boardListDto.boardNo}</td>
 			<td align="left">
+			
+				<c:forEach var="i" begin="1" end="${boardListDto.boardDepth}" step="1">
+				&nbsp;&nbsp;
+				</c:forEach>
+				<%-- 띄어쓰기 뒤에 화살표 표시 --%>
+				<c:if test="${boardListDto.boardDepth > 0}">
+					<img src="/images/comment.png" width="20" height="15">
+				</c:if>
 				<!-- 제목을 누르면 상세페이지로 이동 -->
 				<a href="detail?boardNo=${boardListDto.boardNo}">
 					${boardListDto.boardTitle}
@@ -59,6 +70,9 @@
 			<td>${boardListDto.boardCtimeString}</td>
 			<td>${boardListDto.boardReadcount}</td>
 			<td>${boardListDto.boardLikecount}</td>
+			<td>${boardListDto.boardGroup}</td>
+			<td>${boardListDto.boardParent}</td>
+			<td>${boardListDto.boardDepth}</td>
 		</tr>
 		</c:forEach>
 	</tbody>

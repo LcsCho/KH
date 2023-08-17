@@ -11,11 +11,11 @@ import lombok.Data;
 
 @Data
 public class BoardDto {
-	private int boardNo;
+	private int boardNo, boardGroup, boardDepth;
 	private String boardWriter, boardTitle, boardContent;
 	private int boardReadcount, boardLikecount, boardReplycount;
 	private Date boardCtime, boardUtime;
-	
+	private Integer boardParent;
 	//작성자 출력용 메소드
 	public String getBoardWriterString() {
 		if(boardWriter == null) 
