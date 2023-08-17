@@ -43,12 +43,7 @@ public class BoardDaoImpl implements BoardDao{
 
 	@Override
 	public List<BoardListDto> selectList() {
-		String sql = "select "
-							+ "board_no, board_writer,"
-							+ "board_title, board_content,"
-							+ "board_readcount, board_likecount, board_replycount, "
-							+ "board_ctime, board_utime "
-					+ "from board order by board_no desc";
+		String sql = "select * from board_list order by board_no desc";
 		return jdbcTemplate.query(sql, boardListMapper);
 	}
 
@@ -90,19 +85,54 @@ public class BoardDaoImpl implements BoardDao{
 		Object[] data = {boardNo};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
-
+	
 	@Override
 	public Integer selectMax(String boardWriter) {
 		String sql = "select max(board_no) from board "
-				+ "where board_writer = ?";
+						+ "where board_writer = ?";
 		Object[] data = {boardWriter};
 		return jdbcTemplate.queryForObject(sql, Integer.class, data);
 	}
-
+	
+//	@Override
+//	public List<BoardDto> selectList(String type, String keyword) {
+//		String sql;
+//		if(type.equals("board_title")) {//type이 제목인 경우
+//			sql  = "select * from board_list "
+//					+ "where instr(board_title, ?) > 0 "
+//					+ "order by board_no desc";
+//		}
+//		else {//type이 작성자인 경우
+//			sql = "select * from board_list "
+//					+ "where instr(board_writer, ?) > 0 "
+//					+ "order by board_no desc";
+//		}
+//		Object[] data = {keyword};
+//		return jdbcTemplate.query(sql, boardListMapper, data);
+//	}
+	
 	@Override
 	public List<BoardListDto> selectList(String type, String keyword) {
-		String sql = "select * from board where instr("+type+", ?) > 0 order by board_no desc";
+		String sql = "select * from board_list "
+					+ "where instr("+type+", ?) > 0 "
+					+ "order by board_no desc";
 		Object[] data = {keyword};
 		return jdbcTemplate.query(sql, boardListMapper, data);
 	}
+	
+//	@Override
+//	public List<BoardDto> selectList(String type, String keyword) {
+//		String sql = "select * from board_list "
+//					+ "where instr(#1, ?) > 0 "
+//					+ "order by board_no desc";
+//		sql = sql.replace("#1", type);
+//		Object[] data = {keyword};
+//		return jdbcTemplate.query(sql, boardListMapper, data);
+//	}
 }
+
+
+
+
+
+
