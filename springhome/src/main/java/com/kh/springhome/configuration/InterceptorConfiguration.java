@@ -68,6 +68,3 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 				.addPathPatterns("/board/detail");
 	}
 }
-
-
-
