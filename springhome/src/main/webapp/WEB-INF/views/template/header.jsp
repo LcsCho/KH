@@ -16,13 +16,19 @@
 		--%>
 		<%-- 세션에 저장된 name이라는 이름의 값으로 회원/비회원 구분 --%>
 		세션ID = ${pageContext.session.id},
-		세션값 = ${sessionScope.name} <br>
+		name = ${sessionScope.name},
+		level = ${sessionScope.level} <br>
 		<c:choose>
 			<c:when test="${sessionScope.name != null}">
 				<a href="/">홈</a>
 				<a href="/member/mypage">마이페이지</a>
 				<a href="/member/logout">로그아웃</a>
 				<a href="/board/list">게시판</a>
+				
+				<%-- 관리자인 경우 추가 메뉴 출력 --%>
+				<c:if test="${sessionScope.level == '관리자'}">
+					<a href="/admin/home">[관리자메뉴]</a>
+				</c:if>
 			</c:when>
 			<c:otherwise>
 				<a href="/">홈</a>
