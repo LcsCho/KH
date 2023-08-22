@@ -72,9 +72,10 @@
 			<th>이메일</th>
 			<th>생년월일</th>
 			<th>등급</th>
+			<th>메뉴</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody align="center">
 		<c:forEach var="memberDto" items="${list}">
 		<tr>
 			<td>${memberDto.memberId}</td>
@@ -83,6 +84,11 @@
 			<td>${memberDto.memberEmail}</td>
 			<td>${memberDto.memberBirth}</td>
 			<td>${memberDto.memberLevel}</td>
+			<td>
+				<a href="detail?memberId=${memberDto.memberId}">상세</a>
+				<a href="#">수정</a>
+				<a href="#">차단</a>
+			</td>
 		</tr>
 		</c:forEach>
 	</tbody>
@@ -104,3 +110,8 @@
 </h3>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
+
+
+
+
+

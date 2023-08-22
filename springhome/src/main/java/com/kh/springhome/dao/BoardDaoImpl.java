@@ -183,6 +183,15 @@ public class BoardDaoImpl implements BoardDao {
 		else return selectListByPage(vo.getPage());
 	}
 
+	@Override
+	public List<BoardListDto> selectListByBoardWriter(String boardWriter) {
+		String sql = "select * from board_list "
+				+ "where board_writer = ? "
+				+ "order by board_no desc";
+		Object[] data = {boardWriter};
+		return jdbcTemplate.query(sql, boardListMapper, data);
+	}
+
 
 //	@Override
 //	public List<BoardDto> selectList(String type, String keyword) {
