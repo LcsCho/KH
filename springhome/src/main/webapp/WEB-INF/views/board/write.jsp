@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
 <c:choose>
@@ -18,9 +18,11 @@
 	<c:if test="${isReply}">
 	<input type="hidden" name="boardParent" value="${originDto.boardNo}">
 	</c:if>
+
 	<c:choose>
 		<c:when test="${isReply}">
-			제목 <input type="text" name="boardTitle" value="RE:${originDto.boardTitle}" required><br><br>
+			제목 <input type="text" name="boardTitle" 
+							value="RE: ${originDto.boardTitle}" required><br><br>
 		</c:when>
 		<c:otherwise>
 			제목 <input type="text" name="boardTitle" required><br><br>

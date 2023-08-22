@@ -71,22 +71,22 @@
 <h2>활동 내역</h2>
 
 <table border="1" width="500">
-	<thread>
+	<thead>
 		<tr>
 			<th width="75%">제목</th>
 			<th>작성일</th>
 		</tr>
-	</thread>
+	</thead>
 	<tbody>
 		<c:forEach var="boardListDto" items="${boardList}">
-			<tr>
-				<td>
-					<a href="/board/detail?boardNo=${boardListDto.boardNo}">
-						${boardListDto.boardTitle}
-					</a>
-				</td>
-				<td>${boardListDto.boardCtime}</td>
-			</tr>
+		<tr>
+			<td>
+				<a href="/board/detail?boardNo=${boardListDto.boardNo}">
+					${boardListDto.boardTitle}
+				</a>
+			</td>
+			<td>${boardListDto.boardCtime}</td>
+		</tr>
 		</c:forEach>
 	</tbody>
 </table>

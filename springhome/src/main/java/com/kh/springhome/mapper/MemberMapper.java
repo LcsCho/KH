@@ -28,8 +28,12 @@ public class MemberMapper implements RowMapper<MemberDto>{
 		memberDto.setMemberJoin(rs.getDate("member_join"));
 		memberDto.setMemberLogin(rs.getDate("member_login"));
 		memberDto.setMemberChange(rs.getDate("member_change"));
-		
 		return memberDto;
 	}
-
+	
 }
+
+
+
+
+

@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootTest
 public class BoardSearchTest {
-	
+
 	@Autowired
 	private BoardDao boardDao;
 	
@@ -24,6 +24,10 @@ public class BoardSearchTest {
 		String keyword = "test";
 		
 		List<BoardListDto> list = boardDao.selectList(type, keyword);
-		log.debug("결과 수: {}", list.size());
+		log.debug("결과 수 : {}", list.size());
 	}
+	
 }
+
+
+

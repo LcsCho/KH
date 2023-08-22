@@ -59,7 +59,7 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 								"/member/join*",
 								"/member/login",
 								"/member/exitFinish",
-								"/board/list",
+								"/board/list*",
 								"/board/detail"
 						);
 		
@@ -67,12 +67,15 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(boardOwnerInterceptor)
 					.addPathPatterns("/board/edit", "/board/delete");
 		
-		// [4] 게시글 조회수 중복방지 인터셉터 등록
+		//[4] 게시글 조회수 중복방지 인터셉터 등록
 		registry.addInterceptor(boardDefenderInterceptor)
-				.addPathPatterns("/board/detail");
+					.addPathPatterns("/board/detail");
 		
-		// [5] 관리자용 인터셉터 등록
+		//[5] 관리자용 인터셉터 등록
 		registry.addInterceptor(adminInterceptor)
-				.addPathPatterns("/admin/**");
+					.addPathPatterns("/admin/**");
 	}
 }
+
+
+

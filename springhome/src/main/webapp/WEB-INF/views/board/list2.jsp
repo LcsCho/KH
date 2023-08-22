@@ -6,13 +6,14 @@
 
 <h2>
 	자유 게시판
+	<a href="list-mention">(멘션 형태로 이동)</a>
 </h2>
 
 <%-- 
 	검색일 경우 검색어를 추가로 출력 
-	(참고) 논리 반환값을 가지는 getter 메서드는 get이 아니라 is로 시작한다.
+	(참고) 논리 반환값을 가지는 getter 메소드는 get이 아니라 is로 시작한다
 --%>
-<c:if test="${vo.isSearch()}">
+<c:if test="${vo.search}">
 <h3>&quot;${vo.keyword}&quot;에 대한 검색 결과</h3>
 </c:if>
 
@@ -98,7 +99,7 @@
 
 <!-- 이전 버튼 -->
 <c:if test="${!vo.first}">
-	<a href = "list?${vo.prevQueryString}" >&lt;</a>		
+	<a href="list?${vo.prevQueryString}">&lt;</a>
 </c:if>
 
 <!-- 숫자 버튼 -->
@@ -108,14 +109,14 @@
 			${i}	
 		</c:when>
 		<c:otherwise>
-			<a href="list?${vo.getQueryString(i)}">${i}</a>
+			<a href="list?${vo.getQueryString(i)}">${i}</a> 
 		</c:otherwise>
 	</c:choose>
 </c:forEach>
 
 <!-- 다음 버튼 -->
 <c:if test="${!vo.last}">
-	<a href = "list?${vo.nextQueryString}" >&gt;</a>
+	<a href="list?${vo.nextQueryString}">&gt;</a>
 </c:if>
 
 
@@ -125,6 +126,7 @@
 
 <!-- 검색창 -->
 <form action="list" method="get">
+	
 	<c:choose>
 		<c:when test="${param.type == 'board_writer'}">
 			<select name="type" required>
