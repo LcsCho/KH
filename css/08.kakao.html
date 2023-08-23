@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAVER</title>
+    <title>KAKAO</title>
     <style>
         * {
             box-sizing: border-box;
         }
         img {
-            width: 250px;
-            height: 100px;
+            width: 150px;
+            height: 40px;
+           
         }
 
         input {
@@ -20,22 +21,33 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 15px;
             padding: 0.5em;
-            margin: 0px 0px;
+            margin: 30px 0px;
             border-color: lightgray;
-            border-width: 1px;
+            border-width: 3px;
             border-style: solid;
+            border-top: none;
+            border-left: none;
+            border-right: none;
         }
         button {
-            color: white;
-            background-color: #1EC800;
+            background-color: yellow;
             display: block;
             width: 400px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 20px;
             padding: 0.5em;
-            margin: 15px 0px;
-            border-radius: 10px;
+            margin: 30px 0px;
             border: none;
+        }
+
+        hr {
+            color: darkgrey;
+            width: 400px;
+
+        }
+
+        #target {
+            background-color: rgb(223, 221, 221);
         }
 
     </style>
@@ -44,12 +56,12 @@
     <form action="#" method="post">
         <!-- div는 디자인을 위한 투명영역 -->
         <div align="center">
-            <img src="https://blog.kakaocdn.net/dn/CNxUY/btqw7dnElRU/HuVZgvpT6J8n4aEYFathEk/img.jpg">
-            <input style="border-top-left-radius: 5px; border-top-right-radius: 5px" type="text" name="memberId" placeholder="아이디">
-            <input style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px"type="password" name="memberPw" placeholder="비밀번호">
-            <br>
+            <img src="https://blog.kakaocdn.net/dn/bs3FCA/btrb9RkmWNs/aKP2QY1XuKYFLK0VSygsgK/%EC%B9%B4%EC%B9%B4%EC%98%A4%20%EB%A1%9C%EA%B3%A0%20Brown.png?attach=1&knm=img.png">
+            <input type="text" name="memberId" placeholder="카카오메일 아이디, 이메일, 전화번호">
+            <input type="password" name="memberPw" placeholder="비밀번호">
             <button>로그인</button>
-
+            <hr>
+            <button id="target">QR코드 로그인</button>
         </div>
     </form>
 </body>
