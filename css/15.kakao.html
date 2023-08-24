@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 화면 예제</title>
+    <!-- css 파일을 불러오는 코드 -->
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        .form-input,
+        .btn,
+        .qr 
+        {
+            font-size: 14px;
+            padding: 0.5em 1em;
+            outline: none; 
+            border: 1px solid #636e72;
+            border-radius: 0.1em;
+        }
+        .form-input:focus { 
+            border-color: #2d3436;
+        }
+        .form-input {
+            border-color: lightgray;
+            border-width: 2px;
+            border-style: solid;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .btn {
+            border-color: #eeea0a;
+            background-color: #eeea0a;
+            color: black;
+            cursor: pointer;
+        }
+        .qr {
+            cursor: pointer;
+            border: #636e72;
+        }
+        .btn:hover { 
+            filter:brightness(95%);
+        }
+        img {
+            width: 100px;
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" autocomplete="off">
+        <div class="container w-400">
+            <div class="row">
+                <img src="https://blog.kakaocdn.net/dn/bs3FCA/btrb9RkmWNs/aKP2QY1XuKYFLK0VSygsgK/%EC%B9%B4%EC%B9%B4%EC%98%A4%20%EB%A1%9C%EA%B3%A0%20Brown.png?attach=1&knm=img.png" width="250">
+            </div>
+            <div class="row">
+                <input type="text" name="memberId" class="form-input w-100" placeholder="카카오메일 아이디, 이메일, 전화번호">
+            </div>
+            <div class="row">
+                <input type="password" name="memberPw" class="form-input w-100 " placeholder="비밀번호">
+            </div>
+            <div class="row">
+                <button class="btn w-100">로그인</button>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <div class="row">
+                <button class="qr w-100">QR코드 로그인</button>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
