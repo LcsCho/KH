@@ -96,7 +96,7 @@ public class AdminController {
 	
 	@RequestMapping("/member/cancel")
 	public String memberCancel(@RequestParam String memberId) {
-		memberDao.delete(memberId);
+		memberDao.deleteBlock(memberId);
 		return "redirect:list";
 	}
 	

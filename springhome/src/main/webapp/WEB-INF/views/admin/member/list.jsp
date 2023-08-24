@@ -91,15 +91,12 @@
 				<a href="edit?memberId=${memberListDto.memberId}">수정</a>
 				<c:choose>
 					<c:when test="${memberListDto.block == 'Y'}">
-						<a href="cancel?memberId=${memberListDto.memberId}"></a>
+						<a href="cancel?memberId=${memberListDto.memberId}">해제</a>
 					</c:when>
 					<c:otherwise>
-						<a href="block?memberId=${memberListDto.memberId}"></a>
+						<a href="block?memberId=${memberListDto.memberId}">차단</a>
 					</c:otherwise>
 				</c:choose>
-					
-				<a href="block?memberId=${memberListDto.memberId}">차단</a>
-				<a href="cancel?memberId=${memberListDto.memberId}">해제</a>
 			</td>
 		</tr>
 		</c:forEach>
