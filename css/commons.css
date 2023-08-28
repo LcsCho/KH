@@ -195,3 +195,11 @@
 .me-30 { margin-right: 30px;}
 .me-40 { margin-right: 40px;}
 .me-50 { margin-right: 50px;}
+
+.red { color: #d63031; }
+.blue { color: #0984e3; }
+.yellow { color: #fdcb6e; }
+.green { color: #00b984; }
+.gray { color: #b2bec3; }
+.black { color: #2d3536; }
+.white { color: #FFF; }
