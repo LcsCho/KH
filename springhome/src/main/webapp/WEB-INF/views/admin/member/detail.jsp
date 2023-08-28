@@ -24,7 +24,6 @@
 				<th>연락처</th>
 				<td>${memberDto.memberContact}</td>
 			</tr>
-			
 			<tr>
 				<th>생년월일</th>
 				<td>${memberDto.memberBirth}</td>
