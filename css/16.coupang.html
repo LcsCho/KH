@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠팡 로그인</title>
+    <!-- css 파일을 불러오는 코드 -->
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+    <style>
+        /*
+            입력창 변형 스타일
+            - 배경이미지를 포함하는 입력창
+            - background-image 속성 사용
+        */
+
+        .form-input.form-image {
+            padding-left: 2em;
+
+            /* background-image: url("./images/email-icon.png"); */
+            background-size: 1.25em;
+            background-repeat: no-repeat;
+            background-position-x: 0.35em;
+            /* background-position-y: 50%; */
+            background-position-y: center;
+        }
+
+        [name=memberId] {
+            background-image: url("data:image/png;base64,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");
+        }
+
+        [name=memberPw] {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/2889/2889676.png");
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" autocomplete="off">
+        <div class="container w-400">
+            <div class="row">
+                <h1>
+                    <span style="color:rgb(142,87,39);">c</span><span style="color:rgb(142,87,39);">o</span><span style="color:rgb(142,87,39);">u</span><span style="color:rgb(247,85,47);">p</span><span style="color:rgb(255,196,0);">a</span><span style="color:rgb(136,204,47);">n</span><span style="color:rgb(49,180,221);">g</span>
+                </h1>
+            </div>
+            <div class="row">
+                <input type="text" name="memberId" 
+                    class="form-input form-image w-100"
+                    placeholder="아이디(이메일)">
+            </div>
+            <div class="row">
+                <input type="text" name="memberPw" 
+                    class="form-input form-image w-100"
+                    placeholder="비밀번호">
+            </div>
+            <div class="row mt-20">
+                <button class="btn btn-positive w-100">로그인</button>
+            </div>
+            <hr>
+            <div class="row">
+                <button class="btn w-100">회원가입</button>                
+            </div>
+        </div>        
+    </form>
+</body>
+</html>
