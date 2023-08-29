@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메뉴 만들기</title>
+    <title>2차메뉴</title>
 
     <!-- css 파일을 불러오는 코드 -->
 
@@ -82,13 +82,9 @@
         .menu li {
             color: white;
             background-color: #2d3436;
-            padding: 0.5em;
             width: 150px;
 
-            /* 말줄임표 처리를 위한 디자인(반드시 폭이 있어야 함) */
-            /* text-overflow: ellipsis; */
-            /* overflow: hidden; */
-            /* white-space: nowrap; */
+
         }
 
         /* 메뉴에 마우스가 올라가면 하이라이트 효과 */
@@ -123,6 +119,27 @@
         */
         ul.menu li:hover > ul {
             display: block;
+        }
+
+        /*
+            a 태그에 말줄임표 처리 구현
+        */
+        ul.menu a {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+
+            /* 말줄임표 처리를 위한 디자인(반드시 폭이 있어야 함) */
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* 
+            overflow로 인해 발생하는 추가 공간을 해결하기 위해 높이 설정
+        */
+        ul.menu {
+            height: 2.5em;
         }
     </style>
 </head>
