@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>나의 홈페이지</title>
+<!--  favicon 설정 -->
+<link rel="shortcut icon" href="/images/kh.png">
 
 <!-- css 파일을 불러오는 코드 -->
 <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
