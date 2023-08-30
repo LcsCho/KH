@@ -4,33 +4,58 @@
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
-<h2>개인정보 변경</h2>
-
-<c:if test="${param.error != null}">
-	<h3>입력하신 비밀번호가 일치하지 않습니다</h3>
-</c:if>
-
-<form action="change" method="post">
-	
-	닉네임 <input type="text" name="memberNickname" 
-					value="${memberDto.memberNickname}" required><br><br>
-	이메일 <input type="email" name="memberEmail"
-					value="${memberDto.memberEmail}"><br><br>
-	전화번호 <input type="tel" name="memberContact"
-					value="${memberDto.memberContact}"><br><br>
-	생년월일 <input type="date" name="memberBirth"
-					value="${memberDto.memberBirth}"><br><br>
-	주소<br>
-	<input type="text" name="memberPost" size="6" maxlength="6" 
-					placeholder="우편번호" value="${memberDto.memberPost}"><br>
-	<input type="text" name="memberAddr1" size="50"
-					placeholder="기본주소" value="${memberDto.memberAddr1}"><br>
-	<input type="text" name="memberAddr2" size="50"
-					placeholder="상세주소" value="${memberDto.memberAddr2}"><br><br>
-
-	비밀번호 확인 <input type="password" name="memberPw" required><br><br>
-					
-	<button>정보변경</button>
+<form action="change" method="post" autocomplete="off">
+	<div class="container w-500">
+        <div class="row">
+            <h1>개인정보 변경</h1>
+        </div>
+        <div class="row left">
+            <label>
+            	닉네임 
+				<i class="fa-solid fa-asterisk red"></i>
+			</label>
+            <input type="text" name="memberNickname" class="form-input w-100"
+					value="${memberDto.memberNickname}" required>
+        </div>
+        <div class="row left">
+            <label>이메일</label>
+            <input type="email" name="memberEmail" class="form-input w-100"
+					value="${memberDto.memberEmail}" placeholder="testuser@kh.com">
+        </div>
+        <div class="row left">
+            <label>연락처</label>
+            <input type="tel" name="memberContact" class="form-input w-100"
+					value="${memberDto.memberContact}" placeholder="- 제외하고 입력">
+        </div>
+        <div class="row left">
+            <label>생년월일</label>
+            <input type="date" name="memberBirth" class="form-input w-100"
+							value="${memberDto.memberBirth}">
+        </div>
+        <div class="row left">
+            <label class="mb-10" style="display: block;">주소</label>
+            <input type="text" class="form-input" name="memberPost" placeholder="우편번호" style="width:8em;" value="${memberDto.memberPost}">
+            <button type="button" class="btn">우편번호 찾기</button>
+            <input type="text" class="form-input w-100 mt-10" name="memberAddr1" placeholder="기본주소" value="${memberDto.memberAddr1}">
+            <input type="text" class="form-input w-100 mt-10" name="memberAddr2" placeholder="상세주소" value="${memberDto.memberAddr2}">
+        </div>
+        <div class="row left">
+        	<label>
+        		비밀번호 확인
+				<i class="fa-solid fa-asterisk red"></i>
+			</label>
+        	<input type="password" name="memberPw" required class="form-input w-100">
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-positive w-100">정보변경</button>
+        </div>
+        <c:if test="${param.error != null}">
+        <div class="row red">
+			<h3>입력하신 비밀번호가 일치하지 않습니다</h3>
+		</div>
+		</c:if>
+    </div>
+    
 </form>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
