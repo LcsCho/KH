@@ -23,7 +23,7 @@
 <style></style>
 
 </head>
-<body>
+<body class="center">
 	<main>
         <header>
             <div class="logo">
