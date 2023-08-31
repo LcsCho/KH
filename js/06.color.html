@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color change</title>
+    <script>
+        // (참고) style은 하위 속성을 선택하여 지정할 수 있다
+        function black() {
+            document.getElementById("target").style.color = "black";
+            document.getElementById("target").style.borderColor = "black";
+            document.getElementById("target").textContent="검정";
+            // var tag = document.querySelector("#target"); // id
+            // var tag = document.querySelector(".target"); // class
+            // tag.style = "color:black"; // style 덮어쓰기(비추천)
+            // tag.style.color = "black"; // style 덮어쓰기(추천)
+            // tag.style.borderColor = "black";
+        }
+        function blue() {
+            document.getElementById("target").style.color = "blue";
+            document.getElementById("target").style.borderColor = "blue";
+            document.getElementById("target").textContent="파랑";
+        }
+        function red() {
+            document.getElementById("target").style.color = "red";
+            document.getElementById("target").style.borderColor = "red";
+            document.getElementById("target").textContent="빨강";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="black();">검정으로 변경</button>
+    <button onclick="blue();">파랑으로 변경</button>
+    <button onclick="red();">빨강으로 변경</button>
+    <hr>
+    <h1 id="target" style="border:1px solid black">Hello Javascript</h1>
+    <!-- <h1 class="target" style="border:1px solid black">Hello Javascript</h1> -->
+</body>
+</html>
