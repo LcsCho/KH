@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규식</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+    
+    <!-- javascript 작성 공간 -->
+    <script>
+        function checkIdRegex(inputId) {
+            var idRegex = /[a-z0-9]{5,20}/;
+            var idInput = document.querySelector("#id-input");
+            var idMessage = document.querySelector("#idMessage");
+            idMessage.textContent = "";
+
+            if (idRegex.test(inputId.value)) {
+                idMessage.textContent = "멋진 아이디입니다!";
+                idMessage.style.color = "green";
+            } else {
+                idMessage.textContent = "영문과 숫자 5~20자로 작성하세요";
+                idMessage.style.color = "red";
+            }
+        }
+        var pwTemp = null;
+        function checkPwRegex(inputPw) {
+            var pwRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,20}/;
+            var pwInput = document.querySelector("#pw-input");
+            
+            var pwMessage = document.querySelector("#pwMessage");
+
+            if (pwRegex.test(inputPw.value)) {
+                pwMessage.textContent = "올바른 비밀번호 형식입니다";
+                pwMessage.style.color = "green";
+                pwTemp = inputPw.value;
+            } else {
+                pwMessage.textContent = "영문대소문자, 숫자, 특수문자 8~20자로 작성하세요";
+                pwMessage.style.color = "red";
+            }
+        }
+        function checkPw(inputPwCheck) {
+            var pwCheckMessage = document.querySelector("#pwCheckMessage");
+        
+            if (pwTemp !== null) {
+                if (inputPwCheck.value === pwTemp) {
+                    pwCheckMessage.textContent = "비밀번호가 일치합니다";
+                    pwCheckMessage.style.color = "green";
+                } else {
+                    pwCheckMessage.textContent = "비밀번호가 일치하지 않습니다";
+                    pwCheckMessage.style.color = "red";
+                }
+            } else {
+                pwCheckMessage.textContent = "비밀번호를 입력하세요";
+                pwCheckMessage.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="?" method="post" autocomplete="off">
+        <div class="container w-500">
+            <div class="row">
+                <h1>회원 가입</h1>
+            </div>
+            <div class="row left">
+                <label for="id-input">아이디</label>
+                <input type="text" name="memberId" class="form-input w-100"
+                            id="id-input" oninput="checkIdRegex(this);">
+                            <div class="row left" id="idMessage"></div>
+            </div>
+            <div class="row left">
+                <label>비밀번호</label>
+                <input type="password" name="memberPw" class="form-input w-100"
+                            oninput="checkPwRegex(this);">
+                            <div class="row left" id="pwMessage"></div>
+            </div>
+            <div class="row left">
+                <label>비밀번호 확인</label>
+                <input type="password" name="memberPwCheck" class="form-input w-100"
+                        id="pw-check-input" oninput="checkPw(this);">
+                <div class="row left" id="pwCheckMessage"></div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
