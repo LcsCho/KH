@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS 실습</title>
+    <title>홈페이지 레이아웃</title>
 
     <!-- css 파일을 불러오는 코드 -->
 
@@ -17,21 +17,98 @@
 
     <!-- 내가 만든 CSS 파일-->
     <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="layout-sidebar.css">
     <link rel="stylesheet" type="text/css" href="commons.css">
     <link rel="stylesheet" type="text/css" href="test.css">
-    <link rel="stylesheet" type="text/css" href="layout.css">
-    <link rel="stylesheet" type="text/css" href="layout-sidebar.css">
     <style>
+        /*
+            좌측/우측 메뉴가 적용되도록 스타일 수정
+            - 1차 메뉴 항목의 정렬 방식을 flex로 변경
+            - 1차 메뉴 항목에 .menu-right를 추가하고 좌측 여백을 자동으로 변경
+            - 좌측 여백이 자동이 되면 가능한 최대의 여백을 부여하여 오른쪽에 붙인다
+        */
         .menu {
             display: flex;
         }
-
         .menu > li.menu-right {
             margin-left: auto;
         }
     </style>
 </head>
 <body>
-    
+    <main>
+        <header>
+            <div class="logo">
+                <img src="https://dummyimage.com/200x50/000/fff">
+            </div>
+            <div class="title">
+                <h1>타이틀/검색창</h1>
+            </div>
+            <div class="etc"></div>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">게시판</a></li>
+                
+                <li class="menu-right">
+                    <a href="#">로그인</a>
+                    <ul>
+                        <li><a href="#">회원가입</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <aside>
+                <div class="flex-container vertical center">
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴1</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴2</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴3</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴4</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴5</a></h2>
+                    </div>
+                </div>
+            </aside>
+            <article>컨텐츠</article>
+        </section>
+        <hr>
+        <footer>
+            <div class="row flex-container auto-width">
+                <div class="left">
+                    <a href="#" class="link">이용약관</a> |
+                    <a href="#" class="link">개인정보취급방침</a> |
+                    <a href="#" class="link">인재채용문의</a> |
+                    <a href="#" class="link">훈련비 게시</a> |
+                    <a href="#" class="link">강사채용</a>
+                </div>
+                <div class="right">
+                    <i class="fa-brands fa-google me-10"></i>
+                    <i class="fa-brands fa-facebook me-10"></i>
+                    <i class="fa-brands fa-twitter me-10"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="row left mv-30">
+                <pre>KH정보교육원 ｜ 사업자등록번호 : 851-87-00622 ｜ 서울 강남 제2014-01호 ｜ 대표자 : 양진선 ｜ 책임자 : 최홍석 ｜  개인정보관리책임자 : 양진선
+
+강남지원 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F, 3F, 4F, 5F, 6F
+강남지원 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩 4F, 5F, 7F
+강남지원 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F
+종로지원 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F, 3F
+당산지원 : 서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F, 20F
+Copyright © 1998-2023 KH Information Educational Institute All Right Reserved</pre>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>
