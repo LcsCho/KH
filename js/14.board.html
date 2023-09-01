@@ -82,30 +82,27 @@
 </head>
 
 <body>
-    <div class="container w-500">
+    <div class="container w-600">
         <div class="row">
             <h1>게시글 작성</h1>
         </div>
-
-
         <form autocomplete="off" onsubmit="return checkForm();">
             <div class="row left">
-                <label>제목</label>
-                <label class="red">*</label>
+                <label>제목 <label class="red">*</label></label>
                 <input name="boardTitle"class="form-input w-100" onblur="checkBoardTitle();">
                 <div class="fail-feedback">제목은 반드시 작성해야 합니다</div>
             </div>
             <div class="row left">
-                <label>내용</label>
-                <label class="red">*</label>
+                <label>내용 <span class="red">*</span></label>
+                
                 <textarea name="boardContent" class="form-input w-100" oninput="checkLength();" onblur="checkBoardContent();"></textarea>
                 <div class="fail-feedback">내용은 반드시 작성해야 합니다</div>
             </div>
-            <div class="row">
-                <button type="submit" class="btn btn-positive w-100">작성하기</button>
-            </div>
             <div class="row right">
                 <span name="boardContentLength" class="form-input-length">0</span> / 1000
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-positive w-100">작성하기</button>
             </div>
         </form>
     </div>
