@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+
+    <!-- javascript 작성 공간 -->
+    <script>
+        function checkBoardTitle() {
+            var input = document.querySelector("[name=boardTitle]");
+
+
+            input.classList.remove("success", "fail");
+            if (input.value.length != 0) {
+                input.classList.add("success");
+                return true;
+            }
+            else {
+                input.classList.add("fail");
+                return false;
+            }
+        }
+
+        function checkBoardContent() {
+            var input = document.querySelector("[name=boardContent]");
+
+            input.classList.remove("success", "fail");
+            if (input.value.length != 0) {
+                input.classList.add("success");
+                return true;
+            }
+            else {
+                input.classList.add("fail");
+                return false;
+            }
+        }
+
+        // 폼 검사는 기존 검사 함수를 불러 결과를 받아 반환하도록 구현
+        function checkForm() {
+            // return checkMemberId() && checkMemberPw();
+            var result1 = checkBoardTitle();
+            var result2 = checkBoardContent();
+            return result1 && result2; 
+        }
+        
+        function checkLength() {
+            var textarea = document.querySelector("[name=boardContent]");
+            var maxLength = 1000;
+            if(textarea.value.length > maxLength) {
+                var copy = textarea.value;
+                while(copy.length > maxLength) {
+                    copy = copy.substring(0, copy.length - 1);
+                }
+                textarea.value = copy;
+            }
+            
+            var span = document.querySelector("[name=boardContentLength]");
+            span.textContent = textarea.value.length;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>게시글 작성</h1>
+        </div>
+        <form autocomplete="off" onsubmit="return checkForm();">
+            <div class="row left">
+                <label>제목 <label class="red">*</label></label>
+                <input name="boardTitle"class="form-input w-100" onblur="checkBoardTitle();">
+                <div class="fail-feedback">제목은 반드시 작성해야 합니다</div>
+            </div>
+            <div class="row left">
+                <label>내용 <span class="red">*</span></label>
+                
+                <textarea name="boardContent" class="form-input w-100" oninput="checkLength();" onblur="checkBoardContent();"></textarea>
+                <div class="fail-feedback">내용은 반드시 작성해야 합니다</div>
+            </div>
+            <div class="row right">
+                <span name="boardContentLength" class="form-input-length">0</span> / 1000
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-positive w-100">작성하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
