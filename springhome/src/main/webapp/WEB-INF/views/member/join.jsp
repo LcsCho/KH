@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+<script src="/js/memberJoin.js"></script>
+<script>
 
-<form action="join" method="post" autocomplete="off">
+</script>
+
+<form action="join" method="post" autocomplete="off" onsubmit="return checkForm();">
 	<div class="container w-500">
         <div class="row">
             <h1>회원 가입</h1>
@@ -19,7 +23,9 @@
            	</label>
             <input type="text" name="memberId" class="form-input w-100"
                         id="id-input"
-                        placeholder="영문 소문자+숫자 5~20자 이내">
+                        placeholder="영문 소문자+숫자 5~20자 이내" onblur="checkMemberId();">
+            <div class="success-feedback">멋진 아이디입니다!</div>
+            <div class="fail-feedback">아이디가 형식에 맞지 않아요</div>
         </div>
         <div class="row left">
             <label>
@@ -27,7 +33,20 @@
             	<i class="fa-solid fa-asterisk red"></i>
            	</label>
             <input type="password" name="memberPw" class="form-input w-100"
-                        placeholder="영문 대소문자+숫자+특수문자 반드시 포함 8~16자">
+                        placeholder="영문 대소문자+숫자+특수문자 반드시 포함 8~16자" onblur="checkMemberPw1();">
+            <div class="success-feedback">올바른 비밀번호 형식입니다</div>
+            <div class="fail-feedback">잘못된 비밀번호 형식입니다</div>
+        </div>
+               <div class="row left">
+            <label>
+            	비밀번호 확인
+            	<i class="fa-solid fa-asterisk red"></i>
+           	</label>
+            <input type="password" name="memberPwCheck" class="form-input w-100"
+                        onblur="checkMemberPw2();">
+            <div class="success-feedback">비밀번호가 일치합니다</div>
+            <div class="fail-feedback">비밀번호가 일치하지 않습니다</div>
+            <div class="fail2-feedback">비밀번호를 먼저 작성하세요</div>
         </div>
         <div class="row left">
             <label>
@@ -35,7 +54,9 @@
 	            <i class="fa-solid fa-asterisk red"></i>
             </label>
             <input type="text" name="memberNickname" class="form-input w-100"
-                        placeholder="한글 또는 숫자 2~10자 이내">
+                        placeholder="한글 또는 숫자 2~10자 이내" onblur="checkMemberNickname();">
+            <div class="success-feedback">올바른 닉네임 형식입니다</div>
+            <div class="fail-feedback">잘못된 닉네임 형식입니다</div>
         </div>
         <div class="row left">
             <label>이메일</label>

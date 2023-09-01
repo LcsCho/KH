@@ -8,7 +8,7 @@
 
 </script>
 
-<form action="write" method="post" autocomplete="off">
+<form action="write" method="post" autocomplete="off" onsubmit="return checkForm();">
 	<%-- 답글일 때만 추가 정보를 전송 --%>
 	<c:if test="${isReply}">
 	<input type="hidden" name="boardParent" value="${originDto.boardNo}">
@@ -27,21 +27,27 @@
         </div>
         <div class="row left">
             <label>제목</label>
-            
+            <i class="fa-solid fa-asterisk red"></i>
             <c:choose>
 				<c:when test="${isReply}">
 					<input type="text" name="boardTitle" class="form-input w-100"
 									value="RE: ${originDto.boardTitle}">
 				</c:when>
 				<c:otherwise>
-					<input type="text" name="boardTitle" class="form-input w-100">
+					<input type="text" name="boardTitle" class="form-input w-100" onblur="checkBoardTitle();">
+					<div class="fail-feedback">제목은 필수이며 100자 이내로 작성하세요</div>
 				</c:otherwise>
 			</c:choose>
         </div>
         
         <div class="row left">
             <label>내용</label>
-            <textarea name="boardContent" class="form-input w-100" style="min-height:250px"></textarea>
+            <i class="fa-solid fa-asterisk red"></i>
+            <textarea name="boardContent" class="form-input w-100" style="min-height:250px" rows="10" oninput="checkBoardContent();"></textarea>
+       		<div class="fail-feedback">내용은 반드시 작성해야 합니다</div>
+        </div>
+         <div class="row right">
+            <span class="len red">0</span> / 1000
         </div>
         <div class="row right">
             <button type="submit" class="btn btn-positive">
