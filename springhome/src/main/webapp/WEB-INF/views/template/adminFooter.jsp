@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-</article>
+		
+			</article>
         </section>
         <hr>
         <footer>
@@ -10,7 +11,7 @@
                     <a href="#" class="link">개인정보취급방침</a> |
                     <a href="#" class="link">인재채용문의</a> |
                     <a href="#" class="link">훈련비 게시</a> |
-                    <a href="#" class="link">강사채용</a> |
+                    <a href="#" class="link">강사채용</a>
                 </div>
                 <div class="right">
                     <i class="fa-brands fa-google me-10"></i>
