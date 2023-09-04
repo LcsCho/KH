@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 실습</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+    
+    <!-- javascript 작성 공간 -->
+    <script>
+        // 다음 점수 데이터로 (1) 총점, (2) 평균, (3) 60점의 예상 등수 구하여 출력
+        var scoreList = [70, 55, 90, 100, 82, 88];
+
+        var sum = 0;
+        for (var i = 0; i < scoreList.length; i++) {
+            sum += scoreList[i];
+        }
+        console.log(sum);
+        console.log(sum / scoreList.length);
+        scoreList.push(60);
+
+        scoreList.sort((a, b) => b - a);
+        console.log(scoreList);
+        var rank = scoreList.indexOf(60);
+        console.log(rank + 1);
+ 
+
+        // 다음 배열에 1부터 100 사이의 369 게임에서 박수치는 숫자를 저장
+        var number369 = [];
+        for (var i = 1; i <= 100; i++) {
+            var numberStr = i.toString();
+            var contains369 = false;
+            
+            for (var j = 0; j < numberStr.length; j++) {
+                if (numberStr[j] === '3' || numberStr[j] === '6' || numberStr[j] === '9') {
+                    contains369 = true;
+                    break;
+                }
+            }
+            if (contains369) {
+                number369.push(i);
+            }
+        }
+        console.log(number369);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

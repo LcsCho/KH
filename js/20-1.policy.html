@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈</title>
+    <!-- 외부에 만들어진 css파일을 불러오는 코드 -->
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- 아이콘 사용을 위한 font awesomedmf 불러오기 위한  -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+    </style>
+    <!-- js작성공간 -->
+    <script>
+        function refreshCheckbox(tag) {
+            // console.log(tag)
+            // console.log(tag.classList)
+            // console.log(tag.classList.contains("check-item"))
+            //<계획>
+            //1. 체크된 체크박스를 확인
+            //2-1 전체가 체크된경우 개별 항목을 모두 체그
+            //2-2 개별항목이 체크된 경우 전체 체크여부를 확인
+
+            if (tag.classList.contains("check-all")) {
+                var itemList = document.querySelectorAll(".check-item");
+                var allList = document.querySelectorAll(".check-all");
+                //tag의 체크상태에 따라 allList와 itemLis를 모두 체크/해제
+
+                for (var i = 0; i < itemList.length; i++) {
+                    itemList[i].checked = tag.checked;
+                }
+                for (var i = 0; i < allList.length; i++) {
+                    allList[i].checked = tag.checked;
+                }
+            }
+            else if (tag.classList.contains("check-item")) {
+                //개별항목의 전체 체크여부를 알아야함
+                //-itemList 전체 체크박스 목록
+                //-checkeItemList 체크된 체크박스 목록
+                var itemList = document.querySelectorAll(".check-item");
+                var checkedItemList = document.querySelectorAll(".check-item:checked");
+                console.log(checkedItemList);
+
+                var allChecked = itemList.length == checkedItemList.length;
+
+                var allList = document.querySelectorAll(".check-all");
+                for (var i = 0; i < allList.length; i++) {
+                    allList[i].checked = allChecked;
+                }
+
+                button.disabled = !allChecked.checked;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>이용약관</h1>
+        </div>
+        <div>
+            <input type="checkbox" class="form-input check-all" oninput="refreshCheckbox(this)">모두 동의합니다
+        </div>
+        <div>
+            <textarea class="form-input w-100" row="5"></textarea>
+        </div>
+        
+        <div>
+            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+        </div>
+        <textarea class="form-input w-100" rows="5"></textarea>
+        <div>
+            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+        </div>
+        <div>
+            <textarea class="form-input w-100" row="5"></textarea>
+        </div>
+        
+        <div>
+            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+        </div>
+        <textarea class="form-input w-100" rows="5"></textarea>
+        <div>
+            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+        </div>
+        <div>
+            <input type="checkbox" class="form-input check-all" oninput="refreshCheckbox(this)">모두 동의합니다
+        </div>
+
+       
+
+        <div>
+            <button id="button" class="btn btn-positive w-100 mt-30" disabled>다음 단계로 이동</button>
+        </div>
+        <!-- class="btn btn-positive w-100 mt-30" -->
+    </div>
+</body>
+
+</html>
