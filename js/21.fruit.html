@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이용약관</title>
+    <title>퀴즈</title>
     <!-- 외부에 만들어진 css파일을 불러오는 코드 -->
 
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
@@ -24,6 +24,8 @@
     </style>
     <!-- js작성공간 -->
     <script>
+        
+
         function refreshCheckbox(tag) {
             // console.log(tag)
             // console.log(tag.classList)
@@ -71,35 +73,29 @@
 <body>
     <div class="container w-600">
         <div class="row">
-            <h1>이용약관</h1>
+            <h1>KH 과일 상회</h1>
         </div>
         <div>
-            <input type="checkbox" class="form-input check-all" oninput="refreshCheckbox(this)">모두 동의합니다
+            <input type="checkbox" class="form-input check-all" oninput="refreshCheckbox(this)">모두 선택
         </div>
+
+        
         <div>
-            <textarea class="form-input w-100" row="5"></textarea>
+            <input type="checkbox" value="500" class="form-input check-item" oninput="refreshCheckbox(this)">사과 (500원)
+        </div>
+
+        <div>
+            <input type="checkbox" value="1000" class="form-input check-item" oninput="refreshCheckbox(this)">딸기 (1000원)
         </div>
         
         <div>
-            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
-        </div>
-        <textarea class="form-input w-100" rows="5"></textarea>
-        <div>
-            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+            <input type="checkbox" value="800" class="form-input check-item" oninput="refreshCheckbox(this)">바나나 (800원)
         </div>
         <div>
-            <textarea class="form-input w-100" row="5"></textarea>
-        </div>
-        
-        <div>
-            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
-        </div>
-        <textarea class="form-input w-100" rows="5"></textarea>
-        <div>
-            <input type="checkbox" class="form-input check-item" oninput="refreshCheckbox(this)">동의합니다
+            <input type="checkbox" value="2000" class="form-input check-item" oninput="refreshCheckbox(this)">포도 (2000원)
         </div>
         <div>
-            <input type="checkbox" class="form-input check-all" oninput="refreshCheckbox(this)">모두 동의합니다
+            예상 결제 금액: 0원
         </div>
 
        
