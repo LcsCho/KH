@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color change</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <script>
+        window.addEventListener("load", function(){
+            var btn = document.querySelector("#black");
+            btn.addEventListener("click", function(){
+                var tag = document.querySelector("#target");
+                tag.style.color = "black";
+                tag.style.borderColor = "black";
+                tag.textContent = "검정";
+            });
+            var btn = document.querySelector("#blue");
+            btn.addEventListener("click", function(){
+                var tag = document.querySelector("#target");
+                tag.style.color = "blue";
+                tag.style.borderColor = "blue";
+                tag.textContent = "파랑";
+            });
+            var btn = document.querySelector("#red");
+            btn.addEventListener("click", function(){
+                var tag = document.querySelector("#target");
+                tag.style.color = "red";
+                tag.style.borderColor = "red";
+                tag.textContent = "빨강";
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button class="btn black" id="black">검정으로 변경</button>
+    <button class="btn blue" id="blue">파랑으로 변경</button>
+    <button class="btn red" id="red">빨강으로 변경</button>
+    <hr>
+    <h1 id="target" style="border:1px solid black">Hello Javascript</h1>
+    <!-- <h1 class="target" style="border:1px solid black">Hello Javascript</h1> -->
+</body>
+</html>

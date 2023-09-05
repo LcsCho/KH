@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 실습</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+    
+    <!-- javascript 작성 공간 -->
+    <script>
+        window.addEventListener("load", function () {
+            var buttonList = document.querySelectorAll(".btn");
+            for (var i = 0; i < buttonList.length; i++) {
+                buttonList[i].addEventListener("click", function () {
+                    var text = document.querySelector("textarea");
+                    if (this.dataset.input == "#") text.textContent = "";
+                    else text.textContent += this.dataset.input;
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>전화기</h1>
+        </div>
+        <div class="row">
+            <textarea style="width: 170px; resize: none;"></textarea>
+        </div>
+        <div class="row">
+            <div class="btn" data-input="7">7</div>
+            <div class="btn" data-input="8">8</div>
+            <div class="btn" data-input="9">9</div>
+        </div>
+        <div class="row">
+            <div class="btn" data-input="4">4</div>
+            <div class="btn" data-input="5">5</div>
+            <div class="btn" data-input="6">6</div>
+        </div>
+        <div class="row">
+            <div class="btn" data-input="1">1</div>
+            <div class="btn" data-input="2">2</div>
+            <div class="btn" data-input="3">3</div>
+        </div>
+        <div class="row">
+            <div class="btn" data-input="*">*</div>
+            <div class="btn" data-input="0">0</div>
+            <div class="btn" data-input="#">#</div>
+        </div>
+    </div>
+</body>
+</html>

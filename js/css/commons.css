@@ -688,6 +688,7 @@ a.link:hover
 .fail2
 {
     border-color: #d63031 !important;
+    
     background-image: url("../image/invalid.png");
     background-repeat: no-repeat;
     background-position-x: right;
