@@ -72,7 +72,10 @@
             var checkboxList = document.querySelectorAll(".check-item:checked");
             var total = 0;
             for(var i=0; i < checkboxList.length; i++) {
-                total += parseInt(checkboxList[i].dataset.price);
+                var input = checkboxList[i].parentNode.nextElementSibling;
+                var qty = parseInt(input.value);
+                var price = parseInt(checkboxList[i].dataset.price);
+                total += qty * price;
             }
 
             var span = document.querySelector(".display");
@@ -81,7 +84,7 @@
     </script>
 </head>
 <body>
-    <div class="container w-300">
+    <div class="container w-400">
         <div class="row">
             <h1>KH 과일 상회</h1>
         </div>
@@ -101,6 +104,7 @@
                     name="fruit" data-price="500">
                 사과(500원)
             </label>
+            <input type="number" name="qty" value="1" oninput="calculate(this);">
         </div>
         <div class="row left">
             <label>
@@ -109,6 +113,7 @@
                     onchange="calculate(this);" oninput="refreshCheckbox(this);">
                 딸기(1000원)
             </label>
+            <input type="number" name="qty" value="1" oninput="calculate(this);">
         </div>
         <div class="row left">
             <label>
@@ -117,6 +122,7 @@
                     onchange="calculate(this);" oninput="refreshCheckbox(this);">
                 바나나(800원)
             </label>
+            <input type="number" name="qty" value="1" oninput="calculate(this);">
         </div>
         <div class="row left">
             <label>
@@ -125,6 +131,7 @@
                     onchange="calculate(this);" oninput="refreshCheckbox(this);">
                 포도(2000원)
             </label>
+            <input type="number" name="qty" value="1" oninput="calculate(this);">
         </div>
         <hr>
         <div class="row left">
