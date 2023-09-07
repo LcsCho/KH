@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 멀티 페이지</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- javascript 작성 공간 -->
+    <script>
+        $(function () {
+            // 1. active 클래스를 활용하는 방식
+            // - 최초에 이전버튼을 숨김
+            refreshButton();
+
+            // - 다음버튼(.btn-next)을 누르면 active를 뒷 page로 이동
+            $(".btn-next").click(function () {
+                $(".page.active").removeClass("active").next().addClass("active");
+                refreshButton();
+            });
+
+            // - 이전버튼(.btn-prev)을 누르면 active를 앞 page로 이동
+            $(".btn-prev").click(function () {
+                $(".page.active").removeClass("active").prev().addClass("active");
+                refreshButton();
+            });
+
+            function refreshButton() {
+                var pageList = $(".page");
+
+                // if(맨앞페이지에 active클래스가 있다면)
+
+                if (pageList.first().hasClass("active")) {
+                    $(".btn-prev").hide();
+                    $(".btn-next").show();
+
+                }
+                else if (pageList.last().hasClass("active")) {
+                    $(".btn-prev").show();
+                    $(".btn-next").hide();
+                }
+                else {
+                    $(".btn-prev").show();
+                    $(".btn-next").show();
+                }
+            }
+            var status = {
+                //객체를 하나 만들어서 검사 결과 저장
+                //-검사 결과를이곳에 저장
+                id: false,
+                pw: false,
+                pwCheck: false,
+                nick: false,
+                email: false,
+                contact: false,
+                birth: false,
+                address: false,
+                ok: function () {
+                    return (this.id && this.pw && this.pwCheck && this.nick);
+                }
+
+            };
+            //$("[name=memberId]").on("blur", function(){});
+            $("[name=memberId]").blur(function () {
+                var regex = /^[a-z][a-z0-9]{4,19}$/;
+                var isValid = regex.test($(this).val());
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.id = isValid;
+
+            });
+            //비밀번호 확인창에 강제로 blur이벤트를 발생시킨다(트리거)
+
+            $("[name=memberPw]").blur(function () {
+                var regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
+                var isValid = regex.test($(this).val());
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.pw = isValid;
+
+                $("#password-check").blur();
+            });
+            $("#password-check").blur(function () {
+                var originPw = $("[name=memberPw]").val();
+                var checkPw = $(this).val();
+
+                $(this).removeClass("success fail fail2");
+                if (originPw.length == 0) {//비밀번호 미입력
+                    $(this).addClass("fail2");
+                    status.pwCheck = false;
+
+                }
+                else if (originPw == checkPw) {//비밀번호 일치
+                    $(this).addClass("success");
+                    status.pwCheck = true;
+
+                }
+                else {//비밀번호 불일치
+                    $(this).addClass("fail");
+                    status.pwCheck = false;
+                }
+
+            });
+            // $(".join-form").submit(function (e) {
+            //     console.log(status.ok());
+
+
+            //     e.preventDefault();
+            // })
+
+            $("[name=memberNickname]").blur(function () {
+                var regex = /^[가-힣0-9]{2,10}$/;
+                var isValid = regex.test($(this).val());
+                $()
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail")
+                status.nick = isValid;
+
+            })
+            $("[name=memberEmail]").blur(function () {
+                var regex = /^(.*?)@(.*?)$/;
+                var isValid = $(this).val().length == 0 || regex.test($(this).val());
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.email = isValid;
+
+            })
+            $("[name=memberContact]").blur(function () {
+                var regex = /^010[1-9][0-9]{7}$/;
+                var isValid = regex.test($(this).val()) || $(this).val().length == 0;
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.contact = isValid;
+
+            })
+            $("[name=memberBirth]").blur(function () {
+                var regex = /^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/;
+                var isValid = regex.test($(this).val()) || $(this).val().length == 0;
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.birth = isValid;
+
+
+            })
+
+            $("[name=memberPost], [name=memberAddr1], [name=memberAddr2]").blur(function () {
+                // var isBlank = $(["name=memberPost"]).val().length == 0  && $(["name=memberAddr1"]).val().length == 0 && $(["name=memberAddr2"]).val().length == 0;
+                // var isFill = $(["name=memberPost"]).val().length > 0 && $(["name=memberAddr1"]).val().length > 0 && $(["name=memberAddr2"]).val().length > 0;
+                var isValid = $(this).val().length == 0 || $(this).val().length > 0;
+
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+                status.address = isValid;
+
+            });
+            $(".join-form").submit(function (e) {
+                console.log(status.ok());
+
+                if (status.ok() == false) e.preventDefault();
+            })
+            $(".check-all").change(function () {
+                var check = $(this).prop("checked");
+                $(".check-all, .check-item").prop("checked", check);
+            });
+
+            //개별체크박스
+            $(".check-item").change(function () {
+                //var allCheck = 개별체크박스개수 == 체크된개별체크박스개수;
+                //var allCheck = $(".check-item").length == $(".check-item:checked").length;
+                var allCheck = $(".check-item").length == $(".check-item").filter(":checked").length;
+                $(".check-all").prop("checked", allCheck);
+            });
+
+            // 이용약관 페이지의 모든 체크박스가 체크되었는지 확인하는 함수
+            function checkAllAgreementsChecked() {
+                var allChecked = $(".check-item:checked").length === $(".check-item").length;
+                return allChecked;
+            }
+
+            // 이용약관 체크박스 상태 변경 이벤트 핸들러
+            $(".check-item").change(function () {
+                var allAgreementsChecked = checkAllAgreementsChecked();
+                $("#next-btn").prop("disabled", !allAgreementsChecked);
+            });
+
+            // 이용약관 페이지에서 "모두 동의합니다" 체크박스 상태 변경 이벤트 핸들러
+            $(".check-all").change(function () {
+                var check = $(this).prop("checked");
+                $(".check-item").prop("checked", check);
+                $("#next-btn").prop("disabled", !check);
+            });
+
+            // 이용약관 페이지 초기화시 버튼 상태 설정
+            var initialAgreementsChecked = checkAllAgreementsChecked();
+            $("#next-btn").prop("disabled", !initialAgreementsChecked);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>회원가입 멀티 페이지</h1>
+        </div>
+        <form class="join-form" action="join" method="post" autocomplete="on">
+
+            <div class="row page-wrapper">
+                <div class="page active">
+                    <div class="row">
+                        <h2>이용약관</h2>
+                    </div>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-all"> 모두 동의합니다
+                        </label>
+                    </div>
+                    <div class="row left">
+                        <textarea class="form-input w-100" readonly>dummy text</textarea>
+                    </div>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-item"> 동의합니다
+                        </label>
+                    </div>
+                    <div class="row left">
+                        <textarea class="form-input w-100" readonly>dummy text</textarea>
+                    </div>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-item"> 동의합니다
+                        </label>
+                    </div>
+                    <div class="row left">
+                        <textarea class="form-input w-100" readonly>dummy text</textarea>
+                    </div>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-item"> 동의합니다
+                        </label>
+                    </div>
+                    <div class="row left">
+                        <textarea class="form-input w-100" readonly>dummy text</textarea>
+                    </div>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-item"> 동의합니다
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="row left">
+                        <label>
+                            <input type="checkbox" class="check-all"> 모두 동의합니다
+                        </label>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="row left">
+                        <label>아이디 <i class="fa-solid fa-asterisk red"></i></label>
+                        <input type="text" name="memberId" placeholder="영문 소문자, 숫자 5~20자" class="form-input w-100">
+                        <div class="success-feedback">멋진 아이디입니다!</div>
+                        <div class="fail-feedback">아이디를 형식에 맞게 입력하세요</div>
+                        <div class="fail2-feedback">이미 사용중인 아이디입니다</div>
+                    </div>
+                    1페이지
+                </div>
+                <div class="page">
+                    <div class="row left">
+                        <label>비밀번호 <i class="fa-solid fa-asterisk red"></i></label>
+                        <input type="password" name="memberPw" placeholder="영문,숫자,특수문자 반드시 1개 이상 포함"
+                            class="form-input w-100">
+                        <div class="success-feedback">올바른 비밀번호 형식입니다</div>
+                        <div class="fail-feedback">잘못된 비밀번호 형식입니다</div>
+                    </div>
+                    <div class="row left">
+                        <label>비밀번호 확인 <i class="fa-solid fa-asterisk red"></i></label>
+                        <input type="password" id="password-check" placeholder="비밀번호 한 번 더 입력" class="form-input w-100">
+                        <div class="success-feedback">비밀번호가 일치합니다</div>
+                        <div class="fail-feedback">비밀번호가 일치하지 않습니다</div>
+                        <div class="fail2-feedback">비밀번호를 먼저 작성하세요</div>
+                    </div>
+                    2페이지
+                </div>
+                <div class="page">
+                    <div class="row left">
+                        <label>닉네임 <i class="fa-solid fa-asterisk red"></i></label>
+                        <input type="text" name="memberNickname" placeholder="한글 또는 숫자 2~10자" class="form-input w-100">
+                        <div class="success-feedback">멋진 닉네임입니다!</div>
+                        <div class="fail-feedback">닉네임 형식이 올바르지 않습니다</div>
+                        <div class="fail2-feedback">닉네임이 이미 사용중입니다</div>
+                    </div>
+                    3페이지
+                </div>
+                <div class="page">
+                    <div class="row left">
+                        <label>이메일</label>
+                        <input type="text" name="memberEmail" placeholder="test@kh.com" class="form-input w-100">
+                        <div class="fail-feedback">이메일 형식이 잘못되었습니다</div>
+                    </div>
+                    <div class="row left">
+                        <label>연락처</label>
+                        <input type="tel" name="memberContact" placeholder="010XXXXXXXX (- 없이)"
+                            class="form-input w-100">
+                        <div class="fail-feedback">전화번호 형식이 올바르지 않습니다</div>
+                    </div>
+                    4페이지
+                </div>
+                <div class="page">
+
+                    <div class="row left">
+                        <label>생년월일</label>
+                        <input type="date" name="memberBirth" class="form-input w-100">
+                        <div class="fail-feedback">잘못된 날짜를 선택하셨습니다</div>
+                    </div>
+                    <div class="row left">
+                        <label style="display: block;">주소</label>
+                        <input type="text" name="memberPost" placeholder="우편번호" class="form-input" size="6"
+                            maxlength="6">
+                        <button type="button" class="btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+
+                        <input type="text" name="memberAddr1" placeholder="기본주소" class="form-input w-100 mt-10">
+                        <input type="text" name="memberAddr2" placeholder="상세주소" class="form-input w-100 mt-10">
+                        <div class="fail-feedback">모든 주소를 작성해주세요</div>
+                        <div class="row left">
+                            <button type="submit" class="btn btn-positive w-100">가입하기</button>
+                        </div>
+                    </div>
+                    5페이지
+                </div>
+        </form>
+
+
+    </div>
+    <div class="row">
+        <button class="btn btn-prev btn-positive">이전</button>
+        <button class="btn btn-next btn-positive" disabled id="next-btn">다음</button>
+    </div>
+    </div>
+</body>
+
+</html>
