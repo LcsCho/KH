@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>나의 홈페이지</title>
 <!--  favicon 설정 -->
-<link rel="shortcut icon" href="/images/kh.png">
+<link rel="shortcut icon" href="/image/kh.png">
 
 <!-- css 파일을 불러오는 코드 -->
 <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
@@ -29,7 +29,7 @@
 	<main>
         <header>
             <div class="logo">
-                <img src="https://dummyimage.com/200x50/000/fff">
+                <img src="/image/khlogo.png/" width="200" height="50">
             </div>
             <div class="title">
                 <h1>내가 만든 홈페이지</h1>
