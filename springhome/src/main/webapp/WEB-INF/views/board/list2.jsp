@@ -64,7 +64,7 @@
 						
 					
 						<!-- 제목을 누르면 상세페이지로 이동 -->
-						<a href="detail?boardNo=${boardListDto.boardNo}">
+						<a class="link" href="detail?boardNo=${boardListDto.boardNo}">
 							${boardListDto.boardTitle}
 						</a>
 						
