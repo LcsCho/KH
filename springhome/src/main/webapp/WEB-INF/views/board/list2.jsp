@@ -61,7 +61,7 @@
          <tbody>
          <c:forEach var="boardListDto" items="${list}">
             <tr>
-               <td><input class="check-item" type="checkbox"><td>
+               <td><input class="check-item" type="checkbox" name="boardList" value="${boardListDto.boardNo}"><td>
                <td>${boardListDto.boardNo}</td>
                <td align="left">
                   
