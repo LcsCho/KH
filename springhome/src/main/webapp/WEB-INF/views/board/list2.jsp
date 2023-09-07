@@ -1,17 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-    
+ 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- javascript 작성 공간 -->
+<script>
+    $(function(){
+        //전체선택과 개별체크박스에 대한 이벤트 구현
+        $(".delete-btn").hide();
+
+        //전체선택
+        $(".check-all").change(function(){
+            var check = $(this).prop("checked");
+            $(".check-all, .check-item").prop("checked", check);
+            
+            if(check) {
+            	//$(".delete-btn").css("display", "inline-block");
+            	//$(".delete-btn").show();
+	           	$(".delete-btn").fadeIn("fast");
+            	//$(".delete-btn").slideDown();
+            }
+            else {
+            	//$(".delete-btn").css("display", "none");
+            	//$(".delete-btn").hide();
+            	$(".delete-btn").fadeOut("fast");
+            	//$(".delete-btn").slideUp();
+            }
+        });
+
+        //개별체크박스
+        $(".check-item").change(function(){
+            //var allCheck = 개별체크박스개수 == 체크된개별체크박스개수;
+            //var allCheck = $(".check-item").length == $(".check-item:checked").length;
+            var allCheck = $(".check-item").length == $(".check-item").filter(":checked").length;
+            $(".check-all").prop("checked", allCheck);
+            
+            if($(".check-item").filter(":checked").length > 0) {
+            	$(".delete-btn").fadeIn("fast");
+            }
+            else {
+            	$(".delete-btn").fadeOut("fast");
+            }
+        });
+        
+        $(".delete-form").submit(function(e){
+        	return confirm("정말 삭제하시겠습니까?");
+        });
+    });
+</script>
+
 
 <div class="container w-800">
 	<div class="row">
 		<h1>자유 게시판</h1>
 	</div>
 	
+	<!-- 폼 시작 -->
+	<form class="delete-form" action="deleteByAdmin" method="post">
+	
 	<%-- 글쓰기는 로그인 상태인 경우에만 출력 --%>
 	<c:if test="${sessionScope.name != null}">
 	<div class="row right">
+		<c:if test="${sessionScope.level == '관리자'}">
+		<button type="submit" class="btn btn-negative delete-btn">
+			<i class="fa-solid fa-trash"></i>
+			일괄삭제
+		</button>
+		</c:if>
+	
 		<a href="write" class="btn">
 			<i class="fa-solid fa-pen"></i>
 			글쓰기
@@ -33,6 +93,12 @@
 		<table class="table table-slit">
 			<thead>
 				<tr>
+					<c:if test="${sessionScope.level == '관리자'}">
+					<th>
+						<!-- 전체선택 체크박스 -->
+						<input type="checkbox" class="check-all">
+					</th>
+					</c:if>
 					<th>번호</th>
 					<th width="40%">제목</th>
 					<th>작성자</th>
@@ -44,6 +110,12 @@
 			<tbody>
 			<c:forEach var="boardListDto" items="${list}">
 				<tr>
+					<c:if test="${sessionScope.level == '관리자'}">
+					<td>
+						<!-- 개별항목 체크박스 -->
+						<input type="checkbox" class="check-item" name="boardNoList" value="${boardListDto.boardNo}">
+					</td>
+					</c:if>
 					<td>${boardListDto.boardNo}</td>
 					<td align="left">
 						
@@ -85,6 +157,9 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<!-- 폼 종료 -->
+	</form>
 	
 	<div class="row page-navigator mv-30">
 		<!-- 이전 버튼 -->
@@ -143,5 +218,3 @@
 </div>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
-
-
