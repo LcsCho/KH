@@ -29,7 +29,7 @@
     <!-- javascript 작성 공간 -->
     <script>
         $(function(){
-            $("[name=memberNickname]").blur(function(){
+            $("[name=memberNickname]").blur(function(e){
                 var nickname = $(this).val();
                 if(nickname.length == 0) return;
 
@@ -40,11 +40,15 @@
                         memberNickname : nickname
                     },
                     success:function(response){
+                        //(주의) 여기서의 this는 ajax 실행 객체(태그가 아님)
+                        $(e.target).removeClass("success fail");
                         if(response == "Y") {
+                            $(e.target).addClass("success");
                             $(".display").text("사용 가능한 닉네임");
                         }
                         else {
                             $(".display").text("이미 사용중인 닉네임");
+                            $(e.target).addClass("fail");
                         }
                     },
                     error:function(){
