@@ -28,16 +28,26 @@
     
     <!-- javascript 작성 공간 -->
     <script>
-        // 목표: 버튼을 누르면 43.ajax.txt를 비동기 통신으로 불러와서 내용을 출력
         $(function(){
-            $(".load-btn").click(function(){
-                // $.ajax({옵션});
+            // 목표: 아이디의 입력이 완료되면 중복검사를 요청하여 결과를 출력
+            $("[name=memberId]").blur(function(){
+                var id = $(this).val();
+
                 $.ajax({
-                    // url:"http://localhost:8080/hello", // 불러올 대상의 주소
-                    url:"http://localhost:8080/lotto", 
+                    url:"http://localhost:8080/idCheck",
+                    method: "post", // 전송방식
+                    data: { // 전송데이터
+                        memberId: id
+                    }, 
                     success: function(response){
-                        console.log(response);
-                        $(".display").text(response);
+                        // 아이디가 있으면 "Y" 없으면 "N"이 반환된다.
+                        // $(".display").text(response);
+                        if (response == "Y") {
+                            $(".display").text("이미 사용중인 아이디입니다");
+                        }
+                        else {
+                            $(".display").text("사용 가능한 아이디입니다.")
+                        }
                     }
                 });
             });
@@ -45,8 +55,14 @@
     </script>
 </head>
 <body>
-    <button class="load-btn">불러오기</button>
-    <hr>
-    <div class="display"></div>
+    <div class="container w-500">
+        <div class="row">
+            <h1>아이디 검사</h1>
+        </div>
+        <div class="row">
+            <input type="text" name="memberId" class="form-input w-100">
+        </div>
+        <div class="row display"></div>
+    </div>
 </body>
 </html>
