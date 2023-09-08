@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
+
+<!-- javascript 작성 공간 -->
 <script src="/js/memberJoin.js"></script>
 <script src="/js/multipage.js"></script>
 <!-- daum 우편 API cdn -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-<!-- javascript 작성 공간 -->
 <script>
     $(function(){
         //최초 게이지 계산
@@ -148,7 +148,7 @@
             <h2>2단계 : 닉네임</h2>
         </div>
         <div class="row left">
-            <label>닉네임</label>
+            <label>닉네임 <i class="fa-solid fa-asterisk red"></i></label>
             <input type="text" name="memberNickname" 
                 placeholder="한글 또는 숫자 2~10자" class="form-input w-100">
             <div class="success-feedback">멋진 닉네임입니다!</div>

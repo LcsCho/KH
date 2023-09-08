@@ -1,129 +1,115 @@
-function checkMemberId() {
-    var input = document.querySelector("[name=memberId]");
-    var regex = /^[a-z0-9]{5,20}$/;
+$(function(){
+    //상태 객체
+    var status = {
+        memberId:false,
+        memberPw:false,
+        memberPwCheck:false,
+        memberNickname:false,
+        memberContact:false,
+        memberBirth:false,
+        memberEmail:false,
+        memberAddress:false,
+        ok:function(){
+            return this.memberId && this.memberPw 
+                        && this.memberPwCheck && this.memberNickname 
+                        && this.memberContact && this.memberBirth
+                        && this.memberEmail && this.memberAddress;
+        },
+    };
 
-    var isValid = regex.test(input.value);
+    $("[name=memberId]").blur(function(){
+        var regex = /^[a-z][a-z0-9]{4,19}$/;
+        var isValid = regex.test($(this).val());
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberId = isValid;
+    });
+    $("[name=memberPw]").blur(function(){
+        var regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
+        var isValid = regex.test($(this).val());
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberPw = isValid;
+    });
+    $("#password-check").blur(function(){
+        var pw1 = $("[name=memberPw]").val();
+        var pw2 = $(this).val();
+        $(this).removeClass("success fail fail2");
+        if(pw1.length == 0) {
+            $(this).addClass("fail2");
+            status.memberPwCheck = false;
+        }
+        else if(pw1 == pw2) {
+            $(this).addClass("success");
+            status.memberPwCheck = true;
+        }
+        else {
+            $(this).addClass("fail");
+            status.memberPwCheck = false;
+        }
+    });
+    $("[name=memberNickname]").blur(function(){
+        var regex = /^[ㄱ-ㅎㅏ-ㅣ가-힣0-9]{2,10}$/;
+        var isValid = regex.test($(this).val());
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberNickname = isValid;
+    });
+    $("[name=memberEmail]").blur(function(){
+        var regex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        var email = $(this).val();
+        var isValid = email.length == 0 || regex.test(email);
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberEmail = isValid;
+    });
+    $("[name=memberContact]").blur(function(){
+        var regex = /^010[1-9][0-9]{7}$/;
+        var contact = $(this).val();
+        var isValid = contact.length == 0 || regex.test(contact);
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberContact = isValid;
+    });
+    $("[name=memberBirth]").blur(function(){
+        var regex = /^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+        var birth = $(this).val();
+        var isValid = birth.length == 0 || regex.test(birth);
+        $(this).removeClass("success fail");
+        $(this).addClass(isValid ? "success" : "fail");
+        status.memberBirth = isValid;
+    });
+    $("[name=memberAddr2]").blur(function(){
+        //this 사용 불가(확실히 누군지 알 수 없음)
+        var post = $("[name=memberPost]").val();
+        var addr1 = $("[name=memberAddr1]").val();
+        var addr2 = $("[name=memberAddr2]").val();
 
-    input.classList.remove("success", "fail", "fail2");
-    if(isValid) {
-        //아이디 중복검사 코드 및 성공 실패
-        input.classList.add("success");
-        return true;
-    }
-    else {
-        input.classList.add("fail");
+        var isBlank = post.length == 0 && addr1.length == 0 && addr2.length == 0;
+        var isFill = post.length > 0 && addr1.length > 0 && addr2.length > 0;
+
+        var isValid = isBlank || isFill;
+        $("[name=memberPost],[name=memberAddr1],[name=memberAddr2]").removeClass("success fail");
+        $("[name=memberPost],[name=memberAddr1],[name=memberAddr2]").addClass(isValid ? "success" : "fail");
+
+        status.memberAddress = isValid;
+    });
+
+    //페이지 이탈 방지
+    //- window에 beforeunload 이벤트 설정
+    $(window).on("beforeunload", function(){
         return false;
-    }
-}
+    });
 
-function checkMemberPw1() {
-    var input = document.querySelector("[name=memberPw]");
-    var regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
-
-    var isValid = regex.test(input.value);
-
-    input.classList.remove("success", "fail");
-    input.classList.add(isValid ? "success" : "fail");
-
-    return isValid;
-}
-
-function checkMemberPw2() {
-    var input1 = document.querySelector("[name=memberPw]");
-    var input2 = document.querySelector("[name=memberPwCheck]");
-
-    input2.classList.remove("success", "fail", "fail2");
-    if(input1.value.length == 0) {//비밀번호 미작성
-        input2.classList.add("fail2");
-        return false;
-    }
-    else if(input1.value == input2.value) {//비밀번호 일치
-        input2.classList.add("success");
-        return true;
-    }
-    else {//비밀번호 불일치
-        input2.classList.add("fail");
-        return false;
-    }
-}
-
-function checkMemberNickname() {
-    var input = document.querySelector("[name=memberNickname]");
-    //var regex = /^[가-힣0-9]{2,10}$/;
-    var regex = /^[ㄱ-ㅎㅏ-ㅣ가-힣0-9]{2,10}$/;
-
-    var isValid = regex.test(input.value);
-
-    input.classList.remove("success", "fail", "fail2");
-    if(isValid) {
-        //+중복검사(추후)
-        input.classList.add("success");
-        return true;
-    }
-    else {
-        input.classList.add("fail");
-        return false;
-    }
-}
-
-function checkMemberEmail() {
-    var input = document.querySelector("[name=memberEmail]");
-    var regex = /^(.*?)@(.*?)$/;
-
-    var isValid = input.value.length == 0 || regex.test(input.value);
-    input.classList.remove("success", "fail");
-    input.classList.add(isValid ? "success" : "fail");
-    return isValid;
-}
-
-function checkMemberContact() {
-    var input = document.querySelector("[name=memberContact]");
-    var regex = /^010[1-9][0-9]{7}$/;
-
-    var isValid = input.value.length==0 || regex.test(input.value);
-    input.classList.remove("success", "fail");
-    input.classList.add(isValid ? "success" : "fail");
-    return isValid;
-}
-
-function checkMemberBirth() {
-    var input = document.querySelector("[name=memberBirth]");
-    var regex = /^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/;
-    
-    var isValid = input.value.length == 0 || regex.test(input.value);
-    input.classList.remove("success", "fail");
-    input.classList.add(isValid ? "success" : "fail");
-    return isValid;
-}
-
-function checkMemberAddress() {
-    var input1 = document.querySelector("[name=memberPost]");
-    var input2 = document.querySelector("[name=memberAddr1]");
-    var input3 = document.querySelector("[name=memberAddr2]");
-
-    var isBlank = input1.value.length == 0 && input2.value.length == 0 && input3.value.length == 0;
-    var isFill = input1.value.length > 0 && input2.value.length > 0 && input3.value.length > 0;
-    var isValid = isBlank || isFill;
-
-    input1.classList.remove("success", "fail");
-    input2.classList.remove("success", "fail");
-    input3.classList.remove("success", "fail");
-
-    input1.classList.add(isValid ? "success" : "fail");
-    input2.classList.add(isValid ? "success" : "fail");
-    input3.classList.add(isValid ? "success" : "fail");
-
-    return isValid;
-}
-
-function checkForm() {
-    var result1 = checkMemberId();
-    var result2 = checkMemberPw1();
-    var result3 = checkMemberPw2();
-    var result4 = checkMemberNickname();
-    var result5 = checkMemberEmail();
-    var result6 = checkMemberBirth();
-    var result7 = checkMemberContact();
-    var result8 = checkMemberAddress();
-    return result1 && result2 && result3 && result4 && result5 && result6 && result7 && result8;
-}
+    //- form 전송할 때는 beforeunload 이벤트를 제거
+    $(".join-form").submit(function(e){
+        $(".form-input").blur();
+        if(!status.ok()) {
+            e.preventDefault();
+            //return false;
+        }
+        else {
+            $(window).off("beforeunload");
+        }
+    });
+});
