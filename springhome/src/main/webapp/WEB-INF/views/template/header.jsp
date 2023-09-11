@@ -33,7 +33,9 @@
 	<main>
         <header>
             <div class="logo">
-                <img src="/image/khlogo.png" width="200" height="50">
+            <a href="/">
+            	<img src="/image/khlogo.png" width="200" height="50">
+            </a>
             </div>
             <div class="title">
                 <h1>내가 만든 홈페이지</h1>
