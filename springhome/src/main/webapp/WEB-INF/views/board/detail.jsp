@@ -137,8 +137,8 @@ $(function(){
 						});
 						
 						// 완료(등록) 버튼 처리
-						$(editHtmlTemplate).find(".reply-edit-form")
-											.submit(function(e){
+						// - editTemplate 자체가 form이므로 추가 탐색을 하지 않음
+						$(editHtmlTemplate).submit(function(e){
 							// 검사 코드(미입력)
 							
 							// 기본 이벤트 차단
