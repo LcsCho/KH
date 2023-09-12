@@ -3,6 +3,7 @@ package com.kh.springhome.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.kh.springhome.dao.MemberDao;
 import com.kh.springhome.dto.MemberDto;
 import com.kh.springhome.dto.StatDto;
 
-// @CrossOrigin
+@CrossOrigin
 @RestController
 @RequestMapping("/rest/member")
 public class MemberRestController {
