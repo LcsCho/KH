@@ -249,7 +249,6 @@ $(function(){
 					if (response.check) {
 						$(".fa-heart").removeClass("fa-solid fa-regular").addClass("fa-solid");
 					}
-					
 					else {
 						$(".fa-heart").removeClass("fa-solid fa-regular").addClass("fa-regular");
 					}
