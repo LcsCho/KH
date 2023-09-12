@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
+<script src="/js/multipage.js"></script>
+<script src="/js/memberJoin.js"></script>
+<!-- daum 우편 API cdn -->
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <!-- javascript 작성 공간 -->
-<script src="/js/memberJoin.js"></script>
-<script src="/js/multipage.js"></script>
-<!-- daum 우편 API cdn -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     $(function(){
         //최초 게이지 계산
@@ -71,18 +72,18 @@
         
         //x버튼 누르면 주소 지우기
         $(".post-clear").click(function(){
-        	$("[name=memberPost],[name=memberAddr1],[name=memberAddr2]").val("").removeClass("success fail");
+           $("[name=memberPost],[name=memberAddr1],[name=memberAddr2]").val("").removeClass("success fail");
         });
         $("[name=memberAddr2]").on("input blur", function(){
-			var post = $("[name=memberPost]").val();
-			var addr1 = $("[name=memberAddr1]").val();
-			var addr2 = $("[name=memberAddr2]").val();
-			if(post.length == 0 && addr1.length == 0 && addr2.length == 0) {
-				$(".post-clear").hide();				
-			}
-			else {
-				$(".post-clear").show();        	
-			}
+         var post = $("[name=memberPost]").val();
+         var addr1 = $("[name=memberAddr1]").val();
+         var addr2 = $("[name=memberAddr2]").val();
+         if(post.length == 0 && addr1.length == 0 && addr2.length == 0) {
+            $(".post-clear").hide();            
+         }
+         else {
+            $(".post-clear").show();           
+         }
         });
         $(".post-clear").hide();
     });
@@ -148,7 +149,7 @@
             <h2>2단계 : 닉네임</h2>
         </div>
         <div class="row left">
-            <label>닉네임 <i class="fa-solid fa-asterisk red"></i></label>
+            <label>닉네임</label>
             <input type="text" name="memberNickname" 
                 placeholder="한글 또는 숫자 2~10자" class="form-input w-100">
             <div class="success-feedback">멋진 닉네임입니다!</div>
@@ -229,7 +230,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <button type="button" class="btn btn-negative post-clear">
-                	<i class="fa-solid fa-x"></i>
+                   <i class="fa-solid fa-x"></i>
                 </button>
     
                 <input type="text" name="memberAddr1" placeholder="기본주소"

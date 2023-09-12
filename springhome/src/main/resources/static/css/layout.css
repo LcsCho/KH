@@ -5,11 +5,10 @@
 @charset "UTF-8";
 
 main {
-    width: 1100px;
+    width:1000px;
     margin: 0 auto;
     font-size: 16px;
 }
-
 /*
     헤더는 좌/중/우 3개로 구분하여 작성
     - 좌 - 로고 등을 배치
@@ -21,16 +20,14 @@ header {
     flex-wrap: nowrap;
     min-height: 80px;
 }
-
 header > .logo {
-    width: 25%;
+    width:25%;
 }
-
 header > .title {
     flex-grow: 1;
 }
 header > .etc {
-    width: 25%;
+    width:25%;
 }
 header > .logo,
 header > .title,
