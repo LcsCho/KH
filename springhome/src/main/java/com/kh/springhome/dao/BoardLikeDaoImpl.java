@@ -45,5 +45,12 @@ public class BoardLikeDaoImpl implements BoardLikeDao{
 		List<BoardLikeDto> list = jdbcTemplate.query(sql, boardLikeMapper, data);
 		return list.isEmpty() ? false : true;
 	}
+	
+	@Override
+	public int count(int boardNo) {
+		String sql = "select count(*) from board_like where board_no = ?";
+		Object[] data = {boardNo};
+		return jdbcTemplate.queryForObject(sql, int.class, data);
+	}
 
 }
