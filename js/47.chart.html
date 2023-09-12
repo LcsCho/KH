@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS실습</title>
+    <!-- 외부에 만들어진 css파일을 불러오는 코드 -->
+
+    <link rel="stylesheet" type="text/css" href="./css/reset.css"> 
+    <link rel="stylesheet" type="text/css" href="./css/commons.css"> 
+    <link rel="stylesheet" type="text/css" href="./css/test.css"> 
+    <!-- 아이콘 사용을 위한 font awesomedmf 불러오기 위한  -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <!-- 폰트 -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Nanum+Pen+Script&display=swap"
+          rel="stylesheet">
+  
+
+    <style>
+    </style>
+    <!-- js작성공간 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(function(){
+            //canvas 제어 방식
+            //-canvas는 javascript apifh 제어한다
+            //-canvas의 그림 그리는 도구를 context또는graphics라고 부름
+            var canvas = document.querySelector(".sketch");
+            var context = canvas.getContext("2d");
+
+
+            context.fillStyle = "rgb(200, 0, 0)";
+            context.fillRect(10, 10, 50, 50);
+
+            context.fillStyle = "rgb(0, 200, 0)";
+            context.fillRect(30, 30, 50, 50);
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container w-500">
+
+        <div class="row">
+            <h1>캔버스태그</h1>
+        </div>
+        <div class="row">
+            <canvas class="sketch" width="100%" height="200"></canvas>
+        </div>
+
+    </div> 
+</body>
+</html>
