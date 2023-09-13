@@ -32,4 +32,11 @@ public class PokemonDaoImpl implements PokemonDao{
 		jdbcTemplate.update(sql, data);
 		
 	}
+
+	@Override
+	public void connect(int pokemonNo, int attachNo) {
+		String sql = "insert into pokemon_image values(?, ?)";
+		Object[] data = {pokemonNo, attachNo};
+		jdbcTemplate.update(sql, data);
+	}
 }
