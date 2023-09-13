@@ -62,6 +62,12 @@
             		<c:otherwise>
             			<li><a href="/">Home</a></li>
             			<li><a href="/board/list">게시판</a></li>
+            			<li>
+            				<a href="/pokemon/list">포켓몬</a>
+            				<ul>
+            					<li><a href="/pokemon/insert">+등록</a>
+            				</ul>
+            			</li>
             			<li class="menu-right">
             				<a href="/member/login">로그인</a>
             				<ul>
