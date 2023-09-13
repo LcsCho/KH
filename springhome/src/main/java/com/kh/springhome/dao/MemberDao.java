@@ -25,17 +25,25 @@ public interface MemberDao {
 	List<MemberDto> selectListByPage(PaginationVO vo);
 	List<MemberListDto> selectListByPage2(PaginationVO vo);
 	
-	// 차단 + 해제 기능
+	//차단+해제 기능
 	void insertBlock(String memberId);
 	boolean deleteBlock(String memberId);
 	
 	List<MemberBlockDto> selectBlockList();
 	MemberBlockDto selectBlockOne(String memberId);
+	
 	MemberDto selectOneByMemberNickname(String memberNickname);
 	
-	// 통계 기능 추가
+	//통계 기능 추가
 	List<StatDto> selectGroupByMemberLevel();
+	List<StatDto> selectGroupByYear();
+	List<StatDto> selectGroupByMonth();
+	List<StatDto> selectGroupByDate();
 }
+
+
+
+
 
 
 

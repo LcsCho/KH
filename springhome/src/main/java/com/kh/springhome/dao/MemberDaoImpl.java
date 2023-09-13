@@ -26,9 +26,6 @@ public class MemberDaoImpl implements MemberDao{
 	
 	@Autowired
 	private MemberListMapper memberListMapper;
-	
-	@Autowired
-	private MemberBlockMapper memberBlockMapper;
 
 	@Override
 	public void insert(MemberDto memberDto) {
@@ -55,8 +52,6 @@ public class MemberDaoImpl implements MemberDao{
 		List<MemberDto> list = jdbcTemplate.query(sql, memberMapper, data);
 		return list.isEmpty() ? null : list.get(0);
 	}
-	
-
 
 	@Override
 	public boolean updateMemberLogin(String memberId) {
@@ -112,12 +107,14 @@ public class MemberDaoImpl implements MemberDao{
 	public int countList(PaginationVO vo) {
 		if(vo.isSearch()) {
 			String sql = "select count(*) from member "
-							+ "where instr("+vo.getType()+", ?) > 0";
+							+ "where instr("+vo.getType()+", ?) > 0 "
+									+ "and member_level != '관리자'";
 			Object[] data = {vo.getKeyword()};
 			return jdbcTemplate.queryForObject(sql, int.class, data);
 		}
 		else {
-			String sql = "select count(*) from member";
+			String sql = "select count(*) from member "
+							+ "where member_level != '관리자'";
 			return jdbcTemplate.queryForObject(sql, int.class);
 		}
 	}
@@ -173,21 +170,20 @@ public class MemberDaoImpl implements MemberDao{
 		};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
-
+	
 	@Override
 	public void insertBlock(String memberId) {
 		String sql = "insert into member_block(member_id) values(?)";
 		Object[] data = {memberId};
 		jdbcTemplate.update(sql, data);
 	}
-
 	@Override
 	public boolean deleteBlock(String memberId) {
 		String sql = "delete member_block where member_id = ?";
 		Object[] data = {memberId};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
-
+	
 	@Override
 	public List<MemberListDto> selectListByPage2(PaginationVO vo) {
 		if(vo.isSearch()) {
@@ -215,19 +211,22 @@ public class MemberDaoImpl implements MemberDao{
 			return jdbcTemplate.query(sql, memberListMapper, data);
 		}
 	}
-
+	
+	@Autowired
+	private MemberBlockMapper memberBlockMapper;
+	
 	@Override
 	public List<MemberBlockDto> selectBlockList() {
-		String sql = "select * from member_block oreder by block_time asc";
+		String sql = "select * from member_block order by block_time asc";
 		return jdbcTemplate.query(sql, memberBlockMapper);
 	}
-
+	
 	@Override
 	public MemberBlockDto selectBlockOne(String memberId) {
 		String sql = "select * from member_block where member_id = ?";
 		Object[] data = {memberId};
-		List<MemberBlockDto> list =
-				jdbcTemplate.query(sql, memberBlockMapper, data);
+		List<MemberBlockDto> list = 
+					jdbcTemplate.query(sql, memberBlockMapper, data);
 		return list.isEmpty() ? null : list.get(0);
 	}
 	
@@ -238,17 +237,42 @@ public class MemberDaoImpl implements MemberDao{
 		List<MemberDto> list = jdbcTemplate.query(sql, memberMapper, data);
 		return list.isEmpty() ? null : list.get(0);
 	}
-
+	
 	@Autowired
 	private StatMapper statMapper;
 	
 	@Override
 	public List<StatDto> selectGroupByMemberLevel() {
 		String sql = "select member_level name, count(*) cnt from member "
-				+ "group by member_level "
-				+ "order by cnt desc";
+						+ "group by member_level "
+						+ "order by cnt desc";
 		return jdbcTemplate.query(sql, statMapper);
 	}
+	
+	@Override
+	public List<StatDto> selectGroupByYear() {
+		String sql = "select extract(year from member_join) name, count(*) cnt "
+						+ "from member group by extract(year from member_join) "
+						+ "order by name asc";
+		return jdbcTemplate.query(sql, statMapper);
+	}
+	
+	@Override
+	public List<StatDto> selectGroupByMonth() {
+		String sql = "select to_char(member_join, 'YYYY-MM') name, count(*) cnt "
+						+ "from member group by to_char(member_join, 'YYYY-MM') "
+						+ "order by name asc";
+		return jdbcTemplate.query(sql, statMapper);
+	}
+	
+	@Override
+	public List<StatDto> selectGroupByDate() {
+		String sql = "select to_char(member_join, 'YYYY-MM-DD') name, count(*) cnt "
+						+ "from member group by to_char(member_join, 'YYYY-MM-DD') "
+						+ "order by name asc";
+		return jdbcTemplate.query(sql, statMapper);
+	}
+	
 }
 
 
