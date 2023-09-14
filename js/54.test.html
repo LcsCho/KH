@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/test.css"> -->
+    <style>
+        .btn.w-100 {
+            border: none;
+        }
+    </style>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- javascript 작성 공간 -->
+    <script>
+        $(document).ready(function () {
+            $('input[type="radio"]').change(function () {
+                if ($(this).val() === "admin") {
+                    $('input[name="normal"]').prop('checked', false);
+                } else {
+                    $('input[name="admin"]').prop('checked', false);
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#login-button').click(function () {
+                var userId = $('input[name="userId"]').val();
+                var userPw = $('input[name="userPw"]').val();
+
+                if (userId !== '' && userPw !== '') {
+                    var formData = new FormData();
+                    formData.append('userId', userId);
+                    formData.append('userPw', userPw);
+
+                    $.ajax({
+                        url: '서버URL',
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(error) {
+                            console.error(error);
+                        }
+                    });
+                } else {
+                    alert("모든 항목을 입력해야 전송 가능합니다.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form action="#" method="post" autocomplete="off" onsubmit="return checkForm();"></form>
+    <div class="container w-400 border mt-40" style="box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 5px;">
+      
+        <div class="container w-300">
+            <div class="row">
+                <h1 class="mb-40">User Login</h1>
+            </div>
+        <div class="row">
+            <form id="login-form">
+                <input class="input-form w-100 mb-20" type="text" name="userId" placeholder="ID">
+                <input class="input-form w-100 mb-20" type="password" name="userPw" placeholder="Password">
+                <div class="row flex-container">
+                    <div class="w-100 left mb-20">
+                        <label><input type="radio" name="normal" value="normal" checked>일반회원</label>
+                    </div>
+                    <div class="w-100 right mb-20">
+                        <label><input type="radio" name="admin" value="admin">관리자</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-positive w-100 mb-10" id="login-button">로그인</button>
+                </div>
+            </form>
+        </div>
+        <hr class="w-100 mb-20">
+        <div class="row">
+            <button type="button" class="btn w-100 mb-40" style="background-color: rgb(224, 224, 224);">회원가입</button>
+        </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>
