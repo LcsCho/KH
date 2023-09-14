@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.kh.springhome.dto.PokemonDto;
 
-@Component // 컨트롤러도 아니고 리파지토리도 아닌 애매한 것들
+@Component
 public class PokemonMapper implements RowMapper<PokemonDto>{
 
 	@Override
@@ -17,6 +17,8 @@ public class PokemonMapper implements RowMapper<PokemonDto>{
 		dto.setNo(rs.getInt("no"));
 		dto.setName(rs.getNString("name"));
 		dto.setType(rs.getString("type"));
+		// dto.setImage(rs.getInt("attach_no") > 0); // int일 때는 0이냐 아니냐로 구분
+		dto.setImage(rs.getObject("attach_no") != null);
 		return dto;
 	}
 }
