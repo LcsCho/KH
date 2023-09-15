@@ -71,16 +71,19 @@ public class MemberController {
 		
 		//boolean isCorrectPw = 입력한비밀번호와 DB비밀번호가 같나?
 		boolean isCorrectPw = inputDto.getMemberPw().equals(findDto.getMemberPw());
-	
 		
 		//[3] 비밀번호가 일치하면 메인페이지로 이동
 		if(isCorrectPw) {
-			// (주의) 만야 차단된 회원이라면 추가 작업을 중지하고 오류 발생
-			MemberBlockDto blockDto = memberDao.selectBlockOne(findDto.getMemberId());
-			if (blockDto != null) {
-				// return "redirect:오류페이지";
+			//(주의) 만약 차단된 회원이라면 추가 작업을 중지하고 오류 발생
+			MemberBlockDto blockDto = 
+					memberDao.selectBlockOne(findDto.getMemberId());
+			
+			//if(차단된 회원이라면) {
+			if(blockDto != null) {
+				//return "redirect:오류페이지";
 				throw new AuthorityException("차단된 회원");
 			}
+			
 			//세션에 아이디+등급 저장
 			session.setAttribute("name", findDto.getMemberId());
 			session.setAttribute("level", findDto.getMemberLevel());
@@ -116,6 +119,9 @@ public class MemberController {
 		model.addAttribute("memberDto", memberDto);
 		//[4] 좋아요 누른 게시글 내역을 모델에 첨부한다
 		model.addAttribute("boardLikeList", boardLikeDao.findByMemberId(memberId));
+		//[5] 이 회원의 프로필 이미지 번호를 첨부한다
+		model.addAttribute("profile", memberDao.findProfile(memberId));
+		
 		return "/WEB-INF/views/member/mypage.jsp";
 	}
 	
