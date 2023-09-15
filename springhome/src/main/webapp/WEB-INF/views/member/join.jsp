@@ -148,7 +148,7 @@
             <h2>2단계 : 닉네임</h2>
         </div>
         <div class="row left">
-            <label>닉네임 <i class="fa-solid fa-asterisk red"></i></label>
+            <label>닉네임 <i class="fa-solid fa-asterisk red"></label>
             <input type="text" name="memberNickname" 
                 placeholder="한글 또는 숫자 2~10자" class="form-input w-100">
             <div class="success-feedback">멋진 닉네임입니다!</div>
