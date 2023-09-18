@@ -22,7 +22,7 @@ public class CertDaoImpl implements CertDao{
 	public void insert(CertDto certDto) {
 		String sql = "insert into cert(cert_email, cert_number) "
 				+ "values(?, ?)";
-		Object[] data = {certDto.getCertMail(), certDto.getCertNumber()};
+		Object[] data = {certDto.getCertEmail(), certDto.getCertNumber()};
 		jdbcTemplate.update(sql, data);
 		
 	}
