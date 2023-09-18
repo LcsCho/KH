@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootTest
 public class Test03 {
    
-	// application.properties에 작성된 정보를 불러와 사용
 	@Autowired
 	private JavaMailSender sender;
 	
