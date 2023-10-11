@@ -340,6 +340,8 @@ $(function(){
 			답글
 		</a>
 		
+		
+		
 		<%-- 수정/삭제는 소유자일 경우만 나와야 한다 --%>
 		<c:if test="${sessionScope.name == boardDto.boardWriter}">
 		<a class="btn btn-negative" href="edit?boardNo=${boardDto.boardNo}">
