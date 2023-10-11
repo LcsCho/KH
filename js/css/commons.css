@@ -688,8 +688,12 @@ a.link:hover
 .success {
     /* important는 우선순위를 최상위로 올린다 */
     border-color: #00b894 !important;
-    background-image: url("../images/valid.png");
+}
+.success:not([type=date]) {
+    background-image: url("../image/valid.png");
     background-repeat: no-repeat;
+    /* background-position-x: right;
+    background-position-y: center; */
     background-position: center right 1em;
     background-size: 1em;
 }
@@ -697,7 +701,7 @@ a.link:hover
 .fail2
 {
     border-color: #d63031 !important;
-    background-image: url("../images/invalid.png");
+    background-image: url("../image/invalid.png");
     background-repeat: no-repeat;
     background-position: center right 1em;
     background-size: 1em;
