@@ -22,6 +22,10 @@
 <!-- <link rel="stylesheet" type="text/css" href="/css/test.css"> -->
 <style></style>
 
+<script>
+	window.contextPath = "${pageContext.request.contextPath}";
+</script>
+
 </head>
 <body class="center">
 	<main>
