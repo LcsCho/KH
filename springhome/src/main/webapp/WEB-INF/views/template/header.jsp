@@ -8,7 +8,7 @@
 <title>나의 홈페이지</title>
 
 <!-- favicon 설정 -->
-<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico">
 
 <!-- css 파일을 불러오는 코드 -->
 <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
@@ -22,9 +22,9 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="/css/reset.css">
-<link rel="stylesheet" type="text/css" href="/css/layout.css">
-<link rel="stylesheet" type="text/css" href="/css/commons.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/reset.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/commons.css">
 <!-- <link rel="stylesheet" type="text/css" href="/css/test.css"> -->
 <style></style>
 
@@ -36,7 +36,7 @@
 	<main>
 		<header>
 			<div class="logo">
-				<a href="/"> <img src="/image/khlogo.png" width="200"
+				<a href="${pageContext.request.contextPath}/"> <img src="${pageContext.request.contextPath}/image/khlogo.png" width="200"
 					height="50">
 				</a>
 			</div>
@@ -49,28 +49,28 @@
 			<ul class="menu center">
 				<c:choose>
 					<c:when test="${sessionScope.name != null}">
-						<li><a href="/">Home</a></li>
-						<li><a href="/board/list">게시판</a></li>
-						<li><a href="/pokemon/list">포켓몬</a>
+						<li><a href="${pageContext.request.contextPath}/">Home</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/list">게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/pokemon/list">포켓몬</a>
 							<ul>
-								<li><a href="/pokemon/insert">+등록</a>
+								<li><a href="${pageContext.request.contextPath}/pokemon/insert">+등록</a>
 							</ul></li>
-						<li class="menu-right"><a href="/member/mypage">내정보</a>
+						<li class="menu-right"><a href="${pageContext.request.contextPath}/member/mypage">내정보</a>
 							<ul>
-								<li><a href="/member/logout">로그아웃</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/logout">로그아웃</a></li>
 								<%-- 관리자인 경우 추가 메뉴 출력 --%>
 								<c:if test="${sessionScope.level == '관리자'}">
-									<li><a href="/admin/home">관리자메뉴</a></li>
+									<li><a href="${pageContext.request.contextPath}/admin/home">관리자메뉴</a></li>
 								</c:if>
 							</ul></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="/">Home</a></li>
-						<li><a href="/board/list">게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/">Home</a></li>
+						<li><a href="${pageContext.request.contextPath}/board/list">게시판</a></li>
 
-						<li class="menu-right"><a href="/member/login">로그인</a>
+						<li class="menu-right"><a href="${pageContext.request.contextPath}/member/login">로그인</a>
 							<ul>
-								<li><a href="/member/join">회원가입</a></li>
+								<li><a href="${pageContext.request.contextPath}/member/join">회원가입</a></li>
 							</ul></li>
 					</c:otherwise>
 				</c:choose>
