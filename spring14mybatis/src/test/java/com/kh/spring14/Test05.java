@@ -16,7 +16,7 @@ public class Test05 {
    
    @Test
    public void test() {
-      int no=1;
+      int no=10;
       int count = sqlSession.delete("pokemon.del", no);
       boolean result = count > 0;
       log.debug("result={}", result);

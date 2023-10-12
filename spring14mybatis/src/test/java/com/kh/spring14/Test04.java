@@ -19,7 +19,7 @@ public class Test04 {
    @Test
    public void test() {
       PokemonDto dto = new PokemonDto();
-      dto.setNo(1);
+      dto.setNo(11);
       dto.setName("바꿀이름");
       dto.setType("바꿈");
       
