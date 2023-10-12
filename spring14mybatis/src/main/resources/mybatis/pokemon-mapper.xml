@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="pokemon">
+   <!-- 목록 구문 -->
+   <select id="list" resultType="pokemonDto">
+      select * from pokemon
+   </select>
+
+   <!-- 상세 구분 : 마이바티스는 ?홀더가 아니라 네이밍홀더 사용 -->
+   <select id="find" resultType="pokemonDto">
+      select * from pokemon where no
+      =#{no}
+   </select>
+
+   <!-- 등록구문 : resultType은 select에만 있다. 마찬가지로 네이밍 홀더를 쓴다 - #{name}은 전달되는 데이터(객체)의 
+      name 필드를 의미 - #{type}은 전달되는 데이터(객체)의 type 필드를 의미 -->
+   <insert id="add">
+      insert into pokemon(no, name, type)
+      values(pokemon_seq.nextval,#{name}, #{type})
+   </insert>
+
+   <!-- 수정구문 -->
+   <update id="edit">
+      update pokemon 
+      set name=#{name}, type=#{type} where no=#{no}
+   </update>
+   
+   <!-- 
+   삭제구문
+    -->
+    <delete id="del">
+    delete pokemon where no=#{no}
+    </delete>
+</mapper>
