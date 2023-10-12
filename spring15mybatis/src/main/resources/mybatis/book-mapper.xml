@@ -5,11 +5,11 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="book">
-	<select id="list" resultType="bookDto">
+	<select id="list" resultType="BookDto">
 		select * from book
 	</select>
 
-	<select id="find" resultType="bookDto">
+	<select id="find" resultType="BookDto">
 		select * from book where book_id =
 		#{bookId}
 	</select>
@@ -25,12 +25,23 @@
 
 	<update id="edit">
 		update book
-		set book_title=#{bookTitle}
-		where book_id=#{bookId}
+		set book_title = #{bookTitle}
+		where book_id = #{bookId}
 	</update>
 
 	<delete id="del">
-		delete book where book_id=#{bookId}
+		delete book where book_id = #{bookId}
 	</delete>
 	
+	<!-- 
+		도서 검색 
+		- type, keyword 검색에서 type과 keyword는 할당되는 방식이 달라야 한다
+		- type은 있는 그대로 변형 없이 할당(정적 할당)
+		- keyword는 데이터의 형태에 맞게 변형하여 할당(동적 할당)
+	-->
+	<select id="search" resultType="BookDto">
+		select * from book 
+		where instr(${type}, #{keyword}) > 0 
+		order by ${type} asc
+	</select>
 </mapper>

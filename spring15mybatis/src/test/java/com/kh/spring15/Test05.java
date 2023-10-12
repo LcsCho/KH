@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.kh.spring15.dto.BookDto;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -16,9 +18,10 @@ public class Test05 {
 	
 	@Test
 	public void test() {
-		int bookId = 3;
-		int count = sqlSession.delete("book.del", bookId);
-		boolean result = count > 0;
+		
+		int result = sqlSession.delete("book.del", BookDto.builder()
+				.bookId(4)
+				.build());
 		log.debug("result={}", result);
 	}
 }

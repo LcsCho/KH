@@ -18,12 +18,16 @@ public class Test04 {
 	
 	@Test
 	public void test() {
-		BookDto bookDto = new BookDto();
-		bookDto.setBookId(3);
-		bookDto.setBookTitle("조준희의심한감기");
-		
-		int count = sqlSession.update("book.edit", bookDto);
-		boolean result = count > 0;
-		log.debug("result = {}", result);
+//		BookDto bookDto = new BookDto();
+//		bookDto.setBookId(3);
+//		bookDto.setBookTitle("조준희의심한감기");
+		int count = sqlSession.update("book.edit", BookDto.builder()
+				.bookId(3)
+				.bookTitle("결핵인지폐렴인지")
+				.build());
+		log.debug("count = {}", count);
+//		int count = sqlSession.update("book.edit", bookDto);
+//		boolean result = count > 0;
+//		log.debug("result = {}", result);
 	}
 }
