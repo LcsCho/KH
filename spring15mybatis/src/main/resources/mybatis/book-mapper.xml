@@ -137,7 +137,7 @@
 				<when test="bookPageMax != null">
 	 				<![CDATA[
 	 					and book_page_count 
-	 					<= 3{bookPageMax}
+	 					<= #{bookPageMax}
 	 				]]>
 				</when>
 			</choose>
