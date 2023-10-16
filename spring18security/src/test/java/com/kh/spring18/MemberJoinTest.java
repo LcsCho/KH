@@ -12,16 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SpringBootTest
 public class MemberJoinTest {
-
 	@Autowired
 	private SecureMemberDao dao;
-	
+
 	@Test
 	public void test() {
-		dao.insert(SecureMemberDto.builder()
-					.memberId("hello1234")
-					.memberPw("password1234")
-				.build());
+		dao.insert(SecureMemberDto.builder().memberId("hello1234").memberPw("password1234").build());
 	}
-	
 }

@@ -12,6 +12,7 @@
 	</insert>
 	<!-- 단일조회 -->
 	<select id="find" resultType="SecureMemberDto">
-		select * from secure_member where member_id = #{memberId}
+		select * from secure_member where 
+		member_id = #{memberId}
 	</select>
 </mapper>
