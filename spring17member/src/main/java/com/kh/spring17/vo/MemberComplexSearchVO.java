@@ -18,6 +18,7 @@ public class MemberComplexSearchVO {
 	private String memberEmail;
 	private String memberContact;
 	private String memberBirthBegin, memberBirthEnd;
+	private String memberLoginBegin, memberLoginEnd;
 	private String memberPost;
 	private String memberAddr1;
 	private String memberAddr2;

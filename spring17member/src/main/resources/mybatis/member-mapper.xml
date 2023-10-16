@@ -60,6 +60,18 @@
          <= to_date(#{memberBirthEnd},'YYYY-MM-DD')
      ]]>
      </when>
+     <when test="memberLoginBegin != null">
+     and
+       to_date(member_login,'YYYY-MM-DD')
+         >= to_date(#{memberLoginBegin},'YYYY-MM-DD')
+     </when>
+     <when test="memberLoginEnd != null">
+     <![CDATA[
+       and
+       to_date(member_login,'YYYY-MM-DD')
+         <= to_date(#{memberLoginEnd},'YYYY-MM-DD')
+     ]]>
+     </when>
      </choose>
       <!-- 포인트(구간) -->
      <choose>

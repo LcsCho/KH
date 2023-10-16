@@ -13,6 +13,12 @@
    <input type="date" name="memberBirthEnd" value="${vo.memberBirthEnd}">
    </div>
    <div>
+   가입일
+   <input type="date" name="memberLoginBegin" value="${vo.memberLoginBegin}">
+   ~
+   <input type="date" name="memberLoginEnd" value="${vo.memberLoginEnd}">
+   </div>
+   <div>
    포인트
    <input type="number" name="memberPointMin" value="${vo.memberPointMin}">부터
    <input type="number" name="memberPointMax" value="${vo.memberPointMax}">까지
@@ -67,8 +73,8 @@
    </select>
    </div>
    <div>
-   <input type="number" name="begin" value="${vo.begin}">부터
-   <input type="number" name="end" value="${vo.end}">까지
+   	  <input type="number" name="begin" value="${vo.begin}">부터
+   	  <input type="number" name="end" value="${vo.end}">까지
    </div>
    
       
