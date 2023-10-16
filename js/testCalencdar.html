@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력 예제</title>
+    <style>
+        /* CSS 스타일링 */
+        .calendar {
+            font-family: Arial, sans-serif;
+        }
+        .month {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .days {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .day {
+            width: 14.28%;
+            padding: 10px;
+            text-align: center;
+        }
+        .day.prev-month,
+        .day.next-month {
+            color: #999;
+        }
+        .prev-month-btn,
+        .next-month-btn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="month">
+            <div class="prev-month-btn" onclick="showPrevMonth()">&#10094;</div>
+            <h2>2023년 9월</h2>
+            <div class="next-month-btn" onclick="showNextMonth()">&#10095;</div>
+        </div>
+        <div class="days">
+            <div class="day">일</div>
+            <div class="day">월</div>
+            <div class="day">화</div>
+            <div class="day">수</div>
+            <div class="day">목</div>
+            <div class="day">금</div>
+            <div class="day">토</div>
+        </div>
+    </div>
+    <script>
+        // JavaScript를 사용하여 달력 날짜를 동적으로 생성하고 추가할 수 있습니다.
+        function createCalendar(year, month) {
+            // 날짜 생성 및 추가 로직은 이전 예제와 동일합니다.
+            // ...
+        }
+
+        // 이전 달 표시 함수
+        function showPrevMonth() {
+            // 현재 표시된 달의 이전 달을 표시하려면 createCalendar 함수를 호출하면 됩니다.
+            createCalendar(2023, 7); // 2023년 8월을 표시하려면 year는 2023, month는 7을 사용합니다.
+        }
+
+        // 다음 달 표시 함수
+        function showNextMonth() {
+            // 현재 표시된 달의 다음 달을 표시하려면 createCalendar 함수를 호출하면 됩니다.
+            createCalendar(2023, 9); // 2023년 10월을 표시하려면 year는 2023, month는 9을 사용합니다.
+        }
+
+        // 초기에 달력을 생성합니다.
+        createCalendar(2023, 8); // 2023년 9월을 표시하려면 year는 2023, month는 8을 사용합니다.
+    </script>
+</body>
+</html>

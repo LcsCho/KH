@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 조준희</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* 숫자 패드 컨테이너 스타일 수정 */
+        .num-pad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            width: 100%;
+            height: 50px;
+            align-items: center; /* 입력란과 세로 중앙 정렬 */
+        }
+
+        /* 추가한 클래스 정의 */
+        .container.w-500 {
+            width: 500px;
+        }
+
+        /* 변경된 스타일 */
+        #showPasswordCheckbox, label[for="showPasswordCheckbox"] {
+            float: left;
+        }
+
+        /* 숫자 패드 커서 스타일 수정 */
+        .num-pad-button {
+            cursor: pointer; /* 마우스 오버 시 커서를 포인터로 변경 */
+            border: none; /* 테두리 없애기 */
+            height: 50px;
+            font-weight: 600;
+        }
+
+        /* 마우스 호버 시 버튼 밝기 조정 */
+        .num-pad-button:hover {
+            filter: brightness(1.03);
+        }
+
+        #passwordInput {
+            width: 100%;
+            height: 50px;
+            box-sizing: border-box;
+        }
+
+        #passwordInput:focus {
+            outline: none;
+        }
+    </style>
+
+    <!-- JavaScript 작성 공간 -->
+    <script>
+        $(document).ready(function() {
+            // 비밀번호 표시 체크박스의 상태 변화 감지
+            $('#showPasswordCheckbox').change(function() {
+                var passwordInput = $('#passwordInput');
+                if ($(this).is(':checked')) {
+                    // 체크박스가 체크되면 비밀번호 입력 필드의 타입을 text로 변경
+                    passwordInput.attr('type', 'text');
+                } else {
+                    // 체크박스가 체크 해제되면 비밀번호 입력 필드의 타입을 password로 변경
+                    passwordInput.attr('type', 'password');
+                }
+            });
+
+            // 숫자 패드 버튼 클릭 이벤트
+            $('.num-pad-button').click(function() {
+                var num = $(this).text();
+                var passwordInput = $('#passwordInput');
+                passwordInput.val(passwordInput.val() + num);
+            });
+
+            // 지우기 버튼 클릭 이벤트
+            $('#clearButton').click(function() {
+                var passwordInput = $('#passwordInput');
+                passwordInput.val(passwordInput.val().slice(0, -1));
+            });
+
+            // 모두 지우기 버튼 클릭 이벤트
+            $('#clearAllButton').click(function() {
+                var passwordInput = $('#passwordInput');
+                passwordInput.val('');
+            });
+
+            // 비밀번호 입력 필드 외에 다른 입력 방지
+            $('#passwordInput').on('keydown', function(e) {
+                if (!(e.key >= '0' && e.key <= '9')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container w-500">
+        <h1>비밀번호 입력</h1>
+        <div class="container w-600">
+            <input type="password" id="passwordInput" readonly class="num-pad">
+            <input type="checkbox" id="showPasswordCheckbox">
+            <label for="showPasswordCheckbox">비밀번호 표시</label>
+        </div>
+        
+        <!-- 숫자 패드 -->
+        <div class="num-pad">
+            <button class="num-pad-button">1</button>
+            <button class="num-pad-button">2</button>
+            <button class="num-pad-button">3</button>
+            <button class="num-pad-button">4</button>
+            <button class="num-pad-button">5</button>
+            <button class="num-pad-button">6</button>
+            <button class="num-pad-button">7</button>
+            <button class="num-pad-button">8</button>
+            <button class="num-pad-button">9</button>
+            <button class="num-pad-button" id="clearButton"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="num-pad-button">0</button>
+            <button class="num-pad-button" id="clearAllButton"><i class="fa-solid fa-eraser"></i></button>
+        </div>
+    </div>
+</body>
+</html>
