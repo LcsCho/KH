@@ -1,5 +1,7 @@
 package com.kh.spring18;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +26,9 @@ public class MemberLoginTest {
 			.memberPw("password1234")
 			.build();
 		
-		SecureMemberDto target = dao.selectOne(dto.getMemberId());
+		SecureMemberDto target = dao.login(dto);
+		log.debug("target = {}", target);
+		
+		assertNotNull(target); // target이 not null이면 테스트 성공
 	}
 }
