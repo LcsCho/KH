@@ -35,7 +35,6 @@ public class EmailConfiguration {
 	      props.setProperty("mail.smtp.starttls.enable", "true"); // TLS 사용 설정(필수)
 	      props.setProperty("mail.smtp.ssl.protocols", "TLSv1.2"); // TLS 버전 설정
 	      props.setProperty("mail.smtp.ssl.trust", "smtp.gmail.com");
-	      
 	      sender.setJavaMailProperties(props);
 	      
 	      return sender;
