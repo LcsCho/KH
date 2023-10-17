@@ -29,6 +29,7 @@ public class MemberLoginTest {
 		SecureMemberDto target = dao.login(dto);
 		log.debug("target = {}", target);
 		
-		assertNotNull(target); // target이 not null이면 테스트 성공
+		// target이 not null이면 테스트 성공
+		assertNotNull(target); 
 	}
 }
