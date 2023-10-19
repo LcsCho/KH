@@ -18,7 +18,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 offset-md-4">
+            <div class="col-md-6 offset-md-3">
 
                 <!-- 메뉴바 -->
                 <nav class="navbar navbar-expand-lg bg-dark fixed-top" data-bs-theme="dark">
@@ -120,21 +120,40 @@
                                 </div>
                             </div>
                             <div class="row mt-4">
-                                <div class="col">
+                                <div class="col-8">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" style="display: block"
                                             placeholder="blank">
                                         <label>우편번호</label>
-                                        <button class="btn btn-primary">우편번호 찾기</button>
-                                        <input type="text" class="form-control" name="memberAddr1" placeholder="기본주소">
-                                        <input type="text" class="form-control" name="memberAddr2" placeholder="상세주소">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-primary w-100 h-100">우편번호 찾기</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" style="display: block"
+                                            placeholder="blank">
+                                        <label>기본주소</label>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" style="display: block"
+                                            placeholder="blank">
+                                        <label>상세주소</label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="mt-4">
                                 <button type="button" class="btn btn-primary w-100">회원가입</button>
                             </div>
-                            <hr>
+                            <div class="mt-4"></div>
                     </div>
                 </div>
 
