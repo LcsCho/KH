@@ -11,4 +11,8 @@ public class WebSocketViewController {
 		return "home";
 	}
 	
+	@RequestMapping("/default")
+	public String defaultServer() {
+		return "default";
+	}
 }
