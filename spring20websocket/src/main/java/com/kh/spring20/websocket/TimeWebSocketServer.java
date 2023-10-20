@@ -1,10 +1,12 @@
 package com.kh.spring20.websocket;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
@@ -17,18 +19,16 @@ public class TimeWebSocketServer extends TextWebSocketHandler{
 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		LocalDate today = LocalDate.now();
-		LocalTime now = LocalTime.now();
 		log.debug("사용자 접속 = {}", session);
-		log.debug(today.toString() + " " + now.toString().substring(0, 8) + " 사용자 접속 성공");
+		
+		// 접속한 사용자에게 현재시각을 전달
+		TextMessage message = new TextMessage(LocalDateTime.now().toString());
+		session.sendMessage(message);
 	}
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		LocalDate today = LocalDate.now();
-		LocalTime now = LocalTime.now();
 		log.debug("사용자 종료 = {}", session);
 		log.debug("종료사유 = {}", status);
-		log.debug(today.toString() + " " + now.toString().substring(0, 8) + " 사용자 접속 종료");
 	}
 }
