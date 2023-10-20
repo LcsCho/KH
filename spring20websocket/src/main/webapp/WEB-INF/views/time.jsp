@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<h1>time 웹소켓 예제</h1>
+<h1>타임 웹소켓 예제</h1>
 
 <button type="button" class="connect-btn">연결</button>
 <button type="button" class="disconnect-btn">종료</button>

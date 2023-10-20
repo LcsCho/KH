@@ -11,14 +11,14 @@ public class WebSocketViewController {
 		return "home";
 	}
 	
-	@RequestMapping("/time")
-	public String time() {
-		return "time";
-	}
 	
 	@RequestMapping("/default")
 	public String defaultServer() {
 		return "default";
 	}
 
+	@RequestMapping("/time")
+	public String time() {
+		return "time";
+	}
 }

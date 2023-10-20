@@ -19,6 +19,7 @@ public class TimeWebSocketServer extends TextWebSocketHandler{
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		LocalDate today = LocalDate.now();
 		LocalTime now = LocalTime.now();
+		log.debug("사용자 접속 = {}", session);
 		log.debug(today.toString() + " " + now.toString().substring(0, 8) + " 사용자 접속 성공");
 	}
 
@@ -26,6 +27,8 @@ public class TimeWebSocketServer extends TextWebSocketHandler{
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		LocalDate today = LocalDate.now();
 		LocalTime now = LocalTime.now();
+		log.debug("사용자 종료 = {}", session);
+		log.debug("종료사유 = {}", status);
 		log.debug(today.toString() + " " + now.toString().substring(0, 8) + " 사용자 접속 종료");
 	}
 }
