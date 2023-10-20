@@ -20,7 +20,7 @@
 		</form>
 	</c:when>
 	<c:otherwise>
-		<a href="logout">로그아웃</a>
+		<h2><a href="logout">로그아웃</a></h2>
 	</c:otherwise>
 </c:choose>
 
