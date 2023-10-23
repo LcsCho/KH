@@ -1,69 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!doctype html>
 <html lang="ko">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SockJS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SockJS</title>
 
-    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/sandstone/bootstrap.min.css" rel="stylesheet">
+<!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/sandstone/bootstrap.min.css"
+	rel="stylesheet">
 <!--     <link href="test.css" rel="stylesheet"> -->
 
-	<style>
-		.btn-userlist {
-			display: none;
-		}
-		.message-list {
-			height: 50vh;	
-			overflow-y: scroll;
-			padding-bottom: 30px;
-		}
-		::-webkit-scrollbar {
-			width: 0px; /* 스크롤바 너비 */
-			background-color: black; 
-		}
-		::-webkit-scrollbar-thumb {
- 			background: var(--bs-secondary); /* 스크롤바 색상 */
-		}
-		
-	
-		@media screen and (max-width: 768px) {
-			.client-list {
-				position: fixed;
-				top: 0;
-				left: -250px;
-				bottom: 0;
-				width: 250px;
-				z-index: 99999;
-  				padding-top: 90px;
-  				transition: left 0.5s ease-out;
-  				color: white;
-			}
-			.client-list.active {
-				left: 0;
-			}
-			.btn-userlist {
-				display: block;
-				position: fixed;
-				top: 1em;
-				right: 1em;
-			}
-		}
-	</style>
+<style>
+.btn-userlist {
+	display: none;
+}
+
+.message-list {
+	height: 50vh;
+	overflow-y: scroll;
+	padding-bottom: 30px;
+}
+
+::-webkit-scrollbar {
+	width: 0px; /* 스크롤바 너비 */
+	background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--bs-secondary); /* 스크롤바 색상 */
+}
+
+@media screen and (max-width: 768px) {
+	.client-list {
+		position: fixed;
+		top: 0;
+		left: -250px;
+		bottom: 0;
+		width: 250px;
+		z-index: 99999;
+		padding-top: 90px;
+		transition: left 0.5s ease-out;
+		color: white;
+	}
+	.client-list.active {
+		left: 0;
+	}
+	.btn-userlist {
+		display: block;
+		position: fixed;
+		top: 1em;
+		right: 1em;
+	}
+}
+</style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-				
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-10 offset-md-1">
+
 				<div class="row mt-4">
 					<div class="col">
 						<h1>
@@ -72,42 +79,44 @@
 								<i class="fa-solid fa-users"></i>
 							</button>
 						</h1>
-						
+
 					</div>
 				</div>
-				
+
 				<div class="row mt-4">
 					<div class="col-4 client-list"></div>
 					<div class="col-8">
-						
+
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
-									<input type="text" class="form-control message-input" placeholder="메세지 내용 작성">
+									<input type="text" class="form-control message-input"
+										placeholder="메세지 내용 작성">
 									<button type="button" class="btn btn-primary send-btn">
-										<i class="fa-regular fa-paper-plane"></i>
-										보내기
+										<i class="fa-regular fa-paper-plane"></i> 보내기
 									</button>
 								</div>
 							</div>
 						</div>
-						
+
 						<!-- 메세지 표시 영역 -->
 						<div class="row mt-4">
 							<div class="col message-list"></div>
 						</div>
-						
+
 					</div>
 				</div>
-				
-            </div>
-        </div>        
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 웹소켓 서버가 SockJS일 경우 페이지에서도 SockJS를 사용해야 한다 -->
+
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- 웹소켓 서버가 SockJS일 경우 페이지에서도 SockJS를 사용해야 한다 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
 	<script>
 		//연결 생성
 		window.socket = new SockJS("${pageContext.request.contextPath}/ws/sockjs");
@@ -155,12 +164,35 @@
 			}
 		};
 		
+		// 메세지를 전송하는 코드
+		// - 메세지가 @로 시작하면 DM으로 처리(아이디 유무 검사정도 하면 좋고)
+		// - @아이디 메세지
 		$(".send-btn").click(function(){
 			var text = $(".message-input").val();
 			if(text.length == 0) return;
 			
-			window.socket.send(text);
-			$(".message-input").val("");
+			// window.socket.send(text); // 일반 텍스트 형식으로 보낼 때
+			
+			if (text.startsWith("@")) { // @로 시작하면
+				var space = text.indexOf(" ");
+				if (space == -1) return;
+				
+				var obj = {
+					target: text.substring(1, space), 
+					content: text.substring(space + 1) 	
+				};
+				var str = JSON.stringify(obj); // 객체를 JSON 문자열로 변한
+				window.socket.send(str); // JSON 형식으로 보낼 때
+				$(".message-input").val("");
+			} 
+			else {
+				var obj = {
+						content: text	
+					};
+					var str = JSON.stringify(obj); // 객체를 JSON 문자열로 변한
+					window.socket.send(str); // JSON 형식으로 보낼 때
+					$(".message-input").val("");
+			}
 		});
 		
 		// .btn-userlist를 누르면 사용자 목록에 active를 붙였다 떼었다 하도록 처리
@@ -170,8 +202,7 @@
 	</script>
 </body>
 
-</html>   
-    
+</html>
 
 
 
@@ -186,4 +217,4 @@
 
 
 
-	
+
