@@ -146,9 +146,14 @@
 				ul.appendTo(".client-list");
 			}
 			else if(data.content) {//메세지 처리
-				var memberId = $("<strong>").text(data.memberId);
+				var memberId;
+				// DM이라면
+				if (data.dm == true) memberId = $("<strong>").text(data.memberId + "님으로부터의 DM");
+				// DM이 아니라면
+				else memberId = $("<strong>").text(data.memberId);
+			
 				var memberLevel = $("<span>").text(data.memberLevel)
-															.addClass("badge bg-primary badge-pill ms-2");
+								.addClass("badge bg-primary badge-pill ms-2");
 				var content = $("<div>").text(data.content);
 				
 				// 메세지를 화면에 추가
