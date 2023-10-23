@@ -148,7 +148,10 @@
 			else if(data.content) {//메세지 처리
 				var memberId;
 				// DM이라면
-				if (data.dm == true) memberId = $("<strong>").text(data.memberId + "님으로부터의 DM");
+				if (data.dm == true) {
+					if (data.target) memberId = $("<strong>").text(data.target + "님에게 보낸 DM");
+					else memberId = $("<strong>").text(data.memberId + "님으로부터의 DM");
+				}
 				// DM이 아니라면
 				else memberId = $("<strong>").text(data.memberId);
 			

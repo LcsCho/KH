@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -13,12 +14,16 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kh.spring20.dao.ChatDao;
+import com.kh.spring20.dto.ChatDto;
 import com.kh.spring20.vo.ClientVO;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j @Service
 public class SockJsWebSocketServer extends TextWebSocketHandler{
+	
+	
 	
 	// 저장소
 //	private Set<WebSocketSession> clients = new CopyOnWriteArraySet<>();
@@ -27,6 +32,9 @@ public class SockJsWebSocketServer extends TextWebSocketHandler{
 	
 	// JSON 변환기
 	private ObjectMapper mapper = new ObjectMapper();
+	
+	@Autowired
+	private ChatDao chatDao;
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -65,7 +73,6 @@ public class SockJsWebSocketServer extends TextWebSocketHandler{
 //		data.put("clients", clients); 전체회원명단(null이 문제가 됨)
 		data.put("clients", members); // 로그인한 회원명단
 		String clientJson = mapper.writeValueAsString(data);
-		
 				
 		// 2. 모든 사용자에게 전송
 		TextMessage message = new TextMessage(clientJson);
@@ -92,6 +99,7 @@ public class SockJsWebSocketServer extends TextWebSocketHandler{
 			map.put("memberId", client.getMemberId());
 			map.put("memberLevel", client.getMemberLevel());
 			map.put("content", params.get("content"));
+			
 			// 시간 추가 등
 			
 			String messageJson = mapper.writeValueAsString(map);
@@ -99,9 +107,16 @@ public class SockJsWebSocketServer extends TextWebSocketHandler{
 			
 			for (ClientVO c : members) {
 				if (c.getMemberId().equals(params.get("target"))) { // 내가 찾던 사람이라면
-					c.send(tm);
+					c.send(tm); // 대상에게 메세지 전송
 				}
 			}
+			
+			// 수신자에게 target 항목을 추가하여 다시 메세지 전송
+			map.put("target", params.get("target"));
+			messageJson = mapper.writeValueAsString(map);
+			tm = new TextMessage(messageJson);
+			
+			client.send(tm); // 작성자에게 메세지 전송
 		}
 		else { // 전체 채팅일 경우
 			// 정보를 Map에 담아서 변환 후 전송
@@ -114,9 +129,15 @@ public class SockJsWebSocketServer extends TextWebSocketHandler{
 			String messageJson = mapper.writeValueAsString(map);
 			TextMessage tm = new TextMessage(messageJson);
 			
-			for (ClientVO c : clients) {
-				c.send(tm);
-			}
+			// 메세지 발송
+			for (ClientVO c : clients) c.send(tm);
+			
+			// DB insert (전체 메세지일 경우 내용, 발신자, 발신자 등급을 저장)
+			chatDao.insert(ChatDto.builder()
+					.chatContent((String) params.get("content"))
+					.chatSender(client.getMemberId())
+					.chatSenderLevel(client.getMemberLevel())
+					.build());
 		}
 	}
 }
