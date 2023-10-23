@@ -10,12 +10,11 @@
 		insert into chat(chat_no, chat_content, chat_sender, chat_sender_level, 
 		chat_receiver) 
 		values(chat_seq.nextval, #{chatContent}, #{chatSender}, 
-		#{chatSenderLevel}, #{chatReceiver}
-		)
+		#{chatSenderLevel}, #{chatReceiver})
 	</insert>
 	
 	<select id="list" resultType="ChatDto">
-		select * from chat order by chat_no asc;
+		select * from chat order by chat_no asc
 	</select>
 
 </mapper>
