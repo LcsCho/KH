@@ -20,6 +20,19 @@
 		.btn-userlist {
 			display: none;
 		}
+		.message-list {
+			height: 50vh;	
+			overflow-y: scroll;
+			padding-bottom: 30px;
+		}
+		::-webkit-scrollbar {
+			width: 0px; /* 스크롤바 너비 */
+			background-color: black; 
+		}
+		::-webkit-scrollbar-thumb {
+ 			background: var(--bs-secondary); /* 스크롤바 색상 */
+		}
+		
 	
 		@media screen and (max-width: 768px) {
 			.client-list {
@@ -42,7 +55,6 @@
 				top: 1em;
 				right: 1em;
 			}
-
 		}
 	</style>
 </head>
@@ -130,12 +142,16 @@
 															.addClass("badge bg-primary badge-pill ms-2");
 				var content = $("<div>").text(data.content);
 				
+				// 메세지를 화면에 추가
 				$("<div>").addClass("border border-secondary rounded p-2 mt-2")
 								.append(memberId)
 								.append(memberLevel)
 								.append("<hr>")
 								.append(content)
 								.appendTo(".message-list");
+				
+				// 스크롤바를 맨 아래로 이동
+				$(".message-list").scrollTop($(".message-list")[0].scrollHeight);
 			}
 		};
 		
