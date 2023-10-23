@@ -11,6 +11,7 @@ import com.kh.spring20.websocket.DefaultWebSocketServer;
 import com.kh.spring20.websocket.GroupWebSocketServer;
 import com.kh.spring20.websocket.JsonWebSocketServer;
 import com.kh.spring20.websocket.MemberWebSocketServer;
+import com.kh.spring20.websocket.SockJsWebSocketServer;
 import com.kh.spring20.websocket.TimeWebSocketServer;
 
 //이 클래스는 생성한 웹소켓 서버를 어떤 주소에 할당하도록 설정하는 역할을 한다
@@ -32,6 +33,9 @@ public class WebSocketServerConfiguration implements WebSocketConfigurer {
 	
 	@Autowired
 	private JsonWebSocketServer jsonWebSocketServer;
+	
+	@Autowired
+	private SockJsWebSocketServer sockJsWebSocketServer;
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
@@ -45,6 +49,11 @@ public class WebSocketServerConfiguration implements WebSocketConfigurer {
 		registry.addHandler(memberWebSocketServer, "/ws/member")
 					.addHandler(jsonWebSocketServer, "/ws/json")
 						.addInterceptors(new HttpSessionHandshakeInterceptor());
+		
+		// SockJS를 사용하는 소켓 서버는 뒤에 추가적인 설정을 한다
+		registry.addHandler(sockJsWebSocketServer, "/ws/sockjs")
+				.addInterceptors(new HttpSessionHandshakeInterceptor())
+				.withSockJS();
 	}
 
 }

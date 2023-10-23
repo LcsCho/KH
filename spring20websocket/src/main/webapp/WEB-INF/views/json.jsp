@@ -89,6 +89,3 @@
 		$(".message-input").val("");
 	});
 </script>
-
-
-
