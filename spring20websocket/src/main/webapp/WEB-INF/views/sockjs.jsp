@@ -4,6 +4,9 @@
     
 <h1>SockJS를 적용한 웹소켓 예제</h1>
 
+<input type="text" class="message-input">
+<button type="button" class="send-btn">전송</button>
+
 <div class="client-list"></div>
 <div class="message-list"></div>
 
@@ -39,6 +42,14 @@
 					  .appendTo(".message-list");
 		}
 	};
+	
+	$(".send-btn").click(function(){
+		var text = $(".message-input").val();
+		if (text.length == 0) return;
+		
+		window.socket.send(text);
+		$(".message-input").val("");
+	});
 </script>
 
 
