@@ -1,6 +1,7 @@
 package com.kh.spring21.controller;
 
 import java.net.URISyntaxException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ public class KakaoPayController {
 	
 	@PostMapping("/test1")
 	public String test1(@ModelAttribute KakaoPayReadyRequestVO request) throws URISyntaxException {
+		request.setPartnerOrderId(UUID.randomUUID().toString());
 		KakaoPayReadyResponseVO response = kakaoPayService.ready(request);
 		return "redirect:" + response.getNextRedirectPcUrl();
 	}
