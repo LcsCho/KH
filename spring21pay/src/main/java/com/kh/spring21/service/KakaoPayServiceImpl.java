@@ -13,6 +13,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kh.spring21.configuration.KakaoPayProperties;
+import com.kh.spring21.vo.KakaoPayApproveRequestVO;
+import com.kh.spring21.vo.KakaoPayApproveResponseVO;
+import com.kh.spring21.vo.KakaoPayCancelRequestVO;
+import com.kh.spring21.vo.KakaoPayCancelResponseVO;
+import com.kh.spring21.vo.KakaoPayDetailRequestVO;
+import com.kh.spring21.vo.KakaoPayDetailResponseVO;
 import com.kh.spring21.vo.KakaoPayReadyRequestVO;
 import com.kh.spring21.vo.KakaoPayReadyResponseVO;
 
@@ -57,6 +63,24 @@ public class KakaoPayServiceImpl implements KakaoPayService {
 		= template.postForObject(uri, entity, KakaoPayReadyResponseVO.class);
 		
 		return response;
+	}
+
+	@Override
+	public KakaoPayApproveResponseVO approve(KakaoPayApproveRequestVO request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public KakaoPayDetailResponseVO detail(KakaoPayDetailRequestVO request) throws URISyntaxException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public KakaoPayCancelResponseVO detail(KakaoPayCancelRequestVO request) throws URISyntaxException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

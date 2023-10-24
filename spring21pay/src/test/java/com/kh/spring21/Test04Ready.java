@@ -76,8 +76,14 @@ public class Test04Ready {
 		// Map response = template.postForObject(uri, entity, Map.class);
 		KakaoPayReadyResponseVO response 
 		= template.postForObject(uri, entity, KakaoPayReadyResponseVO.class);
-		log.debug("response = {}", response);
-		log.debug("url = {}", response.getNextRedirectPcUrl());
+//		log.debug("response = {}", response);
+//		log.debug("url = {}", response.getNextRedirectPcUrl());
+		
+		// 다음 테스트를 위해 필요한 값을 출력
+		log.debug("결제페이지 = {}", response.getNextRedirectPcUrl());
+		log.debug("tid = {}", response.getTid());
+		log.debug("partner_order_id = {}", request.getPartnerOrderId());
+		log.debug("partner_user_id = {}", request.getPartnerUserId());
 		
 		
 	}
