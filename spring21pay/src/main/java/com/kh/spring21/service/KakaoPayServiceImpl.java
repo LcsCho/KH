@@ -22,6 +22,9 @@ import com.kh.spring21.vo.KakaoPayDetailResponseVO;
 import com.kh.spring21.vo.KakaoPayReadyRequestVO;
 import com.kh.spring21.vo.KakaoPayReadyResponseVO;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class KakaoPayServiceImpl implements KakaoPayService {
 
@@ -66,21 +69,56 @@ public class KakaoPayServiceImpl implements KakaoPayService {
 	}
 
 	@Override
-	public KakaoPayApproveResponseVO approve(KakaoPayApproveRequestVO request) {
-		// TODO Auto-generated method stub
-		return null;
+	public KakaoPayApproveResponseVO approve(KakaoPayApproveRequestVO request) throws URISyntaxException {
+		URI uri = new URI("https://kapi.kakao.com/v1/payment/approve");
+		
+		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+		body.add("cid", kakaoPayProperties.getCid());
+		body.add("tid", request.getTid());
+		body.add("partner_order_id", request.getPartnerOrderId());
+		body.add("partner_user_id", request.getPartnerUserId());
+		body.add("pg_token", request.getPgToken());
+
+		HttpEntity entity = new HttpEntity(body, headers);
+		
+		KakaoPayApproveResponseVO response 
+		= template.postForObject(uri, entity, KakaoPayApproveResponseVO.class);
+		
+		log.debug("결제 승인 완료 = {}", response.getTid());
+		
+		return response;
 	}
 
 	@Override
 	public KakaoPayDetailResponseVO detail(KakaoPayDetailRequestVO request) throws URISyntaxException {
-		// TODO Auto-generated method stub
-		return null;
+		URI uri = new URI("https://kapi.kakao.com/v1/payment/order");
+		
+		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+		body.add("cid", kakaoPayProperties.getCid());
+		body.add("tid", request.getTid());
+		
+		HttpEntity entity = new HttpEntity(body, headers);
+		
+		KakaoPayDetailResponseVO response 
+		= template.postForObject(uri, entity, KakaoPayDetailResponseVO.class);
+		return response;
 	}
+
 
 	@Override
-	public KakaoPayCancelResponseVO detail(KakaoPayCancelRequestVO request) throws URISyntaxException {
-		// TODO Auto-generated method stub
-		return null;
+	public KakaoPayCancelResponseVO cancel(KakaoPayCancelRequestVO request) throws URISyntaxException {
+		URI uri = new URI("https://kapi.kakao.com/v1/payment/cancel");
+		MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+		body.add("cid", kakaoPayProperties.getCid());
+		body.add("tid", request.getTid());
+		body.add("cancel_amount", String.valueOf(request.getCancelAmount()));
+		body.add("cancel_tax_free_amount", "0");
+		
+		HttpEntity entity = new HttpEntity(body, headers);
+		
+		KakaoPayCancelResponseVO response 
+		= template.postForObject(uri, entity, KakaoPayCancelResponseVO.class);
+		
+		return response;
 	}
-
 }
