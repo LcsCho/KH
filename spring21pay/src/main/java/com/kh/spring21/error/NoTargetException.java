@@ -1,4 +1,4 @@
-package com.kh.spring21.dao.error;
+package com.kh.spring21.error;
 
 import lombok.NoArgsConstructor;
 

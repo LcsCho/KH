@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.spring21.dao.PaymentDao;
 import com.kh.spring21.dao.ProductDao;
-import com.kh.spring21.dao.error.NoTargetException;
 import com.kh.spring21.dto.PaymentDetailDto;
 import com.kh.spring21.dto.PaymentDto;
 import com.kh.spring21.dto.ProductDto;
+import com.kh.spring21.error.NoTargetException;
 import com.kh.spring21.service.KakaoPayService;
 import com.kh.spring21.vo.KakaoPayApproveRequestVO;
 import com.kh.spring21.vo.KakaoPayApproveResponseVO;
@@ -257,8 +257,8 @@ public class KakaoPayController {
 		//- 상품을 3개 구매했다면 payment 1회, payment_detail 3회의 insert가 필요(N+1)
 		
 		//[1] 결제번호 생성
-		//int paymentNo = paymentDao.sequence();
-		int paymentNo = Integer.parseInt(response.getPartnerOrderId());
+		//int paymentNo = paymentDao.sequence(); 무작위
+		int paymentNo = Integer.parseInt(response.getPartnerOrderId()); // 실제 고유값
 		
 		//[2] 결제정보 등록
 		paymentDao.insert(PaymentDto.builder()
