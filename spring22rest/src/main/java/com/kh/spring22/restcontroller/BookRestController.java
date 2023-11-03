@@ -121,8 +121,8 @@ public class BookRestController {
 	}
 	
 	@GetMapping("/bookTitle/{bookTitle}")
-	public ResponseEntity<BookDto> findTitle(@PathVariable String bookTitle) {
-		BookDto bookDto = bookDao.selectOne(bookTitle);
+	public ResponseEntity<List<BookDto>> findTitle(@PathVariable String bookTitle) {
+		List<BookDto> bookDto = bookDao.selectList(bookTitle);
 		boolean result = bookDto != null;
 		if (result) return ResponseEntity.ok(bookDto);
 		else return ResponseEntity.notFound().build(); 

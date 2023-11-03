@@ -37,8 +37,8 @@ public class BookDaoImpl implements BookDao{
 	}
 	
 	@Override
-	public BookDto selectOne(String bookTitle) {
-		return sqlSession.selectOne("book.findTitle", bookTitle);
+	public List<BookDto> selectList(String bookTitle) {
+		return sqlSession.selectList("book.findTitle", bookTitle);
 	}
 
 	@Override
