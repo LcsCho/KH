@@ -10,4 +10,38 @@
 	<select id="list" resultType="PokemonDto">
 		select * from pokemon order by no asc
 	</select>
+	
+	<insert id="save">
+		insert into pokemon(no, name, type) 
+		values(pokemon_seq.nextval, #{name}, #{type})
+	</insert>
+	
+	<delete id="remove">
+		delete pokemon where no = #{no}
+	</delete>
+	
+	<select id="find" resultType="PokemonDto">
+		select * from pokemon where no = #{no}
+	</select>
+	
+	<update id="edit">
+		update pokemon 
+		set 
+		<if test="dto.no > 0">
+			no = #{dto.no}, 
+		</if>
+		name = #{dto.name}, type = #{dto.type} 
+		where no = #{no}
+	</update>
+	
+	<update id="editUnit">
+		update pokemon 
+		<set>
+			<if test="dto.no > 0">no = #{dto.no},</if>
+			<if test="dto.name != null">name = #{dto.name},</if>
+			<if test="dto.type != null">type = #{dto.type},</if>
+		</set>
+		where no = #{no}
+	</update>
+	
 </mapper>
