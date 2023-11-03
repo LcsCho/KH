@@ -20,6 +20,7 @@ import com.kh.spring22.dao.PokemonDao;
 import com.kh.spring22.dto.PokemonDto;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -104,7 +105,11 @@ public class PokemonRestController {
 	@PostMapping("/")
 //	public void insert(@ModelAttribute PokemonDto pokemonDto) { // form-data 수신용
 	public void insert(
-			@ParameterObject
+			@Parameter(
+				description = "생성할 몬스터명/타입 객체",
+				required = true,
+				schema = @Schema(implementation = PokemonDto.class)
+			)
 			@RequestBody PokemonDto pokemonDto) { // request body 직접 해석(ex: JSON)
 		pokemonDao.insert(pokemonDto);
 	}
