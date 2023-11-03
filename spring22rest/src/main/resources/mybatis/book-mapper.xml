@@ -30,7 +30,7 @@
 	</select>
 
 	<select id="findTitle" resultType="BookDto">
-		select * from book where UPPER(book_title) like '%' || UPPER(#{bookTitle})
+		select * from book where lower(book_title) like '%' || lower(#{bookTitle})
 		|| '%'
 	</select>
 
