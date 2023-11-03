@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kh.spring22.dao.PokemonDao;
-import com.kh.spring22.dto.PokemonDto;
+import com.kh.spring22.dao.BookDao;
+import com.kh.spring22.dto.BookDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -28,27 +28,20 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 // 문서용 annotation
-@Tag(name = "포켓몬스터 리액트용 백엔드", description = "피카츄")
+@Tag(name = "도서 리액트용 백엔드", description = "해리포터")
 
 @CrossOrigin
 //@CrossOrigin(value = {"http://localhost:3000", "http://localhost:5500"})
 @RestController
-@RequestMapping("/pokemon")
-public class PokemonRestController {
+@RequestMapping("/book")
+public class BookRestController {
 	
-//	아래 다섯 개의 매핑을 이용하여 프론트엔드에 대응하는 Rest 기능을 구현
-//	@GetMapping - 조회
-//	@PostMapping - 등록
-//	@PutMapping - 전체 수정
-//	@PatchMapping - 일부 수정
-//	@Delete - 삭제
 	
 	@Autowired
-	private PokemonDao pokemonDao;
+	private BookDao bookDao;
 	
-	// 목록 매핑에 대한 설명용 annotation
 	@Operation(
-		description = "포켓몬스터 조회",
+		description = "도서 조회",
 		responses = {
 			@ApiResponse(
 				responseCode = "200",
@@ -57,7 +50,7 @@ public class PokemonRestController {
 					@Content(
 						mediaType = "application/json",
 						array = @ArraySchema(
-							schema = @Schema(implementation = PokemonDto.class)
+							schema = @Schema(implementation = BookDto.class)
 						)
 					)
 				}
@@ -75,17 +68,17 @@ public class PokemonRestController {
 	)
 	
 	@GetMapping("/")
-	public List<PokemonDto> list() {
-		return pokemonDao.selectList();
+	public List<BookDto> list() {
+		return bookDao.selectList();
 	}
 	
 	// 등록 매핑에 대한 설명용 annotation
 	@Operation(
-		description = "포켓몬스터 신규 생성",
+		description = "도서 신규 생성",
 		responses = {
 				@ApiResponse(
 					responseCode = "200",
-					description = "포켓몬스터 생성 완료"
+					description = "도서 생성 완료"
 				),
 				@ApiResponse(
 					responseCode = "400",
@@ -102,47 +95,50 @@ public class PokemonRestController {
 	
 	
 	@PostMapping("/")
-//	public void insert(@ModelAttribute PokemonDto pokemonDto) { // form-data 수신용
 	public void insert(
 			@Parameter(
-				description = "생성할 몬스터명/타입 객체",
+				description = "생성할 도서 객체",
 				required = true,
-				schema = @Schema(implementation = PokemonDto.class)
+				schema = @Schema(implementation = BookDto.class)
 			)
-			@RequestBody PokemonDto pokemonDto) { // request body 직접 해석(ex: JSON)
-		pokemonDao.insert(pokemonDto);
+			@RequestBody BookDto bookDto) { // request body 직접 해석(ex: JSON)
+		bookDao.insert(bookDto);
 	}
 	
-	// 파라미터는 주소가 매우 지저분해지므로 최대한 경로변수를 활용
-	@DeleteMapping("/{no}")
-//	public boolean delete(@PathVariable int no) { // 데이터를 반환하면 상태설정이 불가능
-	public ResponseEntity<String> delete(@PathVariable int no) {
-		boolean result = pokemonDao.delete(no);
+	@DeleteMapping("/{bookId}")
+	public ResponseEntity<String> delete(@PathVariable int bookId) {
+		boolean result = bookDao.delete(bookId);
 		if (result)return ResponseEntity.status(200).build(); // ResponseEntity.ok().build();
 		else return ResponseEntity.status(404).build(); // ResponseEntity.notFound().build();
 	}
 	
-	@GetMapping("/{no}")
-	public ResponseEntity<PokemonDto> find(@PathVariable int no) {
-		PokemonDto pokemonDto = pokemonDao.selectOne(no);
-		boolean result = pokemonDto != null;
-		if (result) return ResponseEntity.ok(pokemonDto);
+	@GetMapping("/bookId/{bookId}")
+	public ResponseEntity<BookDto> find(@PathVariable int bookId) {
+		BookDto bookDto = bookDao.selectOne(bookId);
+		boolean result = bookDto != null;
+		if (result) return ResponseEntity.ok(bookDto);
 		else return ResponseEntity.notFound().build(); 
 	}
 	
+	@GetMapping("/bookTitle/{bookTitle}")
+	public ResponseEntity<BookDto> findTitle(@PathVariable String bookTitle) {
+		BookDto bookDto = bookDao.selectOne(bookTitle);
+		boolean result = bookDto != null;
+		if (result) return ResponseEntity.ok(bookDto);
+		else return ResponseEntity.notFound().build(); 
+	}
 	
-	
-	@PutMapping("/{no}")
-	public ResponseEntity<String> edit(@PathVariable int no, @RequestBody PokemonDto pokemonDto) {
-		boolean result = pokemonDao.edit(no, pokemonDto);
+	@PutMapping("/{bookId}")
+	public ResponseEntity<String> edit(@PathVariable int bookId, @RequestBody BookDto bookDto) {
+		boolean result = bookDao.edit(bookId, bookDto);
 		return result ? ResponseEntity.ok().build() : ResponseEntity.notFound().build() ;
 	}
 	
-	@PatchMapping("/{no}")
+	@PatchMapping("/{bookId}")
 	public ResponseEntity<String> editUnit(
-			@PathVariable int no, @RequestBody PokemonDto pokemonDto) {
-		if (pokemonDto.isEmpty()) return ResponseEntity.badRequest().build();
-		boolean result = pokemonDao.editUnit(no, pokemonDto);
+			@PathVariable int bookId, @RequestBody BookDto bookDto) {
+		if (bookDto.isEmpty()) return ResponseEntity.badRequest().build();
+		boolean result = bookDao.editUnit(bookId, bookDto);
 		return result ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
 	}
 	

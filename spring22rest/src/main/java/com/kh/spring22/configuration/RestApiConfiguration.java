@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 		description = "KH정보교육원 백엔드 수업자료",
 		version = "v1",
 		contact = @Contact(
-			name = "피카츄",
+			name = "조준희",
 			email = "adsf@asdf.com",
 			url = "www.asdf.com"
 		)
